@@ -1,0 +1,56 @@
+{
+    "patches": [
+        {
+            "label": "2025-02-26_13-46-23",
+            "content": "@@ -15,1401 +15,163 @@\n pp%22%0A\n-#include %3Ciostream%3E%0A#include %3Cstring.h%3E%0Ausing namespace std;%0A%0Aclass Toalha%0A%7B%0Aprivate:%0A    /* data */%0A    std::string color;%0A    std::string size;%0A    int humidade;%0Apublic:%0A    Toalha(string x = %22%22, string y = %22%22):%0A     color(x), size(y)%7B%0A        humidade = 0;%0A    %7D;%0A    void secar(int quantidade)%7B%0A        %0A        if (humidade %3E= get_max_humidade())%0A        %7B%0A            fn::write(%22msg: toalha encharcada%22);%0A            return;%0A        %7D%0A        %0A%0A        humidade += quantidade;%0A    %7D%0A    void torcer()%7Bhumidade = 0;%7D%0A    int get_max_humidade()%7B%0A        %0A        if (size == %22P%22)%0A        %7B%0A            /* code */%0A            return 10;%0A        %7Delse%7B%0A            if (size == %22M%22)%0A            %7B%0A                /* code */%0A                return 20;%0A            %7Delse%7B%0A                return 30;%0A            %7D%0A            %0A        %7D%0A        %0A        %0A        %7D%0A   %0A    bool esta_seco()%7B%0A        if (!humidade)%0A        %7B%0A            return true;%0A        %7Delse%7B%0A            return false;%0A        %7D%0A        %0A    %7D%0A%0A    std::string str()%7B%0A        string saida = %22%22;%0A        saida += color + %22 %22 + size;%0A        return fn::format(%22%7B%7D %7B%7D%22,saida,humidade);%0A\n+%0A%0Aclass Adapter %7B%0Apublic:%0A    Adapter() %7B%7D%0A%0A    void criar(const std::string& cor, const std::string& tamanho) %7B\n %0A    \n-%7D%0A\n     \n+(\n void\n- show()%7B%0A        cout %3C%3C str() %3C%3C endl;%0A    %7D%0A%7D;%0A%0A%0A%0Aclass Adapter %7B%0A    Toalha Pano; %0A    %0Apublic:%0A    Adapter() %7B%0A    %7D;%0A%0A    void criar(const std::string& cor, const std::string& tamanho) %7B%0A        Pano = Toalha(cor,\n+) cor;%0A        (void) \n tamanho\n-)\n ;%0A  \n@@ -222,20 +222,15 @@\n     \n- Pano.secar(\n+(void) \n quan\n@@ -235,17 +235,16 @@\n antidade\n-)\n ;%0A    %7D%0A\n@@ -266,34 +266,8 @@\n ) %7B%0A\n-        Pano.esta_seco();%0A\n     \n@@ -293,31 +293,8 @@\n ) %7B%0A\n-        Pano.torcer();%0A\n     \n@@ -327,39 +327,8 @@\n t %7B%0A\n-        fn::format(%22%7B%7D%22,Pano);%0A\n     \n"
+        },
+        {
+            "label": "2025-02-28_00-38-00",
+            "content": "@@ -25,16 +25,16 @@\n de %3C\n+io\n str\n-ing.h\n+eam\n %3E%0A#i\n@@ -41,26 +41,25 @@\n nclude %3C\n-io\n str\n-eam%3E%0A\n+ing.h%3E\n %0Ausing n\n@@ -79,24 +79,23 @@\n %0A%0Aclass \n-Adapter \n+Toalha%0A\n %7B%0Aprivat\n@@ -187,23 +187,22 @@\n ic:%0A    \n-Adapter\n+Toalha\n (string \n@@ -278,17 +278,16 @@\n %0A    %7D;%0A\n-%0A\n     void\n@@ -291,154 +291,39 @@\n oid \n-criar(const std::string& cor, const std::string& tamanho) %7B%0A        color = cor;%0A        size = tamanho;%0A    %7D%0A%0A    void enxugar(int quantidade) %7B\n+secar(int quantidade)%7B%0A        \n %0A   \n@@ -496,24 +496,57 @@\n dade;%0A    %7D%0A\n+    void torcer()%7Bhumidade = 0;%7D%0A\n     int get_\n@@ -881,74 +881,52 @@\n %0A   \n- \n %0A    \n-    int get_max_humidade()%7B%0A        %0A        if (size == %22P%22\n+bool esta_seco()%7B%0A        if (!humidade\n )%0A  \n@@ -933,39 +933,16 @@\n       %7B%0A\n-            /* code */%0A\n         \n@@ -944,34 +944,36 @@\n          return \n-10\n+true\n ;%0A        %7Delse%7B\n@@ -989,37 +989,40 @@\n     \n-if (size == %22M%22)%0A\n+return false;%0A    \n     \n+%7D%0A\n         \n %7B%0A  \n@@ -1021,179 +1021,478 @@\n     \n-%7B\n %0A    \n+%7D%0A%0A\n     \n-        /* code */%0A                return 20;%0A \n+std::string str()%7B%0A        string saida = %22%22;%0A        saida += color + %22 %22 + size;%0A        return fn::format(%22%7B%7D %7B%7D%22,saida,humidade);%0A%0A\n     \n-  \n+%7D%0A\n     \n- %7Delse%7B%0A                return 30;%0A        \n+void show()%7B%0A        cout %3C%3C str() %3C%3C endl;%0A    %7D%0A%7D;%0A%0A%0A%0Aclass Adapter %7B%0A    Toalha Pano; %0A    %0Apublic:%0A    Adapter() %7B%0A\n     %7D\n+;%0A\n %0A    \n-        %0A        %7D%0A   \n+void criar(const std::string& cor, const std::string& tamanho) %7B%0A        Pano = Toalha(cor,tamanho);%0A\n     \n- \n+%7D%0A\n %0A    \n-    %0A        %7D\n+void enxugar(int quantidade) %7B%0A         Pano.secar(quantidade);\n %0A    \n+%7D%0A\n %0A   \n@@ -1502,24 +1502,50 @@\n id seca() %7B%0A\n+        Pano.esta_seco();%0A\n     %7D%0A%0A    v\n@@ -1555,24 +1555,47 @@\n  torcer() %7B%0A\n+        Pano.torcer();%0A\n     %7D%0A%0A    v\n@@ -1616,16 +1616,47 @@\n const %7B%0A\n+        fn::format(%22%7B%7D%22,Pano);%0A\n     %7D%0A%7D;\n"
+        },
+        {
+            "label": "2025-02-28_00-45-25",
+            "content": "@@ -961,24 +961,368 @@\n      %7D%0A    %0A\n+        int get_max_humidade()%7B%0A        %0A        if (size == %22P%22)%0A        %7B%0A            /* code */%0A            return 10;%0A        %7Delse%7B%0A            if (size == %22M%22)%0A            %7B%0A                /* code */%0A                return 20;%0A            %7Delse%7B%0A                return 30;%0A            %7D%0A            %0A        %7D%0A        %0A        %0A        %7D\n %0A    %0A    vo\n"
+        },
+        {
+            "label": "2025-02-28_00-46-19",
+            "content": "@@ -1026,205 +1026,8 @@\n   %7D%0A\n-   std::string str()%7B%0A        string saida = %22%22;%0A        saida += color + %22 %22 + size;%0A        return fn::format(%22%7B%7D %7B%7D%22,saida,humidade);%0A%0A    %7D%0A    void show()%7B%0A        cout %3C%3C str() %3C%3C endl;%0A    %7D\n %0A   \n@@ -1054,24 +1054,8 @@\n t %7B%0A\n-        show();%0A\n     \n"
+        },
+        {
+            "label": "2025-02-28_00-46-47",
+            "content": "@@ -1021,25 +1021,24 @@\n  %7B%0A    %7D%0A   \n- \n std::string \n@@ -1046,15 +1046,73 @@\n tr()\n- const%7B\n+%7B%0A        string saida = %22%22;%0A        saida += color + %22 %22 + size;\n %0A   \n@@ -1144,23 +1144,15 @@\n %7D %7B%7D\n- %7B%7D%22,color,size\n+%22,saida\n ,hum\n"
+        },
+        {
+            "label": "2025-02-28_00-47-59",
+            "content": "@@ -1210,23 +1210,13 @@\n     \n-fn::write(str()\n+show(\n );%0A \n"
+        },
+        {
+            "label": "2025-02-28_00-48-18",
+            "content": "@@ -1082,38 +1082,13 @@\n at(%22\n-Cor: %7B%7D, Tamanho: %7B%7D, Umidade:\n+%7B%7D %7B%7D\n  %7B%7D%22\n"
+        },
+        {
+            "label": "2025-02-28_00-48-48",
+            "content": "@@ -993,126 +993,8 @@\n ) %7B%0A\n-        if (!humidade)%0A        %7B%0A            fn::write(%22sim%22);%0A        %7Delse%7B%0A            fn::write(%22nao%22);%0A        %7D%0A\n     \n"
+        },
+        {
+            "label": "2025-02-28_00-49-37",
+            "content": "@@ -442,40 +442,8 @@\n ) %7B%0A\n-        humidade += quantidade;%0A\n     \n@@ -577,24 +577,56 @@\n %7D%0A        %0A%0A\n+        humidade += quantidade;%0A\n     %7D%0A    in\n"
+        },
+        {
+            "label": "2025-02-28_00-50-44",
+            "content": "@@ -547,16 +547,21 @@\n :write(%22\n+msg: \n toalha e\n"
+        },
+        {
+            "label": "2025-02-28_00-50-55",
+            "content": "@@ -572,51 +572,8 @@\n %22);%0A\n-            humidade = get_max_humidade();%0A\n     \n"
+        },
+        {
+            "label": "2025-02-28_00-51-27",
+            "content": "@@ -1172,38 +1172,16 @@\n cer() %7B%0A\n-        humidade = 0;%0A\n     %7D%0A  \n"
+        },
+        {
+            "label": "2025-02-28_00-51-48",
+            "content": "#include \"fn.hpp\"\n#include <string.h>\n#include <iostream>\n\nusing namespace std;\n\nclass Adapter {\nprivate:\n    /* data */\n    std::string color;\n    std::string size;\n    int humidade;\npublic:\n    Adapter(string x = \"\", string y = \"\"):\n     color(x), size(y){\n        humidade = 0;\n    };\n\n    void criar(const std::string& cor, const std::string& tamanho) {\n        color = cor;\n        size = tamanho;\n    }\n\n    void enxugar(int quantidade) {\n        humidade += quantidade;\n        if (humidade >= get_max_humidade())\n        {\n            fn::write(\"toalha encharcada\");\n            humidade = get_max_humidade();\n            return;\n        }\n        \n\n    }\n    int get_max_humidade(){\n        \n        if (size == \"P\")\n        {\n            /* code */\n            return 10;\n        }else{\n            if (size == \"M\")\n            {\n                /* code */\n                return 20;\n            }else{\n                return 30;\n            }\n            \n        }\n        \n        \n        }\n    \n\n    \n    void seca() {\n        if (!humidade)\n        {\n            fn::write(\"sim\");\n        }else{\n            fn::write(\"nao\");\n        }\n    }\n\n    void torcer() {\n        humidade = 0;\n    }\n    std::string str() const{\n        return fn::format(\"Cor: {}, Tamanho: {}, Umidade: {}\",color,size,humidade);\n\n    }\n    void show(){\n        cout << str() << endl;\n    }\n    void mostrar() const {\n        fn::write(str());\n    }\n};\n\nint main() {\n    Adapter adapter;\n    while (true) {\n        fn::write(\"$\", \"\");\n        auto line = fn::input();\n        auto args = fn::split(line, ' ');\n        fn::write(line);\n\n        if      (args[0] == \"end\"    ) { break;                           }\n        else if (args[0] == \"criar\"  ) { adapter.criar(args[1], args[2]); }\n        else if (args[0] == \"enxugar\") { adapter.enxugar(+args[1]);       }\n        else if (args[0] == \"seca\"   ) { adapter.seca();                  }\n        else if (args[0] == \"torcer\" ) { adapter.torcer();                }\n        else if (args[0] == \"mostrar\") { adapter.mostrar();               }\n        else                           { fn::write(\"comando invalido\");   }\n    }\n}\n"
+        }
+    ]
+}

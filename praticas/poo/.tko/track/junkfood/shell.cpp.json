@@ -1,0 +1,136 @@
+{
+    "patches": [
+        {
+            "label": "2025-01-31_08-43-29",
+            "content": "@@ -73,28 +73,8 @@\n ip%3E%0A\n-%0A#include %22fn.hpp%22%0A%0A\n usin\n@@ -389,839 +389,21 @@\n %0A%7D%0A%0A\n-class Slot%0A%7B%0Aprivate:%0A    string nome;%0A    int quantidade;%0A    float valor;%0Apublic:%0A    Slot(string x = %22empty%22,int y = 0, float z = 0.0) : nome(x),quantidade(y),valor(z) %7B%7D;%0A    %0A    string get_nome()%7Breturn nome;%7D;%0A    int get_quantidade()%7Breturn quantidade;%7D;%0A    float get_valor()%7Breturn valor;%7D;%0A%0A    void set_nome(string x)%7Bnome = x;%7D;%0A    void set_quantidade(int x)%7Bquantidade = x;%7D;%0A    void set_valor(float x)%7Bvalor  = x;%7D;%0A%0A    string str() const%7B%0A        return fn::format(%22%5B %7B%7D : %7B%7D U : %7B%7D RS%5D%22,nome,quantidade,valor);%0A    %7D%0A%0A%7D;%0A%0A%0Aclass Machine%0A%7B%0Aprivate:%0A    Slot fila;%0A    float lucro,dinheiro;%0A    int capacidade;%0A%0Apublic:%0A    Machine(int x = 1) : capacidade(x) %7B%7D;%0A%0A    void getSlot(int idex)%7B%7D;%0A%0A    //void setSlot(indice: number, name: string, qtd: number, price: number%0A    %0A%7D;%0A%0A%0A%0Aint main() %7B%0A    Machine Caixa;\n+%0Aint main() %7B\n %0A   \n"
+        },
+        {
+            "label": "2025-01-31_09-04-49",
+            "content": "@@ -1087,26 +1087,24 @@\n x) %7B%7D;%0A%0A    \n-//\n void getSlot\n"
+        },
+        {
+            "label": "2025-01-31_09-06-04",
+            "content": "@@ -981,20 +981,12 @@\n     \n-vector%3C\n Slot\n-%3E\n  fil\n@@ -1087,113 +1087,8 @@\n x) %7B\n-%0A        while (x)%0A        %7B%0A            fila.push_back(Slot());%0A            x--;%0A        %7D%0A        %0A    \n %7D;%0A%0A\n@@ -1205,169 +1205,8 @@\n    %0A\n-    void str() %7B%0A%0A        for (int i = 0; i %3C capacidade; i++)%0A        %7B%0A            cout %3C%3C i;%0A            fn::write(%22 %7B%7D%22,fila%5Bi%5D.str());%0A        %7D%0A%0A    %7D   %0A%0A\n %7D;%0A%0A\n@@ -1239,17 +1239,16 @@\n  Caixa;%0A\n-%0A\n     whil\n@@ -1480,37 +1480,8 @@\n MIR%0A\n-                Caixa.str();%0A\n     \n@@ -1531,16 +1531,19 @@\n         \n+ //\n  int n_e\n@@ -1565,24 +1565,27 @@\n             \n+ //\n  ss %3E%3E n_esp\n@@ -1595,74 +1595,8 @@\n is;%0A\n-                Machine x(n_espirais);%0A                Caixa = x;%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-21-37",
+            "content": "@@ -1432,16 +1432,22 @@\n ::write(\n+%22 %7B%7D%22,\n fila%5Bi%5D.\n@@ -1455,13 +1455,8 @@\n tr()\n-,%22%5Cn%22\n );%0A \n"
+        },
+        {
+            "label": "2025-01-31_09-22-11",
+            "content": "@@ -1436,12 +1436,8 @@\n ite(\n-%22 %22,\n fila\n"
+        },
+        {
+            "label": "2025-01-31_09-22-27",
+            "content": "@@ -1412,15 +1412,8 @@\n %3C%3C i\n- %3C%3C %22 %22\n ;%0A  \n@@ -1432,16 +1432,20 @@\n ::write(\n+%22 %22,\n fila%5Bi%5D.\n"
+        },
+        {
+            "label": "2025-01-31_09-22-46",
+            "content": "@@ -1336,62 +1336,8 @@\n  %7B%0A%0A\n-        cout %3C%3C setprecision(2) %3C%3C dinheiro %3C%3C endl;%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-24-45",
+            "content": "@@ -1187,49 +1187,8 @@\n   %7D%0A\n-        lucro = 0;%0A        dinheiro = 0;%0A\n     \n@@ -1351,17 +1351,8 @@\n t %3C%3C\n- fixed %3C%3C\n  set\n"
+        },
+        {
+            "label": "2025-01-31_09-26-10",
+            "content": "@@ -1224,16 +1224,24 @@\n ro = 0;%0A\n+        \n %0A    %7D;%0A\n@@ -1392,20 +1392,8 @@\n t %3C%3C\n- %22saldo: %22%3C%3C\n  fix\n"
+        },
+        {
+            "label": "2025-01-31_09-26-38",
+            "content": "@@ -891,18 +891,16 @@\n ormat(%22%5B\n-  \n  %7B%7D : %7B%7D\n"
+        },
+        {
+            "label": "2025-01-31_09-26-50",
+            "content": "@@ -911,13 +911,8 @@\n  : %7B\n-%250.2f\n %7D RS\n"
+        },
+        {
+            "label": "2025-01-31_09-29-06",
+            "content": "@@ -1244,20 +1244,22 @@\n %7D;%0A%0A    \n-Slot\n+//void\n  getSlot\n@@ -1273,34 +1273,16 @@\n ex)%7B\n-return fila%5Bidex%5D;\n %7D;%0A%0A    \n void\n@@ -1269,32 +1269,34 @@\n t idex)%7B%7D;%0A%0A    \n+//\n void setSlot (st\n@@ -1295,97 +1295,65 @@\n Slot\n- (string name,int  qtd,float  price)%7B%0A        fila.push_back(Slot(name,qtd,price));%0A    %7D\n+(indice: number, name: string, qtd: number, price: number\n %0A   \n"
+        },
+        {
+            "label": "2025-01-31_09-32-19",
+            "content": "@@ -2499,24 +2499,26 @@\n             \n+//\n  int index %7B\n@@ -2532,24 +2532,26 @@\n             \n+//\n  string name\n@@ -2564,24 +2564,26 @@\n             \n+//\n  int qtd %7B%7D;\n@@ -2599,16 +2599,18 @@\n         \n+//\n  double \n@@ -2631,24 +2631,26 @@\n             \n+//\n  ss %3E%3E index\n@@ -2679,56 +2679,8 @@\n ce;%0A\n-                 Caixa.setSlot(name,qtd,price);%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-33-57",
+            "content": "@@ -1311,15 +1311,8 @@\n ot (\n-int id,\n stri\n@@ -1359,15 +1359,19 @@\n fila\n-%5Bid%5D = \n+.push_back(\n Slot\n@@ -1386,16 +1386,17 @@\n d,price)\n+)\n ;%0A    %7D%0A\n@@ -2665,17 +2665,16 @@\n  price;%0A\n-%0A\n         \n@@ -2700,14 +2700,8 @@\n lot(\n-index,\n name\n@@ -2713,17 +2713,16 @@\n price);%0A\n-%0A\n         \n"
+        },
+        {
+            "label": "2025-01-31_09-35-21",
+            "content": "@@ -510,18 +510,16 @@\n ng x = %22\n-  \n empty%22,i\n@@ -891,16 +891,18 @@\n ormat(%22%5B\n+  \n  %7B%7D : %7B%7D\n"
+        },
+        {
+            "label": "2025-01-31_09-35-46",
+            "content": "@@ -1406,72 +1406,8 @@\n    %0A\n-    void clear_slot(int id)%7B%0A        fila%5Bid%5D = Slot();%0A    %7D;%0A%0A\n     \n@@ -2174,32 +2174,34 @@\n                 \n+//\n  int indice %7B%7D;%0A\n@@ -2208,32 +2208,34 @@\n                 \n+//\n  ss %3E%3E indice;%0A \n@@ -2237,45 +2237,8 @@\n ce;%0A\n-                 Caixa.clear_slot();%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-37-08",
+            "content": "@@ -2331,18 +2331,11 @@\n lot(\n-indice\n );%0A\n-%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-37-26",
+            "content": "@@ -1354,143 +1354,8 @@\n e)%7B%0A\n-%0A        if (id %3E capacidade)%0A        %7B%0A            cout %3C%3C %22fail: indice nao existe%22 %3C%3C endl;%0A            return;%0A        %7D%0A        %0A%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-39-55",
+            "content": "@@ -1605,166 +1605,8 @@\n %7D;%0A%0A\n-    void depositar(int val)%7Bdinheiro += val;%7D;%0A    %0A    float sacar()%7B%7D;%0A%0A    float get_dinheiro()%7Breturn dinheiro;%7D;%0A    float get_lucro()%7Breturn lucro;%7D;%0A%0A%0A\n     \n@@ -2528,24 +2528,26 @@\n             \n+//\n  int value %7B\n@@ -2561,24 +2561,26 @@\n             \n+//\n  ss %3E%3E value\n@@ -2585,49 +2585,8 @@\n ue;%0A\n-                 Caixa.depositar(value);%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-43-26",
+            "content": "@@ -1673,203 +1673,10 @@\n car(\n-int val)%7B%0A        if (val %3E dinheiro)%0A        %7B%0A            cout %3C%3C %22fail%22;%0A            dinheiro = 0;%0A            return val;%0A        %7D%0A%0A        dinheiro -= val;%0A        return val;%0A        %0A    \n+)%7B\n %7D;%0A%0A\n"
+        },
+        {
+            "label": "2025-01-31_09-45-44",
+            "content": "@@ -1872,150 +1872,8 @@\n %7D;%0A%0A\n-    float trocado()%7B%0A        float x = dinheiro;%0A        dinheiro = 0;%0A        fn::write(%22vode recebeu %7B%250,2f%7D RS%22);%0A        return x;%0A    %7D%0A%0A\n     \n@@ -3395,42 +3395,8 @@\n ) %7B%0A\n-                Caixa.trocado();%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-48-51",
+            "content": "@@ -1960,17 +1960,17 @@\n rite(%22vo\n-c\n+d\n e recebe\n"
+        },
+        {
+            "label": "2025-01-31_09-49-16",
+            "content": "@@ -1982,25 +1982,16 @@\n ,2f%7D RS%22\n-,dinheiro\n );%0A     \n"
+        },
+        {
+            "label": "2025-01-31_09-49-30",
+            "content": "@@ -1970,25 +1970,25 @@\n  recebeu %7B%250\n-.\n+,\n 2f%7D RS%22,dinh\n"
+        },
+        {
+            "label": "2025-01-31_09-50-14",
+            "content": "@@ -1972,16 +1972,21 @@\n ecebeu %7B\n+%250.2f\n %7D RS%22,di\n"
+        },
+        {
+            "label": "2025-01-31_09-50-37",
+            "content": "@@ -1947,24 +1947,26 @@\n         \n-cout %3C%3C \n+fn::write(\n %22voce re\n@@ -1975,21 +1975,23 @@\n beu \n-%22 %3C%3C \n+%7B%7D RS%22,\n dinheiro\n  %3C%3C \n@@ -1990,19 +1990,9 @@\n eiro\n- %3C%3C %22 RS%5Cn%22\n+)\n ;%0A  \n"
+        },
+        {
+            "label": "2025-01-31_09-51-23",
+            "content": "@@ -1974,17 +1974,24 @@\n eu %22 %3C%3C \n-x\n+dinheiro\n  %3C%3C %22 RS\n"
+        },
+        {
+            "label": "2025-01-31_09-51-36",
+            "content": "@@ -2100,272 +2100,8 @@\n %7D;%0A%0A\n-    void comprar(int id)%7B%0A        if (fila%5Bid%5D.get_valor() %3E dinheiro)%0A        %7B%0A            cout %3C%3C %22fail%22;%0A            return;%0A        %7D%0A        dinheiro -= fila%5Bid%5D.get_valor();%0A%0A        cout %3C%3C %22voce comprou um %22 %3C%3C fila%5Bid%5D.get_nome() %3C%3C endl;%0A        %0A    %7D%0A\n %0A   \n@@ -3165,32 +3165,34 @@\n                 \n+//\n  int index %7B%7D;%0A \n@@ -3198,32 +3198,34 @@\n                 \n+//\n  ss %3E%3E index;%0A  \n@@ -3226,47 +3226,8 @@\n ex;%0A\n-                 Caixa.comprar(index);%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-54-32",
+            "content": "@@ -2206,37 +2206,9 @@\n fail\n-: saldo insuficiente%22 %3C%3C endl\n+%22\n ;%0A  \n"
+        },
+        {
+            "label": "2025-01-31_09-55-12",
+            "content": "@@ -2377,74 +2377,8 @@\n dl;%0A\n-        fila%5Bid%5D.set_quantidade( fila%5Bid%5D.get_quantidade() - 1 );%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-56-28",
+            "content": "@@ -2267,161 +2267,8 @@\n   %7D%0A\n-%0A        if (fila%5Bid%5D.get_quantidade() == 0)%0A        %7B%0A            cout %3C%3C %22fail: espiral sem produtos%22 %3C%3C endl;%0A            return;%0A        %7D%0A        %0A%0A\n     \n"
+        },
+        {
+            "label": "2025-01-31_09-57-33",
+            "content": "@@ -2126,143 +2126,8 @@\n d)%7B%0A\n-%0A        if (id %3E capacidade)%0A        %7B%0A            cout %3C%3C %22fail: indice nao existe%22 %3C%3C endl;%0A            return;%0A        %7D%0A        %0A%0A\n     \n@@ -2416,17 +2416,16 @@\n       %0A%0A\n-%0A\n         \n"
+        },
+        {
+            "label": "2025-01-31_09-59-05",
+            "content": "#include <iostream>\n#include <vector>\n#include <sstream>\n#include <iomanip>\n\n#include \"fn.hpp\"\n\nusing namespace std;\n\ntemplate<typename CONTAINER, typename FUNC>\nstring map_join(const CONTAINER& cont, FUNC func, string delim) {\n    stringstream ss;\n    for (auto it = cont.begin(); it != cont.end(); it++) {\n        ss << (it == cont.begin() ? \"\" : delim);\n        ss << func(*it);\n    }\n    return ss.str();\n}\n\nclass Slot\n{\nprivate:\n    string nome;\n    int quantidade;\n    float valor;\npublic:\n    Slot(string x = \"  empty\",int y = 0, float z = 0.0) : nome(x),quantidade(y),valor(z) {};\n    \n    string get_nome(){return nome;};\n    int get_quantidade(){return quantidade;};\n    float get_valor(){return valor;};\n\n    void set_nome(string x){nome = x;};\n    void set_quantidade(int x){quantidade = x;};\n    void set_valor(float x){valor  = x;};\n\n    string str() const{\n        return fn::format(\"[ {} : {} U : {%0.2f} RS]\",nome,quantidade,valor);\n    }\n\n};\n\n\nclass Machine\n{\nprivate:\n    vector<Slot> fila;\n    float lucro,dinheiro;\n    int capacidade;\n\npublic:\n    Machine(int x = 1) : capacidade(x) {\n        while (x)\n        {\n            fila.push_back(Slot());\n            x--;\n        }\n        lucro = 0;\n        dinheiro = 0;\n\n    };\n\n    Slot getSlot(int idex){return fila[idex];};\n\n    void setSlot (int id,string name,int  qtd,float  price){\n\n        if (id > capacidade)\n        {\n            cout << \"fail: indice nao existe\" << endl;\n            return;\n        }\n        \n\n        fila[id] = Slot(name,qtd,price);\n    }\n    \n    void clear_slot(int id){\n        fila[id] = Slot();\n    };\n\n    void depositar(int val){dinheiro += val;};\n    \n    float sacar(int val){\n        if (val > dinheiro)\n        {\n            cout << \"fail\";\n            dinheiro = 0;\n            return val;\n        }\n\n        dinheiro -= val;\n        return val;\n        \n    };\n\n    float trocado(){\n        float x = dinheiro;\n        dinheiro = 0;\n        cout << \"voce recebeu \" << x << \" RS\\n\";\n        return x;\n    }\n\n    float get_dinheiro(){return dinheiro;};\n    float get_lucro(){return lucro;};\n\n    void comprar(int id){\n\n        if (id > capacidade)\n        {\n            cout << \"fail: indice nao existe\" << endl;\n            return;\n        }\n        \n\n        if (fila[id].get_valor() > dinheiro)\n        {\n            cout << \"fail: saldo insuficiente\" << endl;\n            return;\n        }\n\n        if (fila[id].get_quantidade() == 0)\n        {\n            cout << \"fail: espiral sem produtos\" << endl;\n            return;\n        }\n        \n\n\n        dinheiro -= fila[id].get_valor();\n\n        cout << \"voce comprou um \" << fila[id].get_nome() << endl;\n        fila[id].set_quantidade( fila[id].get_quantidade() - 1 );\n        \n    }\n\n    void str() {\n\n        cout << \"saldo: \"<< fixed << setprecision(2) << dinheiro << endl;\n\n        for (int i = 0; i < capacidade; i++)\n        {\n            cout << i << \" \";\n            fn::write(fila[i].str(),\"\\n\");\n        }\n\n    }   \n\n};\n\n\n\nint main() {\n    Machine Caixa;\n\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        try {\n            if (cmd == \"show\") {\n                // IMPRIMIR\n                Caixa.str();\n            } else if (cmd == \"init\") {\n                int n_espirais {};\n                ss >> n_espirais;\n                Machine x(n_espirais);\n                Caixa = x;\n            } else if (cmd == \"limpar\") {\n                 int indice {};\n                 ss >> indice;\n                 Caixa.clear_slot(indice);\n\n            } else if (cmd == \"dinheiro\") {\n                 int value {};\n                 ss >> value;\n                 Caixa.depositar(value);\n            } else if (cmd == \"comprar\") {\n                 int index {};\n                 ss >> index;\n                 Caixa.comprar(index);\n            } else if (cmd == \"set\") {\n                 int index {};\n                 string name;\n                 int qtd {};\n                 double price {};\n                 ss >> index >> name >> qtd >> price;\n\n                 Caixa.setSlot(index,name,qtd,price);\n\n            } else if (cmd == \"troco\") {\n                Caixa.trocado();\n\n            } else if (cmd == \"end\") {\n                break;\n            } else {\n                cout << \"comando invalido\" << endl;\n            }\n        } catch (const char* e) {\n            cout << e << endl;\n        }\n    }\n}\n"
+        }
+    ]
+}

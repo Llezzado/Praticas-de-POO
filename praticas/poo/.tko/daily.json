@@ -1,0 +1,51 @@
+{
+    "2024-11-08": [
+        "animal:0:10",
+        "carro:0:10"
+    ],
+    "2024-11-10": [
+        "animal:100:10",
+        "carro:100:10",
+        "fusca:10:0",
+        "calculadora:10:0"
+    ],
+    "2024-11-21": [
+        "calculadora:100:8"
+    ],
+    "2024-11-26": [
+        "relogio:10:0",
+        "grafite:10:0",
+        "motoca:10:0",
+        "tamagotchi:10:0"
+    ],
+    "2024-11-28": [
+        "relogio:10:9"
+    ],
+    "2024-12-12": [
+        "animal:0:0",
+        "carro:0:0",
+        "calculadora:0:0",
+        "relogio:0:0",
+        "grafite:0:0",
+        "motoca:0:0",
+        "tamagotchi:0:0"
+    ],
+    "2024-12-13": [
+        "fusca:0:0"
+    ],
+    "2025-01-02": [
+        "animal:100:4",
+        "carro:100:4",
+        "calculadora:100:4",
+        "relogio:100:3",
+        "motoca:100:2",
+        "roupa:100:5"
+    ],
+    "2025-01-10": [
+        "grafite:100:4"
+    ],
+    "2025-01-19": [
+        "motouber:100:5",
+        "tamagotchi:100:5"
+    ]
+}

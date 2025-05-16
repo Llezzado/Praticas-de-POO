@@ -1,0 +1,236 @@
+{
+    "patches": [
+        {
+            "label": "2025-02-01_19-49-30",
+            "content": "@@ -106,27 +106,8 @@\n ity%3E\n-%0A%0A#include %22fn.hpp%22\n %0Ausi\n@@ -129,1128 +129,8 @@\n d;%0A%0A\n-class Person%0A%7B%0Aprivate:%0A    string name;%0Apublic:%0A    Person(string x = %22----%22) : name(x) %7B%7D;%0A    string get_name()%7Breturn name;%7D;%0A    void set_name(string x)%7Bname = x;%7D;%0A%0A    string str() const%7B%0A        return fn::format(%22%7B%7D%22,name);%0A    %7D;%0A%7D;%0A%0Astd::ostream& operator%3C%3C(std::ostream& os, const Person& func)%7B%0A    return os %3C%3C func.str();%0A%7D%0A%0Aclass Market%0A%7B%0Aprivate:%0A%0A    vector%3Cshared_ptr%3CPerson%3E%3E caixas;%0A    vector%3CPerson%3E fila;%0A    %0A    int tam  =0;%0A    bool validate(int id)%7B%0A%0A    %7D%0Apublic:%0A%0A    Market(int x = 0)%7B%0A        while (x)%0A        %7B%0A            auto aux = make_shared%3CPerson%3E();%0A            caixas.push_back(aux);%0A            tam++;%0A            x--;%0A        %7D%0A        %0A    %7D;%0A%0A    void arrive(Person x)%7B%0A        fila.push_back(x);%0A    %7D%0A%0A    bool call(int id)%7B%7D%0A    Person finnish(int id)%7B%7D%0A    bool cutInLine(Person x, string y)%7B%7D%0A    bool giveUp(string quitter)%7B%7D%0A%0A    void str() %7B%0A        int x = tam;%0A%0A            cout %3C%3C %22%5B %22;%0A           for (int i = 0; i %3C tam; i++)%0A           %7B%0A               cout %3C%3C caixas%5Bi%5D-%3Estr() %3C%3C %22, %22;%0A           %7D    %0A           cout %3C%3C %22%5D%5Cn%22;%0A        %0A        %0A    %7D;%0A%0A%7D;%0A%0A\n %0A// \n@@ -482,30 +482,8 @@\n ) %7B%0A\n-%0A    Market mercado;%0A%0A\n     \n@@ -722,17 +722,17 @@\n show%22) %7B\n-%0A\n+ \n %0A       \n@@ -772,16 +772,19 @@\n         \n+ //\n  int qtd\n@@ -799,24 +799,27 @@\n %0A           \n+ //\n  ss %3E%3E qtd_c\n@@ -829,73 +829,8 @@\n as;%0A\n-            Market aux(qtd_caixas);%0A%0A            mercado = aux;%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-02-01_20-47-42",
+            "content": "@@ -1888,34 +1888,8 @@\n ) %7B%0A\n-            mercado.str();\n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_20-48-18",
+            "content": "@@ -621,18 +621,23 @@\n int id)%7B\n+%0A%0A    \n %7D\n-;\n %0Apublic:\n"
+        },
+        {
+            "label": "2025-02-01_20-48-36",
+            "content": "@@ -594,16 +594,17 @@\n tam \n+ \n =0;%0A    \n //bo\n@@ -595,26 +595,24 @@\n am  =0;%0A    \n-//\n bool validat\n@@ -889,26 +889,24 @@\n %0A    %7D%0A%0A    \n-//\n bool call(in\n@@ -917,18 +917,16 @@\n )%7B%7D%0A    \n-//\n Person f\n@@ -942,26 +942,24 @@\n t id)%7B%7D%0A    \n-//\n bool cutInLi\n@@ -987,18 +987,16 @@\n )%7B%7D%0A    \n-//\n bool giv\n@@ -1035,24 +1035,24 @@\n str() %7B%0A\n+\n         \n //int x \n@@ -1043,18 +1043,16 @@\n         \n-//\n int x = \n"
+        },
+        {
+            "label": "2025-02-01_20-49-16",
+            "content": "@@ -220,17 +220,16 @@\n  = %22----\n--\n %22) : nam\n"
+        },
+        {
+            "label": "2025-02-01_20-49-38",
+            "content": "@@ -1198,120 +1198,11 @@\n %3C %22,\n+ \n %22;\n-%0A               if (i+1 == tam)%0A               %7B%0A                cout %3C%3C %22 %22;%0A               %7D%0A               \n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_20-50-46",
+            "content": "@@ -1217,16 +1217,18 @@\n    if (i\n++1\n  == tam)\n"
+        },
+        {
+            "label": "2025-02-01_20-50-57",
+            "content": "@@ -1184,24 +1184,31 @@\n as%5Bi%5D-%3Estr()\n+ %3C%3C %22,%22\n ;%0A          \n@@ -1268,17 +1268,16 @@\n out %3C%3C %22\n-,\n  %22;%0A    \n"
+        },
+        {
+            "label": "2025-02-01_20-51-13",
+            "content": "@@ -1190,17 +1190,16 @@\n %3Estr();%0A\n-%0A\n         \n@@ -1213,9 +1213,16 @@\n if (\n-1\n+i == tam\n )%0A  \n"
+        },
+        {
+            "label": "2025-02-01_20-52-30",
+            "content": "@@ -1091,16 +1091,17 @@\n ut %3C%3C %22%5B\n+ \n %22;%0A     \n@@ -1214,20 +1214,9 @@\n if (\n-(i+1) == tam\n+1\n )%0A  \n"
+        },
+        {
+            "label": "2025-02-01_20-53-40",
+            "content": "@@ -1213,11 +1213,8 @@\n if (\n- !(\n (i+1\n@@ -1226,10 +1226,8 @@\n tam)\n- )\n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_20-53-58",
+            "content": "@@ -1094,16 +1094,8 @@\n %3C%3C %22\n-Caixas: \n %5B%22;%0A\n"
+        },
+        {
+            "label": "2025-02-01_20-54-14",
+            "content": "@@ -1137,22 +1137,11 @@\n i %3C \n-sizeof(caixas)\n+tam\n ; i+\n@@ -1359,26 +1359,24 @@\n  %22%5D%5Cn%22;%0A\n-%0A%0A\n         \n     cout\n@@ -1371,170 +1371,8 @@\n     \n-    cout %3C%3C %22Espera: %5B%22;%0A%0A            for (int i = 0; i %3C sizeof(fila); i++)%0A            %7B%0A                %0A            %7D%0A            %0A%0A            cout %3C%3C %22%5D%5Cn%22;\n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_20-57-29",
+            "content": "@@ -1110,36 +1110,35 @@\n            for (\n-auto\n+int\n  i = 0; i %3C size\n@@ -1423,20 +1423,19 @@\n    for (\n-auto\n+int\n  i = 0; \n"
+        },
+        {
+            "label": "2025-02-01_20-58-02",
+            "content": "@@ -1492,136 +1492,9 @@\n     \n-cout %3C%3C caixas%5Bi%5D-%3Estr();%0A%0A               if ( !((i+1) == tam) )%0A               %7B%0A                cout %3C%3C %22, %22;%0A               %7D\n+ \n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_20-58-36",
+            "content": "@@ -1444,25 +1444,8 @@\n i %3C \n-static_cast%3Cint%3E(\n size\n@@ -1452,17 +1452,16 @@\n of(fila)\n-)\n ; i++)%0A \n"
+        },
+        {
+            "label": "2025-02-01_20-59-57",
+            "content": "@@ -1134,33 +1134,16 @@\n  0; i %3C \n-static_cast%3Cint%3E(\n sizeof(c\n@@ -1148,17 +1148,16 @@\n (caixas)\n-)\n ; i++)%0A \n"
+        },
+        {
+            "label": "2025-02-01_21-00-15",
+            "content": "@@ -1419,24 +1419,267 @@\n %22Espera: %5B%22;\n+%0A%0A            for (auto i = 0; i %3C static_cast%3Cint%3E(sizeof(fila)); i++)%0A            %7B%0A               cout %3C%3C caixas%5Bi%5D-%3Estr();%0A%0A               if ( !((i+1) == tam) )%0A               %7B%0A                cout %3C%3C %22, %22;%0A               %7D%0A            %7D\n %0A           \n"
+        },
+        {
+            "label": "2025-02-01_21-00-31",
+            "content": "@@ -1134,19 +1134,48 @@\n  0; i %3C \n+s\n ta\n-m\n+tic_cast%3Cint%3E(sizeof(caixas))\n ; i++)%0A \n@@ -1427,251 +1427,8 @@\n  %5B%22;\n-%0A%0A            for (auto i = 0; i %3C static_cast%3Cint%3E(sizeof(fila)); i++)%0A            %7B%0A               cout %3C%3C caixas%5Bi%5D-%3Estr();%0A%0A               if ( !((i+1) == tam) )%0A               %7B%0A                cout %3C%3C %22, %22;%0A               %7D%0A            %7D\n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_21-01-17",
+            "content": "@@ -1421,35 +1421,62 @@\n auto i = 0; i %3C \n+s\n ta\n-m\n+tic_cast%3Cint%3E(sizeof(fila))\n ; i++)%0A         \n@@ -1495,18 +1495,16 @@\n         \n-//\n cout %3C%3C \n"
+        },
+        {
+            "label": "2025-02-01_21-01-51",
+            "content": "@@ -1468,24 +1468,26 @@\n         \n+//\n cout %3C%3C \n fila%5Bi%5D.\n@@ -1482,16 +1482,19 @@\n  %3C%3C \n-fila%5Bi%5D.\n+caixas%5Bi%5D-%3E\n str(\n"
+        },
+        {
+            "label": "2025-02-01_21-02-37",
+            "content": "@@ -1400,112 +1400,8 @@\n %22;%0A%0A\n-            int fila_tam = static_cast%3Cint%3E(sizeof(fila));%0A%0A            if (fila_tam)%0A            %7B%0A    \n     \n@@ -1433,13 +1433,8 @@\n i %3C \n-fila_\n tam;\n@@ -1435,28 +1435,24 @@\n %3C tam; i++)%0A\n-    \n             \n@@ -1460,33 +1460,32 @@\n %0A               \n- \n cout %3C%3C fila%5Bi%5D.\n@@ -1484,33 +1484,32 @@\n fila%5Bi%5D.str();%0A%0A\n- \n                i\n@@ -1537,33 +1537,32 @@\n %0A               \n- \n %7B%0A              \n@@ -1555,36 +1555,32 @@\n                 \n-   \n- \n cout %3C%3C %22, %22;%0A  \n@@ -1584,33 +1584,32 @@\n %0A               \n- \n %7D%0A              \n@@ -1610,68 +1610,9 @@\n     \n-   \n- %7D%0A                /* code */%0A            %7D%0A            %0A\n+%7D\n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_21-05-18",
+            "content": "@@ -1408,20 +1408,19 @@\n         \n-auto\n+int\n  fila_ta\n@@ -1423,16 +1423,33 @@\n a_tam = \n+static_cast%3Cint%3E(\n sizeof(f\n@@ -1452,16 +1452,17 @@\n of(fila)\n+)\n ;%0A%0A     \n"
+        },
+        {
+            "label": "2025-02-01_21-06-19",
+            "content": "@@ -1520,33 +1520,16 @@\n i %3C \n-static_cast%3Cint%3E(\n fila_tam\n ); i\n@@ -1524,17 +1524,16 @@\n fila_tam\n-)\n ; i++)%0A \n"
+        },
+        {
+            "label": "2025-02-01_21-06-43",
+            "content": "@@ -1583,18 +1583,16 @@\n         \n-//\n cout %3C%3C \n"
+        },
+        {
+            "label": "2025-02-01_21-08-59",
+            "content": "@@ -1641,21 +1641,16 @@\n i+1) == \n-fila_\n tam) )%0A \n"
+        },
+        {
+            "label": "2025-02-01_21-09-18",
+            "content": "@@ -1641,33 +1641,16 @@\n i+1) == \n-static_cast%3Cint%3E(\n fila_tam\n@@ -1650,17 +1650,16 @@\n ila_tam)\n-)\n  )%0A     \n"
+        },
+        {
+            "label": "2025-02-01_21-09-36",
+            "content": "@@ -1583,24 +1583,26 @@\n         \n+//\n cout %3C%3C \n static_c\n@@ -1597,33 +1597,20 @@\n  %3C%3C \n-static_cast%3Cint%3E(fila_tam\n+fila%5Bi%5D.str(\n );%0A%0A\n"
+        },
+        {
+            "label": "2025-02-01_21-10-09",
+            "content": "@@ -594,37 +594,8 @@\n  tam\n-_caixas =0;%0A    int tam_filas\n  =0;\n@@ -782,23 +782,16 @@\n      tam\n-_caixas\n ++;%0A    \n@@ -1137,23 +1137,16 @@\n  i %3C tam\n-_caixas\n ; i++)%0A \n@@ -1233,23 +1233,16 @@\n ) == tam\n-_caixas\n ) )%0A    \n@@ -1412,21 +1412,63 @@\n     \n-if (tam_filas\n+auto fila_tam = sizeof(fila);%0A%0A            if (fila_tam\n )%0A  \n@@ -1516,25 +1516,42 @@\n  0; i %3C \n+s\n ta\n-m_filas\n+tic_cast%3Cint%3E(fila_tam)\n ; i++)%0A \n@@ -1583,18 +1583,16 @@\n         \n-//\n cout %3C%3C \n@@ -1608,25 +1608,24 @@\n st%3Cint%3E(\n-tam_filas\n+fila_tam\n );%0A%0A    \n@@ -1656,18 +1656,36 @@\n  == \n+s\n ta\n-m_filas)\n+tic_cast%3Cint%3E(fila_tam)) \n )%0A  \n"
+        },
+        {
+            "label": "2025-02-01_21-11-48",
+            "content": "@@ -924,29 +924,8 @@\n x);%0A\n-        tam_filas++;%0A\n     \n@@ -1574,24 +1574,26 @@\n         \n+//\n cout %3C%3C \n fila%5Bi%5D.\n@@ -1588,20 +1588,34 @@\n  %3C%3C \n-fila%5Bi%5D.str(\n+static_cast%3Cint%3E(tam_filas\n );%0A%0A\n"
+        },
+        {
+            "label": "2025-02-01_21-13-13",
+            "content": "@@ -2722,24 +2722,26 @@\n             \n+//\n  string nome\n@@ -2750,24 +2750,26 @@\n             \n+//\n  ss %3E%3E nome;\n@@ -2773,43 +2773,8 @@\n me;%0A\n-             mercado.arrive(nome);%0A\n     \n"
+        },
+        {
+            "label": "2025-02-01_21-13-57",
+            "content": "@@ -886,67 +886,19 @@\n ive(\n-int\n+Person\n  x)%7B%0A\n-        %0A        auto pessoa = fila%5B0%5D.get_name();%0A\n     \n@@ -911,53 +911,18 @@\n la.p\n-op\n+ush\n _back(\n-);%0A        caixas%5B0%5D-%3Eset_name(pessoa\n+x\n );%0A \n@@ -937,18 +937,18 @@\n am_filas\n---\n+++\n ;%0A    %7D%0A\n@@ -2845,24 +2845,26 @@\n             \n+//\n  int indice;\n@@ -2872,24 +2872,26 @@\n             \n+//\n  ss %3E%3E indic\n@@ -2897,45 +2897,8 @@\n ce;%0A\n-             mercado.arrive(indice);%0A\n     \n"
+        },
+        {
+            "label": "2025-02-01_21-18-02",
+            "content": "@@ -926,17 +926,17 @@\n  = fila%5B\n-x\n+0\n %5D.get_na\n@@ -981,17 +981,17 @@\n  caixas%5B\n-x\n+0\n %5D-%3Eset_n\n"
+        },
+        {
+            "label": "2025-02-01_21-18-25",
+            "content": "@@ -886,22 +886,12 @@\n ive(\n-string nome_au\n+int \n x)%7B%0A\n@@ -911,105 +911,28 @@\n     \n-for (int i = 0; i %3C tam_filas; i++)%0A        %7B%0A            if (%0A                nome_aux =\n+auto pessoa \n = fila%5B\n-i\n+x\n %5D.ge\n@@ -939,16 +939,17 @@\n t_name()\n+;\n %0A       \n@@ -953,41 +953,33 @@\n     \n-    )%0A            %7B%0A     \n+fila.pop_back();%0A\n         \n    c\n@@ -978,19 +978,16 @@\n     \n-   \n caixas%5B\n-0\n+x\n %5D-%3Es\n@@ -998,16 +998,14 @@\n ame(\n-nome_aux\n+pessoa\n );%0A \n@@ -1015,45 +1015,20 @@\n     \n-    %7D%0A            %0A        %7D%0A        \n+tam_filas--;\n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_21-26-53",
+            "content": "@@ -879,58 +879,147 @@\n oid \n-call(int x)%7B%0A        %0A        auto pessoa\n+arrive(string nome_aux)%7B%0A        %0A        for (int i = 0; i %3C tam_filas; i++)%0A        %7B%0A            if (%0A                nome_aux\n  =\n+=\n  fila%5B\n-x\n+i\n %5D.ge\n@@ -1026,17 +1026,16 @@\n t_name()\n-;\n %0A       \n@@ -1039,25 +1039,36 @@\n     \n-fila.pop_back();%0A\n+    )%0A            %7B%0A        \n     \n@@ -1078,17 +1078,17 @@\n  caixas%5B\n-x\n+0\n %5D-%3Eset_n\n@@ -1095,14 +1095,16 @@\n ame(\n-pessoa\n+nome_aux\n );%0A \n@@ -1114,82 +1114,77 @@\n     \n-tam_filas--;%0A    %7D%0A%0A    void arrive(int id)%7B%0A        auto x = 1 + id;%0A    \n+    %7D%0A            %0A        %7D%0A        %0A    %7D%0A%0A    //bool call(int id)%7B\n %7D%0A  \n@@ -3117,20 +3117,22 @@\n mercado.\n-call\n+arrive\n (indice)\n"
+        },
+        {
+            "label": "2025-02-01_21-28-56",
+            "content": "@@ -875,22 +875,20 @@\n    void \n-arrive\n+call\n (int x)%7B\n@@ -1034,28 +1034,30 @@\n %7D%0A%0A    void \n-call\n+arrive\n (int id)%7B%0A  \n"
+        },
+        {
+            "label": "2025-02-01_21-29-49",
+            "content": "@@ -875,20 +875,22 @@\n    void \n-call\n+arrive\n (int x)%7B\n@@ -1044,65 +1044,45 @@\n oid \n-arrive(string nome_aux)%7B%0A        fila.push_back(nome_aux)\n+call(int id)%7B%0A        auto x = 1 + id\n ;%0A  \n"
+        },
+        {
+            "label": "2025-02-01_21-31-19",
+            "content": "@@ -1103,21 +1103,16 @@\n ;%0A    %7D%0A\n-    %0A\n     //Pe\n"
+        },
+        {
+            "label": "2025-02-01_21-32-16",
+            "content": "@@ -1105,31 +1105,14 @@\n     \n-    tam_filas++;\n+%7D\n %0A    \n-%7D%0A\n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_21-32-36",
+            "content": "@@ -1346,21 +1346,18 @@\n i %3C \n+tam_\n caixas\n-.size()\n ; i+\n"
+        },
+        {
+            "label": "2025-02-01_21-34-27",
+            "content": "@@ -1342,20 +1342,22 @@\n  0; i %3C \n-fila\n+caixas\n .size();\n"
+        },
+        {
+            "label": "2025-02-01_21-35-18",
+            "content": "@@ -614,67 +614,19 @@\n int \n-val_caixas = 0;%0A    int tam_filas =0;%0A    int val_caixas = \n+tam_filas =\n 0;%0A \n@@ -935,25 +935,24 @@\n get_name();%0A\n-%0A\n         fila\n@@ -956,41 +956,19 @@\n ila.\n-erase(fila.begin() + x);%0A        \n+pop_back();\n %0A   \n@@ -1342,26 +1342,27 @@\n  0; i %3C \n-tam_caixas\n+fila.size()\n ; i++)%0A \n"
+        },
+        {
+            "label": "2025-02-01_21-42-19",
+            "content": "@@ -606,32 +606,77 @@\n =0;%0A\n-%0A%0A    int tam_filas =0;%0A\n+    int val_caixas = 0;%0A    int tam_filas =0;%0A    int val_caixas = 0;\n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_21-42-38",
+            "content": "@@ -1155,20 +1155,24 @@\n  %7D%0A%0A    \n-void\n+//Person\n  finnish\n@@ -1184,288 +1184,8 @@\n id)%7B\n-%0A        if (id %3E caixas.size())%0A        %7B%0A            cout %3C%3C %22fail%22;%0A            return;%0A        %7D%0A%0A        if (caixas%5Bid%5D-%3Eget_name() == %22-----%22)%0A        %7B%0A            cout %3C%3C %22fail1%22;%0A            return;%0A        %7D%0A%0A        caixas%5Bid%5D-%3Eset_name(%22-----%22);%0A        %0A        %0A    \n %7D%0A  \n"
+        },
+        {
+            "label": "2025-02-01_22-52-38",
+            "content": "@@ -1194,26 +1194,29 @@\n f (id %3E \n-tam_\n caixas\n+.size()\n )%0A      \n"
+        },
+        {
+            "label": "2025-02-01_22-53-25",
+            "content": "@@ -1396,35 +1396,8 @@\n  %7D%0A%0A\n-        string x = %22bolo%22;%0A\n     \n@@ -1421,17 +1421,23 @@\n et_name(\n-x\n+%22-----%22\n );%0A     \n"
+        },
+        {
+            "label": "2025-02-01_22-54-42",
+            "content": "@@ -3438,32 +3438,34 @@\n  %7B %0A            \n+//\n  int indice;%0A   \n@@ -3465,32 +3465,34 @@\n ce;%0A            \n+//\n  ss %3E%3E indice;%0A \n@@ -3494,46 +3494,8 @@\n ce;%0A\n-             mercado.finnish(indice);%0A\n     \n"
+        },
+        {
+            "label": "2025-02-01_22-55-10",
+            "content": "@@ -1384,32 +1384,59 @@\n urn;%0A        %7D%0A%0A\n+        string x = %22bolo%22;%0A\n         caixas%5Bi\n@@ -1448,23 +1448,17 @@\n et_name(\n-%22-----%22\n+x\n );%0A     \n"
+        },
+        {
+            "label": "2025-02-01_22-55-42",
+            "content": "@@ -894,149 +894,8 @@\n  x)%7B\n-%0A%0A        if (caixas%5Bx%5D-%3Eget_name() != %22-----%22)%0A        %7B%0A            cout %3C%3C %22fail: caixa ocupado%5Cn%22;%0A            return;%0A        %7D%0A        \n %0A   \n"
+        },
+        {
+            "label": "2025-02-01_23-00-17",
+            "content": "@@ -890,34 +890,16 @@\n (int x)%7B\n-%0A        %0A        \n %0A%0A      \n@@ -1068,17 +1068,17 @@\n  = fila%5B\n-0\n+x\n %5D.get_na\n"
+        },
+        {
+            "label": "2025-02-01_23-02-43",
+            "content": "@@ -904,121 +904,8 @@\n    %0A\n-        if (x %3E tam_filas)%0A        %7B%0A            cout %3C%3C %22fail :: sem clientes%5Cn%22;%0A            return;%0A        %7D%0A\n     \n"
+        },
+        {
+            "label": "2025-02-01_23-03-26",
+            "content": "@@ -964,16 +964,17 @@\n  %22fail :\n+:\n  sem cli\n"
+        },
+        {
+            "label": "2025-02-01_23-03-36",
+            "content": "@@ -912,17 +912,20 @@\n     if (\n-!\n+x %3E \n tam_fila\n"
+        },
+        {
+            "label": "2025-02-01_23-04-13",
+            "content": "@@ -959,16 +959,17 @@\n %3C%3C %22fail\n+ \n : sem cl\n"
+        },
+        {
+            "label": "2025-02-01_23-04-26",
+            "content": "@@ -1444,25 +1444,16 @@\n nt id)%7B%0A\n-        %0A\n         \n@@ -1459,15 +1459,11 @@\n  if \n-(\n (id\n-+1)\n  %3E t\n"
+        },
+        {
+            "label": "2025-02-01_23-08-09",
+            "content": "@@ -1468,14 +1468,17 @@\n  if \n+(\n (id\n++1)\n  %3E\n-=\n  tam\n@@ -1525,29 +1525,8 @@\n fail\n-: caixa inexistente%5Cn\n %22;%0A \n"
+        },
+        {
+            "label": "2025-02-01_23-09-07",
+            "content": "@@ -1659,23 +1659,9 @@\n fail\n-: caixa vazio%5Cn\n+1\n %22;%0A \n"
+        },
+        {
+            "label": "2025-02-01_23-09-29",
+            "content": "#include <iostream>\n#include <vector>\n#include <list>\n#include <memory>\n#include <sstream>\n#include <utility>\n\n#include \"fn.hpp\"\nusing namespace std;\n\nclass Person\n{\nprivate:\n    string name;\npublic:\n    Person(string x = \"-----\") : name(x) {};\n    string get_name(){return name;};\n    void set_name(string x){name = x;};\n\n    string str() const{\n        return fn::format(\"{}\",name);\n    };\n};\n\nstd::ostream& operator<<(std::ostream& os, const Person& func){\n    return os << func.str();\n}\n\nclass Market\n{\nprivate:\n\n    vector<shared_ptr<Person>> caixas;\n    vector<Person> fila;\n    \n    int tam_caixas =0;\n\n\n    int tam_filas =0;\n\n    //bool validate(int id){};\npublic:\n\n    Market(int x = 0){\n        while (x)\n        {\n            auto aux = make_shared<Person>();\n            caixas.push_back(aux);\n            tam_caixas++;\n            x--;\n        }\n        \n    };\n\n    void call(int x){\n        \n        if (!tam_filas)\n        {\n            cout << \"fail: sem clientes\\n\";\n            return;\n        }\n        \n\n        if (caixas[x]->get_name() != \"-----\")\n        {\n            cout << \"fail: caixa ocupado\\n\";\n            return;\n        }\n        \n        \n        auto pessoa = fila[0].get_name();\n\n        fila.erase(fila.begin() + x);\n        \n        caixas[x]->set_name(pessoa);\n        tam_filas--;\n    }\n\n    void arrive(string nome_aux){\n        fila.push_back(nome_aux);\n        tam_filas++;\n    }\n\n    void finnish(int id){\n        \n        if (id >= tam_caixas)\n        {\n            cout << \"fail: caixa inexistente\\n\";\n            return;\n        }\n\n        if (caixas[id]->get_name() == \"-----\")\n        {\n            cout << \"fail: caixa vazio\\n\";\n            return;\n        }\n\n        caixas[id]->set_name(\"-----\");\n        \n        \n    }\n    //bool cutInLine(Person x, string y){}\n    //bool giveUp(string quitter){}\n\n    void str() {\n        //int x = tam;\n\n            cout << \"Caixas: [\";\n           for (auto i = 0; i < tam_caixas; i++)\n           {\n               cout << caixas[i]->str();\n\n               if ( !((i+1) == tam_caixas) )\n               {\n                cout << \", \";\n               }\n               \n           }    \n           cout << \"]\\n\";\n\n\n            cout << \"Espera: [\";\n\n            if (tam_filas)\n            {\n                for (auto i = 0; i < tam_filas; i++)\n                {\n                cout << fila[i].str();\n\n                if ( !((i+1) == tam_filas))\n                {\n                    cout << \", \";\n                }\n                }\n                /* code */\n            }\n            \n\n            \n\n            cout << \"]\\n\";\n        \n    };\n\n};\n\n\n// Fun\u00e7\u00e3o auxiliar para mapear e juntar elementos de um container\ntemplate <typename CONTAINER, typename FUNC>\nauto map_join(const CONTAINER& c, FUNC f, const string& sep = \", \") {\n    stringstream ss;\n    for (auto it = c.begin(); it != c.end(); ++it) {\n        ss << (it != c.begin() ? sep : \"\") << f(*it);\n    }\n    return ss.str();\n}\n\nint main() {\n\n    Market mercado;\n\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;\n        } else if (cmd == \"show\") {\n            mercado.str();\n        } else if (cmd == \"init\") { \n            int qtd_caixas;\n            ss >> qtd_caixas;\n            Market aux(qtd_caixas);\n\n            mercado = aux;\n\n        } else if (cmd == \"arrive\") { \n             string nome;\n             ss >> nome;\n             mercado.arrive(nome);\n        } else if (cmd == \"call\") { \n             int indice;\n             ss >> indice;\n             mercado.call(indice);\n        } else if (cmd == \"finish\") { \n             int indice;\n             ss >> indice;\n             mercado.finnish(indice);\n        } else {\n            cout << \"fail: comando invalido\\n\";\n        }\n    }\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+remote: https://github.com/qxcodepoo/arcade/blob/master/Readme.md
+version: 0.0.1
+expanded:
+- campanha-principal
+- primeiras-classes
+- modificadores-de-acesso
+- agregação-simples
+- local_task_cluster_sem_quest
+- arraylist-i---listas
+- arraylist-ii---arrays-de-null
+- configuracao-e-aquecimento
+- linguagem-ts
+- futuro
+- local_task_cluster
+- arraylist-iii---crud-composição-e-enum
+- crud-com-mapas-e-vetores
+- herança-i
+tasks:
+  toalha: '{cov:100, aut:5, hab:5, idx:0}'
+  animal: '{cov:100, aut:4, hab:4, idx:0}'
+  carro: '{cov:100, aut:4, hab:5, idx:0}'
+  calculadora: '{cov:100, aut:4, hab:5, idx:0}'
+  enxugar: '{cov:100, aut:5, hab:5, idx:0}'
+  camisa: '{cov:100, aut:5, hab:5, idx:0}'
+  roupa: '{cov:100, aut:5, hab:5, idx:0}'
+  relogio: '{cov:100, aut:3, hab:5, idx:0}'
+  motoca: '{cov:100, aut:2, hab:3, idx:0}'
+  grafite: '{cov:100, aut:4, hab:5, idx:0}'
+  motouber: '{cov:100, aut:5, hab:5, idx:0}'
+  tamagotchi: '{cov:100, aut:5, hab:5, idx:0}'
+  charger: '{cov:100, aut:5, hab:5, idx:0}'
+  budega: '{cov:100, aut:4, hab:3, idx:0}'
+  lapiseira: '{cov:100, aut:4, hab:5, idx:0}'
+  tabuleiro: '{cov:100, aut:5, hab:3, idx:0}'
+  pula-pula: '{cov:100, aut:4, hab:5, idx:0}'
+  cinema: '{cov:100, aut:4, hab:5, idx:0}'
+  junkfood: '{cov:100, aut:4, hab:4, idx:0}'
+  porquinho: '{cov:100, aut:4, hab:5, idx:0}'
+flags:
+  minimum: 0
+  reward: 0
+  percent: 0
+  admin: 0
+  skills: 0
+  graph: 0
+  devel: 0
+new_items: []
+lang: cpp
+index: pula-pula
+database: database

@@ -1,0 +1,164 @@
+{
+    "patches": [
+        {
+            "label": "2025-03-03_01-29-22",
+            "content": "@@ -71,27 +71,8 @@\n ory%3E\n-%0A%0A#include %22fn.hpp%22\n %0Ausi\n@@ -360,584 +360,8 @@\n %0A%7D%0A%0A\n-class cliente%0A%7B%0Aprivate:%0A    /* data */%0A    string id;%0A    int phone;%0Apublic:%0A    cliente(string idex,int num):id(idex),phone(num)%7B%7D;%0A    string get_id()%7Breturn id;%7D%0A    int get_phone()%7Breturn phone;%7D%0A    void set_id(string x)%7Bid = x;%7D%0A    void set_phone(int x)%7Bphone = x;%7D%0A    %0A    string str() const%7B%0A        return fn::format(%22%7B%7D:%7B%7D%22,id,phone);%0A    %7D%0A%7D;%0A%0A%0Aclass sala%0A%7B%0Aprivate:%0A    vector%3Cshared_ptr%3Ccliente%3E%3E poltronas;%0A    %0Apublic:%0A    sala(int x = 0)%7B%0A        while (x)%0A        %7B%0A            poltronas.push_back(nullptr);%0A            x--;%0A        %7D%0A        %0A    %7D;%0A%7D;%0A%0A%0A\n int \n"
+        },
+        {
+            "label": "2025-03-03_01-41-53",
+            "content": "@@ -949,309 +949,8 @@\n   %7D;\n-%0A%0A    string str() const%7B%0A        %0A        string saida = %22%22;%0A%0A        for (auto i = 0; i %3C static_cast%3Cint%3E(poltronas.size()); i++)%0A        %7B%0A            if (poltronas%5Bi%5D == nullptr)%0A            %7B%0A                saida += %22-%22;%0A            %7D%0A            %0A        %7D%0A        %0A        return saida;%0A    %7D\n %0A%7D;%0A\n"
+        },
+        {
+            "label": "2025-03-03_01-44-26",
+            "content": "@@ -1268,25 +1268,8 @@\n () %7B\n-%0A    sala cinema;\n %0A%0A  \n@@ -1519,50 +1519,8 @@\n ) %7B%0A\n-            cout %3C%3C cinema.str() %3C%3C endl;%0A\n     \n@@ -1562,16 +1562,19 @@\n         \n+ //\n  int qtd\n@@ -1582,24 +1582,27 @@\n %0A           \n+ //\n  ss %3E%3E qtd;%0A\n@@ -1605,69 +1605,8 @@\n td;%0A\n-            auto aux = sala(qtd);%0A            cinema = aux;%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-03-03_01-46-25",
+            "content": "@@ -1004,17 +1004,16 @@\n aida = %22\n-%5B\n %22;%0A%0A    \n@@ -1222,20 +1222,8 @@\n     \n-saida +=%22%5D%22;\n %0A   \n"
+        },
+        {
+            "label": "2025-03-03_01-47-17",
+            "content": "@@ -1192,167 +1192,8 @@\n   %7D%0A\n-            if ((i+1) != static_cast%3Cint%3E(poltronas.size()))%0A            %7B%0A                /* code */%0A                saida += %22 %22;%0A            %7D%0A            %0A\n     \n"
+        },
+        {
+            "label": "2025-03-03_01-48-51",
+            "content": "@@ -1000,16 +1000,22 @@\n ng saida\n+ = %22%5B%22\n ;%0A%0A     \n@@ -1382,33 +1382,42 @@\n     \n-return fn::format(%22%5B%7B%7D%5D%22)\n+saida +=%22%5D%22;%0A        return saida;\n %0A   \n"
+        },
+        {
+            "label": "2025-03-03_01-49-38",
+            "content": "@@ -1397,17 +1397,16 @@\n (%22%5B%7B%7D%5D%22)\n-;\n %0A    %7D%0A%7D\n"
+        },
+        {
+            "label": "2025-03-03_01-49-45",
+            "content": "@@ -1400,14 +1400,8 @@\n %7B%7D%5D%22\n-,saida\n );%0A \n"
+        },
+        {
+            "label": "2025-03-03_01-50-02",
+            "content": "@@ -951,119 +951,8 @@\n %7D;%0A%0A\n-    bool reserve(string id, int num, int idex)%7B%0A        poltronas%5Bidex%5D = make_shared%3Ccliente%3E(id,num);%0A    %7D%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-03-03_01-55-07",
+            "content": "@@ -999,104 +999,8 @@\n x)%7B%0A\n-        if (poltronas%5Bidex%5D != nullptr)%0A        %7B%0A            return false;%0A        %7D%0A        %0A%0A\n     \n@@ -1055,29 +1055,8 @@\n m);%0A\n-        return true;%0A\n     \n"
+        },
+        {
+            "label": "2025-03-03_01-55-53",
+            "content": "@@ -2154,24 +2154,26 @@\n             \n+//\n  string id;%0A\n@@ -2170,34 +2170,17 @@\n tring id\n-;%0A             int\n+,\n  phone;%0A\n@@ -2187,24 +2187,26 @@\n             \n+//\n  int index;%0A\n@@ -2213,24 +2213,26 @@\n             \n+//\n  ss %3E%3E id %3E%3E\n@@ -2252,52 +2252,8 @@\n ex;%0A\n-            cinema.reserve(id,phone,index);%0A\n     \n"
+        },
+        {
+            "label": "2025-03-03_01-57-26",
+            "content": "@@ -1413,74 +1413,8 @@\n    %7D\n-else%7B%0A                saida += poltronas%5Bi%5D-%3Estr();%0A            %7D%0A\n %0A   \n"
+        },
+        {
+            "label": "2025-03-03_01-58-17",
+            "content": "@@ -2341,12 +2341,8 @@\n     \n-if(!\n cine\n@@ -2371,86 +2371,9 @@\n dex)\n-)%7B%0A                fn::write(%22fail: a cadeira ja esta vazia%22);%0A%0A            %7D%0A\n+;\n %0A   \n"
+        },
+        {
+            "label": "2025-03-03_01-59-33",
+            "content": "@@ -2406,16 +2406,18 @@\n e(%22fail:\n+ a\n  cadeira\n"
+        },
+        {
+            "label": "2025-03-03_01-59-45",
+            "content": "@@ -2419,19 +2419,20 @@\n ira \n+ja \n esta \n-ocupad\n+vazi\n a%22);\n"
+        },
+        {
+            "label": "2025-03-03_01-59-59",
+            "content": "@@ -2419,11 +2419,8 @@\n ira \n-ja \n esta\n"
+        },
+        {
+            "label": "2025-03-03_02-00-15",
+            "content": "@@ -808,277 +808,8 @@\n    %0A\n-    bool pesquisa(string nome)%7B%0A        for (auto i = 0; i %3C static_cast%3Cint%3E(poltronas.size()); i++)%0A        %7B%0A            if (poltronas%5Bi%5D-%3Eget_id() == nome)%0A            %7B%0A                return true;%0A            %7D%0A            %0A        %7D%0A        return false;%0A    %7D%0A%0A\n publ\n@@ -999,148 +999,8 @@\n x)%7B%0A\n-%0A        if (pesquisa(id))%0A        %7B%0A            fn::write(%22fail: cliente ja esta no cinema%22);%0A            return true;%0A        %7D%0A        %0A%0A\n     \n"
+        },
+        {
+            "label": "2025-03-03_02-05-50",
+            "content": "@@ -920,117 +920,8 @@\n   %7B%0A\n-            if (poltronas%5Bi%5D == nullptr)%0A            %7B%0A                continue;%0A            %7D%0A            %0A%0A\n     \n"
+        },
+        {
+            "label": "2025-03-03_02-06-34",
+            "content": "@@ -1378,170 +1378,8 @@\n )%7B%0A%0A\n-        if (idex %3E= static_cast%3Cint%3E(poltronas.size()))%0A        %7B%0A            fn::write(%22fail cadeira nao existe%22);%0A            return false;%0A        %7D%0A        %0A%0A\n     \n@@ -1400,16 +1400,16 @@\n sa(id))%0A\n+\n         \n@@ -1479,36 +1479,35 @@\n          return \n-fals\n+tru\n e;%0A        %7D%0A   \n@@ -1545,32 +1545,32 @@\n ex%5D != nullptr)%0A\n+\n         %7B%0A      \n@@ -1567,64 +1567,8 @@\n   %7B%0A\n-            fn::write(%22fail: cadeira ja esta ocupada%22);%0A\n     \n@@ -2900,32 +2900,75 @@\n                 \n+fn::write(%22fail: cadeira ja esta ocupada%22);\n %0A%0A            %7D%0A\n"
+        },
+        {
+            "label": "2025-03-03_02-08-38",
+            "content": "@@ -1459,33 +1459,32 @@\n  fn::write(%22fail\n-:\n  cadeira nao exi\n"
+        },
+        {
+            "label": "2025-03-03_02-08-51",
+            "content": "@@ -808,19 +808,20 @@\n    %0A    \n-int\n+bool\n  pesquis\n@@ -1110,17 +1110,20 @@\n  return \n-i\n+true\n ;%0A      \n@@ -1917,134 +1917,8 @@\n  %7D%0A%0A\n-    void cancelar(string id)%7B%0A        if(pesquisa(id))%7B%0A%0A        %7Delse%7B%0A            fn::write(%22nao existe%22);%0A        %7D%0A    %7D%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-03-03_02-11-31",
+            "content": "@@ -1182,179 +1182,8 @@\n  %7D%0A%0A\n-    int verifica_id(int id)%7B%0A%0A        if (id %3E= static_cast%3Cint%3E(poltronas.size()))%0A        %7B%0A            %0A            return false;%0A        %7D%0A        return true;%0A    %7D%0A%0A\n publ\n@@ -1386,25 +1386,49 @@\n if (\n-!verifica_id(idex\n+idex %3E= static_cast%3Cint%3E(poltronas.size()\n ))%0A \n@@ -1479,32 +1479,58 @@\n a nao existe%22);%0A\n+            return false;%0A\n         %7D%0A      \n"
+        },
+        {
+            "label": "2025-03-03_02-15-41",
+            "content": "@@ -1168,11 +1168,13 @@\n urn \n-999\n+false\n ;%0A  \n@@ -1635,32 +1635,41 @@\n ste%22);%0A        %7D\n+%0A        \n %0A%0A        if (po\n@@ -1671,33 +1671,19 @@\n f (p\n-oltronas%5Bidex%5D != nullptr\n+esquisa(id)\n )%0A  \n@@ -1720,22 +1720,22 @@\n %22fail: c\n-adeira\n+liente\n  ja esta\n@@ -1739,14 +1739,16 @@\n sta \n-ocupad\n+no cinem\n a%22);\n@@ -1794,17 +1794,16 @@\n       %0A%0A\n-%0A\n         \n@@ -1803,35 +1803,49 @@\n        if (p\n-esquisa(id)\n+oltronas%5Bidex%5D != nullptr\n )%0A        %7B%0A\n@@ -1866,38 +1866,38 @@\n ::write(%22fail: c\n-liente\n+adeira\n  ja esta no cine\n@@ -1885,32 +1885,30 @@\n ira ja esta \n-no cinem\n+ocupad\n a%22);%0A       \n@@ -1944,25 +1944,16 @@\n         \n-%0A        \n %0A%0A      \n"
+        },
+        {
+            "label": "2025-03-03_02-18-29",
+            "content": "@@ -1824,15 +1824,8 @@\n (id)\n- == 999\n )%0A  \n"
+        },
+        {
+            "label": "2025-03-03_02-19-05",
+            "content": "@@ -1153,24 +1153,35 @@\n   %7D%0A        \n+return 999;\n %0A    %7D%0A%0A    \n@@ -1808,16 +1808,35 @@\n     if (\n+pesquisa(id) == 999\n )%0A      \n"
+        },
+        {
+            "label": "2025-03-03_02-19-40",
+            "content": "@@ -1797,28 +1797,16 @@\n     if (\n-pesquisa(id)\n )%0A      \n"
+        },
+        {
+            "label": "2025-03-03_02-20-13",
+            "content": "@@ -1153,37 +1153,24 @@\n   %7D%0A        \n-return false;\n %0A    %7D%0A%0A    \n"
+        },
+        {
+            "label": "2025-03-03_02-20-37",
+            "content": "@@ -1801,247 +1801,35 @@\n   %0A%0A\n-        for (auto i = 0; i %3C static_cast%3Cint%3E(poltronas.size()); i++)%0A        %7B%0A            if (poltronas%5Bi%5D == nullptr)%0A            %7B%0A                continue;%0A            %7D%0A            %0A%0A            if (poltronas%5Bi%5D-%3Eget_id() == id)%0A    \n+%0A        if (pesquisa(id))%0A\n     \n@@ -1930,36 +1930,13 @@\n     \n+%7D%0A\n    \n- %7D%0A            %0A        %7D\n     \n"
+        },
+        {
+            "label": "2025-03-03_02-22-09",
+            "content": "@@ -1638,34 +1638,8 @@\n %22);%0A\n-            return false;%0A\n     \n"
+        },
+        {
+            "label": "2025-03-03_02-22-33",
+            "content": "@@ -1182,20 +1182,19 @@\n  %7D%0A%0A    \n-bool\n+int\n  verific\n@@ -2351,75 +2351,8 @@\n d))%7B\n-%0A            poltronas.erase(poltronas%5Bpesquisa(id)%5D);%0A            \n %0A%0A  \n"
+        },
+        {
+            "label": "2025-03-03_02-28-38",
+            "content": "@@ -2390,19 +2390,9 @@\n onas\n-.begin() + \n+%5B\n pesq\n@@ -2399,19 +2399,32 @@\n uisa(id)\n+%5D\n );%0A\n+            \n %0A%0A      \n"
+        },
+        {
+            "label": "2025-03-03_02-30-54",
+            "content": "@@ -1153,24 +1153,37 @@\n   %7D%0A        \n+return false;\n %0A    %7D%0A%0A    \n@@ -2416,48 +2416,8 @@\n ));%0A\n-            cout %3C%3C pesquisa(id)%3C%3C endl;\n %0A%0A  \n"
+        },
+        {
+            "label": "2025-03-03_02-35-21",
+            "content": "@@ -2435,20 +2435,8 @@\n (id)\n- %3C%3C %22jjjjjj%22\n %3C%3C e\n"
+        },
+        {
+            "label": "2025-03-03_02-36-13",
+            "content": "@@ -3796,32 +3796,34 @@\n ) %7B%0A            \n+//\n  string id;%0A    \n@@ -3822,32 +3822,34 @@\n id;%0A            \n+//\n  ss %3E%3E id;%0A     \n@@ -3847,43 +3847,8 @@\n id;%0A\n-             cinema.cancelar(id);%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-03-03_02-36-35",
+            "content": "@@ -1153,37 +1153,24 @@\n   %7D%0A        \n-return false;\n %0A    %7D%0A%0A    \n"
+        },
+        {
+            "label": "2025-03-03_02-36-55",
+            "content": "@@ -68,16 +68,17 @@\n memory%3E%0A\n+%0A\n #include\n@@ -111,28 +111,8 @@\n std;\n-%0A#define Error = 999\n %0A%0Ate\n@@ -1168,68 +1168,14 @@\n urn \n-Error; // se nao existe ngm com esse indice oq fazer? Throw?\n+false;\n %0A   \n@@ -2323,16 +2323,16 @@\n ng id)%7B%0A\n+\n         \n@@ -2350,17 +2350,8 @@\n (id)\n- != Error\n )%7B%0A \n"
+        },
+        {
+            "label": "2025-03-03_02-40-30",
+            "content": "@@ -121,16 +121,17 @@\n e Error \n+=\n  999%0A%0Ate\n"
+        },
+        {
+            "label": "2025-03-03_02-40-41",
+            "content": "@@ -2434,34 +2434,83 @@\n r)%7B%0A            \n+poltronas.erase(poltronas.begin() + pesquisa(id));\n %0A\n- \n             polt\n@@ -2505,26 +2505,24 @@\n         \n-poltronas%5B\n+cout %3C%3C \n pesquisa\n@@ -2529,20 +2529,29 @@\n (id)\n-%5D = nullptr;\n+ %3C%3C %22jjjjjj%22%3C%3C endl;%0A\n %0A   \n"
+        },
+        {
+            "label": "2025-03-03_02-42-05",
+            "content": "@@ -2533,40 +2533,18 @@\n te(%22\n-fail: cliente nao esta no cinema\n+nao existe\n %22);%0A\n"
+        },
+        {
+            "label": "2025-03-03_02-42-45",
+            "content": "#include <iostream>\n#include <vector>\n#include <sstream>\n#include <memory>\n#include \"fn.hpp\"\nusing namespace std;\n#define Error  999\n\ntemplate<class CONTAINER, class FUNC>\nstring map_join(const CONTAINER& c, FUNC f, string sep) {\n    stringstream ss;\n    for (auto it = c.begin(); it != c.end(); it++) {\n        ss << (it == c.begin() ? \"\" : sep);\n        ss << f(*it);\n    }\n    return ss.str();\n}\n\nclass cliente\n{\nprivate:\n    /* data */\n    string id;\n    int phone;\npublic:\n    cliente(string idex,int num):id(idex),phone(num){};\n    string get_id(){return id;}\n    int get_phone(){return phone;}\n    void set_id(string x){id = x;}\n    void set_phone(int x){phone = x;}\n    \n    string str() const{\n        return fn::format(\"{}:{}\",id,phone);\n    }\n};\n\n\nclass sala\n{\nprivate:\n    vector<shared_ptr<cliente>> poltronas;\n    \n    int pesquisa(string nome){\n        for (auto i = 0; i < static_cast<int>(poltronas.size()); i++)\n        {\n            if (poltronas[i] == nullptr)\n            {\n                continue;\n            }\n            \n\n            if (poltronas[i]->get_id() == nome)\n            {\n                return i;\n            }\n            \n        }\n        return Error; // se nao existe ngm com esse indice oq fazer? Throw?\n    }\n\n    bool verifica_id(int id){\n\n        if (id >= static_cast<int>(poltronas.size()))\n        {\n            \n            return false;\n        }\n        return true;\n    }\n\npublic:\n    sala(int x = 0){\n        while (x)\n        {\n            poltronas.push_back(nullptr);\n            x--;\n        }\n        \n    };\n\n    bool reserve(string id, int num, int idex){\n\n        if (!verifica_id(idex))\n        {\n            fn::write(\"fail: cadeira nao existe\");\n            return false;\n        }\n\n        if (poltronas[idex] != nullptr)\n        {\n            fn::write(\"fail: cadeira ja esta ocupada\");\n            return false;\n        }\n        \n\n        for (auto i = 0; i < static_cast<int>(poltronas.size()); i++)\n        {\n            if (poltronas[i] == nullptr)\n            {\n                continue;\n            }\n            \n\n            if (poltronas[i]->get_id() == id)\n            {\n            fn::write(\"fail: cliente ja esta no cinema\");\n            return false;\n            }\n            \n        }     \n        \n\n        poltronas[idex] = make_shared<cliente>(id,num);\n        return true;\n    }\n\n    void cancelar(string id){\n        if(pesquisa(id) != Error){\n            \n             poltronas[pesquisa(id)] = nullptr;\n        }else{\n            fn::write(\"fail: cliente nao esta no cinema\");\n        }\n    }\n\n    string str() const{\n        \n        string saida;\n\n        for (auto i = 0; i < static_cast<int>(poltronas.size()); i++)\n        {\n            if (poltronas[i] == nullptr)\n            {\n                saida += \"-\";\n            }else{\n                saida += poltronas[i]->str();\n            }\n\n            if ((i+1) != static_cast<int>(poltronas.size()))\n            {\n                /* code */\n                saida += \" \";\n            }\n            \n            \n        }\n        return fn::format(\"[{}]\",saida);\n    }\n};\n\n\nint main() {\n    sala cinema;\n\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;    \n        } else if (cmd == \"show\") {\n            cout << cinema.str() << endl;\n        } else if (cmd == \"init\") {\n            int qtd;\n            ss >> qtd;\n            auto aux = sala(qtd);\n            cinema = aux;\n\n        } else if (cmd == \"reserve\") {\n             string id;\n             int phone;\n             int index;\n             ss >> id >> phone >> index;\n            if(!cinema.reserve(id,phone,index)){\n                \n\n            }\n\n        } else if (cmd == \"cancel\") {\n             string id;\n             ss >> id;\n             cinema.cancelar(id);\n\n        } else {\n            cout << \"fail: comando invalido\" << endl;\n        }\n    }\n}\n"
+        }
+    ]
+}

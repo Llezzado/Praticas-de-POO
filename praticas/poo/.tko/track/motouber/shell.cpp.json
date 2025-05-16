@@ -1,0 +1,148 @@
+{
+    "patches": [
+        {
+            "label": "2025-01-15_23-21-21",
+            "content": "@@ -36,1761 +36,81 @@\n p%22%0A%0A\n-#include %3Cmemory%3E%0Aclass Pessoa%7B%0A%0A    std::string nome;%0A    int idade;%0A%0A  public:%0A%0A    Pessoa(std::string nome, int idade): nome(nome), idade(idade) %7B%0A    %7D%0A%0A    std::string str() const%7B%0A        return fn::format(%22%7B%7D:%7B%7D%22,this-%3Enome,this-%3Eidade);%0A    %7D%0A%0A    std::string get_name()%7B%0A        return this-%3Enome;%0A    %7D%0A%0A    int get_age()%7B%0A        return this-%3Eidade;%0A    %7D%0A%7D;%0A%0Astd::ostream& operator%3C%3C(std::ostream& os, const Pessoa& pessoa)%7B%0A    return os %3C%3C pessoa.str();%0A%7D %0A%0Aclass Moto%7B%0A%0A    int potencia = 1;%0A    int tempo = 0;%0A%0A    std::shared_ptr%3CPessoa%3E piloto %7Bnullptr%7D;%0A    std::shared_ptr%3CPessoa%3E passageiro %7Bnullptr%7D;%0A%0A  public:%0A    %0A    Moto(int potencia = 1): potencia(potencia)%7B%0A    %7D%0A    %0A    void sobe_piloto(std::shared_ptr%3CPessoa%3E pessoa)%7B%0A     if (this-%3Epiloto != nullptr)%0A     %7B%0A        fn::write(%22fail: busy motorcycle%22);%0A        return;%0A     %7D%0A     this-%3Epiloto = pessoa;%0A    %7D%0A%0A    void sobe_pessoa(std::shared_ptr%3CPessoa%3E pessoa)%7B%0A     if (this-%3Epassageiro != nullptr)%0A     %7B%0A        fn::write(%22fail: busy motorcycle%22);%0A        return;%0A     %7D%0A     if (%0A        this-%3Epiloto == nullptr%0A     )%0A     %7B%0A        fn::write(%22fail: empty motorcycle%22);%0A        return;%0A     %7D%0A     %0A     this-%3Epassageiro = pessoa;%0A    %7D%0A    %0A    std::shared_ptr%3CPessoa%3E desce_pessoa()%7B%0A        if(this-%3Epassageiro==nullptr)%7B%0A            fn::write(%22fail: empty motorcycle%22);%0A            return nullptr;%0A        %7D%0A        auto backup = this-%3Epassageiro;%0A        this-%3Epassageiro = nullptr;%0A        return backup;%0A    %7D%0A%0A    void add_tempo(int tempo)%7B%0A        this-%3Etempo += tempo;%0A    %7D%0A%0A    void dirigir(int tempo)%7B%0A        if(this-%3Etempo == 0)%7B%0A            fn::write(%22fail: buy time first%22);%0A            return;%0A        %7D%0A        if(this-%3Epassageiro == nullptr)\n+%0Aclass Adapter %7B%0Apublic:%0A    void setDriver(std::string name, int money) \n %7B%0A  \n@@ -119,1123 +119,41 @@\n     \n- \n-   fn::write(%22fail: empty motorcycle%22);%0A            return;%0A        %7D%0A        if(this-%3Epassageiro-%3Eget_age() %3E 10)%7B%0A            fn::write(%22fail: too old to drive%22);%0A            return;%0A        %7D%0A        if(this-%3Etempo %3C tempo)%7B%0A            fn::print(%22fail: time finished after %7B%7D minutes%5Cn%22, this-%3Etempo);%0A            this-%3Etempo = 0;%0A            return;%0A        %7D%0A        this-%3Etempo -= tempo;%0A    %7D%0A%0A    std::string buzina() const%7B%0A        auto Saida = %22P%22s;%0A        for (int i=0; i%3C(int)this-%3Epotencia; i++)%0A            Saida += %22e%22;%0A        return Saida + %22m%22;%0A    %7D%0A%0A    std::string str() const%7B%0A        std::string nome(%22empty%22);%0A        if (this-%3Epiloto != nullptr)%0A            nome = this-%3Epiloto-%3Estr();%0A        return fn::format(%22power:%7B%7D, time:%7B%7D, person:(%7B%7D)%22,this-%3Epotencia,this-%3Etempo, nome);%0A    %7D%0A    %0A%7D;%0A%0Astd::ostream& operator%3C%3C(std::ostream& os, const Moto& moto)%7B%0A    return os %3C%3C moto.str();%0A%7D%0A%0A%0Aclass Adapter %7B%0A    Moto motocicleta;%0A%0Apublic:%0A    void setDriver(std::string name, int money) %7B%0A        auto person = std::make_shared%3CPessoa%3E(name, money);%0A        motocicleta.sobe_piloto(person)\n+(void) name;%0A        (void) money\n ;%0A  \n"
+        },
+        {
+            "label": "2025-01-15_23-49-17",
+            "content": "@@ -3128,35 +3128,8 @@\n ) %7B%0A\n-        motocicleta.str();%0A\n     \n"
+        },
+        {
+            "label": "2025-01-15_23-49-53",
+            "content": "@@ -2436,46 +2436,8 @@\n %22);%0A\n-        std::string cliente(%22empty%22);%0A\n     \n@@ -2513,156 +2513,81 @@\n ();%0A\n-%0A        if (this-%3Epassageiro != nullptr)%0A            nome = this-%3Epassageiro-%3Estr();%0A        return fn::format(%22Cost:%7B%7D, Driver:%7B%7D, Passenger:(%7B%7D)%22\n+        return fn::format(%22power:%7B%7D, time:%7B%7D, person:(%7B%7D)%22,this-%3Epotencia\n ,thi\n@@ -2604,16 +2604,8 @@\n nome\n-,cliente\n );%0A \n"
+        },
+        {
+            "label": "2025-01-15_23-54-22",
+            "content": "@@ -3253,26 +3253,16 @@\n         \n-fn::write(\n motocicl\n@@ -3264,16 +3264,21 @@\n ocicleta\n+.str(\n );%0A    %7D\n"
+        },
+        {
+            "label": "2025-01-15_23-55-04",
+            "content": "@@ -2423,20 +2423,21 @@\n g nome(%22\n-None\n+empty\n %22);%0A    \n@@ -2465,12 +2465,13 @@\n te(%22\n-None\n+empty\n %22);%0A\n@@ -2690,18 +2690,20 @@\n ssenger:\n+(\n %7B%7D\n+)\n %22,this-%3E\n"
+        },
+        {
+            "label": "2025-01-15_23-55-26",
+            "content": "@@ -2663,17 +2663,16 @@\n t(%22Cost:\n- \n %7B%7D, Driv\n@@ -2674,17 +2674,16 @@\n  Driver:\n- \n %7B%7D, Pass\n@@ -2688,17 +2688,16 @@\n ssenger:\n- \n %7B%7D%22,this\n"
+        },
+        {
+            "label": "2025-01-15_23-55-45",
+            "content": "@@ -942,25 +942,21 @@\n d sobe_p\n-a\n+e\n ss\n-ageir\n o\n+a\n (std::sh\n@@ -3098,104 +3098,41 @@\n     \n-auto person = std::make_shared%3CPessoa%3E(name, money);%0A        motocicleta.sobe_passageiro(person)\n+(void) name;%0A        (void) money\n ;%0A  \n"
+        },
+        {
+            "label": "2025-01-15_23-56-46",
+            "content": "@@ -2603,22 +2603,19 @@\n         \n-client\n+nom\n e = this\n"
+        },
+        {
+            "label": "2025-01-16_00-23-02",
+            "content": "@@ -95,24 +95,21 @@\n     int \n-dinheiro\n+idade\n ;%0A%0A  pub\n@@ -147,24 +147,21 @@\n me, int \n-dinheiro\n+idade\n ): nome(\n@@ -171,25 +171,19 @@\n e), \n-dinheiro(dinheiro\n+idade(idade\n ) %7B%0A\n@@ -269,24 +269,21 @@\n e,this-%3E\n-dinheiro\n+idade\n );%0A    %7D\n@@ -390,16 +390,13 @@\n is-%3E\n-dinheiro\n+idade\n ;%0A  \n@@ -547,20 +547,20 @@\n     int \n-cust\n+temp\n o = 0;%0A%0A\n@@ -1563,22 +1563,22 @@\n add_\n-cust\n+temp\n o(int \n-cust\n+temp\n o)%7B%0A\n@@ -1587,37 +1587,37 @@\n       this-%3E\n-cust\n+temp\n o += \n-cust\n+temp\n o;%0A    %7D%0A%0A  \n@@ -1635,20 +1635,20 @@\n gir(int \n-cust\n+temp\n o)%7B%0A    \n@@ -1660,20 +1660,20 @@\n f(this-%3E\n-cust\n+temp\n o == 0)%7B\n@@ -1754,125 +1754,8 @@\n   %7D%0A\n-        if(this-%3Epiloto == nullptr)%7B%0A            fn::write(%22fail: empty motorcycle%22);%0A            return;%0A        %7D%0A%0A\n     \n@@ -1836,21 +1836,16 @@\n torcycle\n- pass\n %22);%0A    \n@@ -1862,33 +1862,32 @@\n turn;%0A        %7D%0A\n-%0A\n         if(this-\n@@ -1999,36 +1999,205 @@\n   %7D%0A\n-%0A        this-%3Ecust\n+        if(this-%3Etempo %3C tempo)%7B%0A            fn::print(%22fail: time finished after %7B%7D minutes%5Cn%22, this-%3Etempo);%0A            this-%3Etemp\n o \n-+\n = \n-cust\n+0;%0A            return;%0A        %7D%0A        this-%3Etempo -= temp\n o;%0A \n@@ -2712,12 +2712,12 @@\n is-%3E\n-cust\n+temp\n o, n\n"
+        },
+        {
+            "label": "2025-01-16_00-27-54",
+            "content": "@@ -3220,36 +3220,23 @@\n     \n-motocicleta.dirigir(\n+(void) \n distance\n );%0A \n@@ -3231,17 +3231,16 @@\n distance\n-)\n ;%0A    %7D%0A\n"
+        },
+        {
+            "label": "2025-01-16_00-28-44",
+            "content": "@@ -1653,32 +1653,139 @@\n gir(int custo)%7B%0A\n+        if(this-%3Ecusto == 0)%7B%0A            fn::write(%22fail: buy time first%22);%0A            return;%0A        %7D%0A\n         if(this-\n"
+        },
+        {
+            "label": "2025-01-16_00-32-04",
+            "content": "@@ -1896,32 +1896,158 @@\n urn;%0A        %7D%0A%0A\n+        if(this-%3Epassageiro-%3Eget_age() %3E 10)%7B%0A            fn::write(%22fail: too old to drive%22);%0A            return;%0A        %7D%0A%0A\n         this-%3Ecu\n"
+        },
+        {
+            "label": "2025-01-16_00-32-30",
+            "content": "@@ -420,70 +420,8 @@\n    %7D\n-%0A%0A    void set_age(int money)%7B%0A        dinheiro = money;%0A    %7D\n %0A%7D;%0A\n@@ -1568,700 +1568,8 @@\n  %7D%0A%0A\n-    std::string desce_passageiro()%7B%0A        if(this-%3Epassageiro==nullptr)%7B%0A            fn::write(%22fail: empty motorcycle%22);%0A            return nullptr;%0A        %7D%0A%0A         %0A        %0A        auto backup = this-%3Epassageiro;%0A        this-%3Epassageiro = nullptr;%0A        %0A        int custo_atual = custo - passageiro-%3Eget_age();%0A%0A        if (custo_atual %3E 0)%0A        %7B%0A            //dinheiro induficiente%0A            int bolso = piloto-%3Eget_age();%0A            while (custo_atual %3E 0)%0A            %7B%0A                bolso--;%0A                custo_atual--;%0A            %7D%0A            piloto-%3Eset_age(bolso);            %0A        %7D%0A        %0A        %0A        return fn::format(%22%7B%7D leave%22,backup);%0A    %7D%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-01-16_00-51-42",
+            "content": "@@ -3801,48 +3801,8 @@\n ) %7B%0A\n-        motocicleta.desce_passageiro();%0A\n     \n"
+        },
+        {
+            "label": "2025-01-16_00-52-20",
+            "content": "@@ -1779,32 +1779,43 @@\n llptr;%0A        %7D\n+%0A%0A         \n %0A        %0A      \n@@ -1848,32 +1848,59 @@\n ageiro;%0A        \n+this-%3Epassageiro = nullptr;\n %0A        %0A      \n@@ -2268,35 +2268,8 @@\n     \n-this-%3Epassageiro = nullptr;\n %0A   \n"
+        },
+        {
+            "label": "2025-01-16_00-53-38",
+            "content": "@@ -1636,33 +1636,21 @@\n   std::s\n-hared_ptr%3CPessoa%3E\n+tring\n  desce_p\n@@ -2254,25 +2254,24 @@\n ullptr;%0A\n-%0A\n         \n fn::writ\n@@ -2262,25 +2262,33 @@\n         \n-fn::write\n+return fn::format\n (%22%7B%7D lea\n@@ -2300,39 +2300,16 @@\n ackup);%0A\n-        return backup;%0A\n     %7D%0A%0A \n"
+        },
+        {
+            "label": "2025-01-16_00-55-58",
+            "content": "@@ -2242,79 +2242,74 @@\n     \n-fn::write(%22%7B%7D leave%22,passageiro);%0A        this-%3Epassageiro = nullptr;%0A%0A\n+this-%3Epassageiro = nullptr;%0A%0A        fn::write(%22%7B%7D leave%22,backup);\n %0A   \n"
+        },
+        {
+            "label": "2025-01-16_00-56-19",
+            "content": "@@ -2272,17 +2272,16 @@\n geiro);%0A\n-%0A\n         \n@@ -2709,32 +2709,202 @@\n = custo;%0A    %7D%0A%0A\n+    std::string buzina() const%7B%0A        auto Saida = %22P%22s;%0A        for (int i=0; i%3C(int)this-%3Epotencia; i++)%0A            Saida += %22e%22;%0A        return Saida + %22m%22;%0A    %7D%0A%0A\n     std::string \n@@ -3149,24 +3149,24 @@\n iro-%3Estr();%0A\n+\n         retu\n@@ -3254,106 +3254,8 @@\n    %7D\n-%0A%0A    std::string leave_str() const%7B%0A        return fn::format(%22%7B%7D leave%22,this-%3Epassageiro);%0A    %7D\n %0A   \n"
+        },
+        {
+            "label": "2025-01-16_01-00-11",
+            "content": "@@ -2233,114 +2233,48 @@\n     \n-std::string cliente;%0A        cliente = this-%3Epassageiro-%3Estr();%0A        fn::write(%22Passenger: %7B%7D%22, cliente\n+%0A        fn::write(%22%7B%7D leave%22,passageiro\n );%0A%0A\n"
+        },
+        {
+            "label": "2025-01-16_01-03-59",
+            "content": "@@ -1928,185 +1928,8 @@\n ();%0A\n-        while (passageiro-%3Eget_age() %3E 0)%0A        %7B%0A            /* code */%0A            custo--;%0A            passageiro-%3Eset_age(passageiro-%3Eget_age() - 1);%0A%0A        %7D%0A        %0A%0A\n %0A   \n@@ -2316,16 +2316,21 @@\n te(%22\n-%7B%7D leave\n+Passenger: %7B%7D\n %22, c\n@@ -3143,24 +3143,122 @@\n ente);%0A    %7D\n+%0A%0A    std::string leave_str() const%7B%0A        return fn::format(%22%7B%7D leave%22,this-%3Epassageiro);%0A    %7D\n %0A    %0A%7D;%0A%0Ast\n"
+        },
+        {
+            "label": "2025-01-16_01-06-50",
+            "content": "@@ -2492,24 +2492,27 @@\n ite(\n-cliente, %22leave%22\n+%22%7B%7D leave%22, cliente\n );%0A%0A\n"
+        },
+        {
+            "label": "2025-01-16_01-07-17",
+            "content": "@@ -2503,18 +2503,16 @@\n , %22leave\n-%5Cn\n %22);%0A%0A   \n"
+        },
+        {
+            "label": "2025-01-16_01-07-33",
+            "content": "@@ -2498,17 +2498,16 @@\n iente, %22\n- \n leave%5Cn%22\n"
+        },
+        {
+            "label": "2025-01-16_01-07-48",
+            "content": "@@ -1920,25 +1920,24 @@\n %3Eget_age();%0A\n-%0A\n         whil\n@@ -1943,22 +1943,8 @@\n le (\n-%0A            (\n pass\n@@ -1969,44 +1969,8 @@\n %3E 0)\n- %7C%7C%0A            custo %3E 0%0A%0A        )\n %0A   \n"
+        },
+        {
+            "label": "2025-01-16_01-09-58",
+            "content": "@@ -1883,12 +1883,53 @@\n int \n-aux;\n+custo_atual = custo - passageiro-%3Eget_age();%0A\n %0A   \n@@ -2086,14 +2086,8 @@\n     \n- aux =\n  pas\n@@ -2099,50 +2099,16 @@\n ro-%3E\n-g\n+s\n et_age(\n-);%0A            aux--;%0A            \n pass\n@@ -2119,19 +2119,21 @@\n ro-%3E\n-s\n+g\n et_age(\n-aux\n+) - 1\n );%0A%0A\n"
+        },
+        {
+            "label": "2025-01-16_01-14-11",
+            "content": "@@ -2163,24 +2163,30 @@\n    if (custo\n+_atual\n  %3E 0)%0A      \n@@ -2288,24 +2288,30 @@\n while (custo\n+_atual\n  %3E 0)%0A      \n@@ -2356,32 +2356,38 @@\n            custo\n+_atual\n --;%0A            \n"
+        },
+        {
+            "label": "2025-01-16_01-14-48",
+            "content": "@@ -1944,10 +1944,10 @@\n  0) \n-&&\n+%7C%7C\n %0A   \n"
+        },
+        {
+            "label": "2025-01-16_01-15-46",
+            "content": "@@ -2126,46 +2126,13 @@\n age(\n-passageiro-%3Eget_age()--);%0A            \n+aux);\n %0A%0A  \n"
+        },
+        {
+            "label": "2025-01-16_01-18-03",
+            "content": "@@ -2147,11 +2147,10 @@\n ge()\n- -1\n+--\n );%0A \n"
+        },
+        {
+            "label": "2025-01-16_01-18-11",
+            "content": "@@ -2046,28 +2046,14 @@\n     \n-passageiro-%3Eset_age(\n+aux = \n pass\n@@ -2073,12 +2073,27 @@\n ge()\n- -1)\n+;%0A            aux--\n ;%0A  \n@@ -2095,36 +2095,40 @@\n -;%0A            p\n-ilot\n+assageir\n o-%3Eset_age(pilot\n@@ -2123,20 +2123,24 @@\n et_age(p\n-ilot\n+assageir\n o-%3Eget_a\n@@ -2144,17 +2144,17 @@\n t_age() \n-+\n+-\n 1);%0A    \n"
+        },
+        {
+            "label": "2025-01-16_01-18-44",
+            "content": "@@ -1859,32 +1859,49 @@\n       %0A        %0A\n+        int aux;%0A\n         while (%0A\n"
+        },
+        {
+            "label": "2025-01-16_01-18-55",
+            "content": "@@ -2207,138 +2207,203 @@\n     \n-fn::write(%22fail: Passenger does not have enough money %22);%0A            //dinheiro induficiente%0A            piloto-%3Eset_age(\n+//dinheiro induficiente%0A            int bolso = piloto-%3Eget_age();%0A            while (custo %3E 0)%0A            %7B%0A                bolso--;%0A                custo--;%0A            %7D%0A            \n piloto-%3E\n get_\n@@ -2402,24 +2402,20 @@\n to-%3E\n-g\n+s\n et_age(\n-) + cust\n+bols\n o); \n@@ -2415,32 +2415,34 @@\n olso);          \n+  \n %0A        %7D%0A     \n"
+        },
+        {
+            "label": "2025-01-16_01-21-15",
+            "content": "@@ -2256,16 +2256,17 @@\n gh money\n+ \n %22);%0A    \n"
+        },
+        {
+            "label": "2025-01-16_01-21-37",
+            "content": "@@ -2355,31 +2355,8 @@\n to);\n-%0A            custo = 0;\n     \n@@ -2368,33 +2368,24 @@\n  %0A        %7D%0A\n-        %0A\n         std:\n"
+        },
+        {
+            "label": "2025-01-16_01-22-08",
+            "content": "@@ -373,21 +373,19 @@\n int get_\n-money\n+age\n ()%7B%0A    \n@@ -431,21 +431,19 @@\n oid set_\n-money\n+age\n (int mon\n@@ -597,16 +597,38 @@\n  Moto%7B%0A%0A\n+    int potencia = 1;%0A\n     int \n@@ -747,24 +747,83 @@\n ublic:%0A    %0A\n+    Moto(int potencia = 1): potencia(potencia)%7B%0A    %7D%0A    %0A\n     void sob\n@@ -1346,24 +1346,300 @@\n %0A    %7D%0A    %0A\n+    std::shared_ptr%3CPessoa%3E desce_pessoa()%7B%0A        if(this-%3Epassageiro==nullptr)%7B%0A            fn::write(%22fail: empty motorcycle%22);%0A            return nullptr;%0A        %7D%0A        auto backup = this-%3Epassageiro;%0A        this-%3Epassageiro = nullptr;%0A        return backup;%0A    %7D%0A%0A\n     std::sha\n@@ -1912,21 +1912,19 @@\n ro-%3Eget_\n-money\n+age\n () %3E 0) \n@@ -2041,21 +2041,19 @@\n ro-%3Eset_\n-money\n+age\n (passage\n@@ -2061,21 +2061,19 @@\n ro-%3Eget_\n-money\n+age\n () -1);%0A\n@@ -2088,37 +2088,35 @@\n     piloto-%3Eset_\n-money\n+age\n (piloto-%3Eget_mon\n@@ -2108,29 +2108,27 @@\n piloto-%3Eget_\n-money\n+age\n () +1);%0A    \n@@ -2320,21 +2320,19 @@\n to-%3Eset_\n-money\n+age\n (piloto-\n@@ -2336,21 +2336,19 @@\n to-%3Eget_\n-money\n+age\n () + cus\n@@ -2387,32 +2387,40 @@\n      %0A        %7D%0A\n+        \n %0A        std::st\n"
+        },
+        {
+            "label": "2025-01-16_01-25-16",
+            "content": "#include <iostream>\n#include \"fn.hpp\"\n\n#include <memory>\nclass Pessoa{\n\n    std::string nome;\n    int dinheiro;\n\n  public:\n\n    Pessoa(std::string nome, int dinheiro): nome(nome), dinheiro(dinheiro) {\n    }\n\n    std::string str() const{\n        return fn::format(\"{}:{}\",this->nome,this->dinheiro);\n    }\n\n    std::string get_name(){\n        return this->nome;\n    }\n\n    int get_money(){\n        return this->dinheiro;\n    }\n\n    void set_money(int money){\n        dinheiro = money;\n    }\n};\n\nstd::ostream& operator<<(std::ostream& os, const Pessoa& pessoa){\n    return os << pessoa.str();\n} \n\nclass Moto{\n\n    int custo = 0;\n\n    std::shared_ptr<Pessoa> piloto {nullptr};\n    std::shared_ptr<Pessoa> passageiro {nullptr};\n\n  public:\n    \n    void sobe_piloto(std::shared_ptr<Pessoa> pessoa){\n     if (this->piloto != nullptr)\n     {\n        fn::write(\"fail: busy motorcycle\");\n        return;\n     }\n     this->piloto = pessoa;\n    }\n\n    void sobe_passageiro(std::shared_ptr<Pessoa> pessoa){\n     if (this->passageiro != nullptr)\n     {\n        fn::write(\"fail: busy motorcycle\");\n        return;\n     }\n     if (\n        this->piloto == nullptr\n     )\n     {\n        fn::write(\"fail: empty motorcycle\");\n        return;\n     }\n     \n     this->passageiro = pessoa;\n    }\n    \n    std::shared_ptr<Pessoa> desce_passageiro(){\n        if(this->passageiro==nullptr){\n            fn::write(\"fail: empty motorcycle\");\n            return nullptr;\n        }\n        \n        auto backup = this->passageiro;\n        \n        \n        while (\n            (passageiro->get_money() > 0) &&\n            custo > 0\n\n        )\n        {\n            /* code */\n            custo--;\n            passageiro->set_money(passageiro->get_money() -1);\n            piloto->set_money(piloto->get_money() +1);\n            \n\n        }\n        \n\n\n        if (custo > 0)\n        {\n            fn::write(\"fail: Passenger does not have enough money\");\n            //dinheiro induficiente\n            piloto->set_money(piloto->get_money() + custo);\n            custo = 0;          \n        }\n\n        std::string cliente;\n        cliente = this->passageiro->str();\n        fn::write(cliente, \" leave\\n\");\n\n        this->passageiro = nullptr;\n\n\n        return backup;\n    }\n\n    void add_custo(int custo){\n        this->custo += custo;\n    }\n\n    void dirigir(int custo){\n        if(this->piloto == nullptr){\n            fn::write(\"fail: empty motorcycle\");\n            return;\n        }\n\n        if(this->passageiro == nullptr){\n            fn::write(\"fail: empty motorcycle pass\");\n            return;\n        }\n\n        this->custo += custo;\n    }\n\n    std::string str() const{\n        std::string nome(\"None\");\n        std::string cliente(\"None\");\n        if (this->piloto != nullptr)\n            nome = this->piloto->str();\n\n        if (this->passageiro != nullptr)\n            cliente = this->passageiro->str();\n        return fn::format(\"Cost: {}, Driver: {}, Passenger: {}\",this->custo, nome,cliente);\n    }\n    \n};\n\nstd::ostream& operator<<(std::ostream& os, const Moto& moto){\n    return os << moto.str();\n}\n\n\nclass Adapter {\n    Moto motocicleta;\n\npublic:\n    void setDriver(std::string name, int money) {\n        auto person = std::make_shared<Pessoa>(name, money);\n        motocicleta.sobe_piloto(person);\n    }\n    void setPass(std::string name, int money) {\n        auto person = std::make_shared<Pessoa>(name, money);\n        motocicleta.sobe_passageiro(person);\n    }\n    void drive(int distance) {\n        motocicleta.dirigir(distance);\n    }\n    void leavePass() {\n        motocicleta.desce_passageiro();\n    }\n    void show() {\n        fn::write(motocicleta);\n    }\n};\n\nint main() {\n    Adapter adp;\n    while (true) {\n        fn::write(\"$\", \"\");\n        auto line = fn::input();\n        auto args = fn::split(line, ' ');\n        fn::write(line);\n\n        if      (args[0] == \"end\")       { break;                                  }\n        else if (args[0] == \"setDriver\") { adp.setDriver(args[1], +args[2]);       }\n        else if (args[0] == \"setPass\")   { adp.setPass(args[1], +args[2]);         }\n        else if (args[0] == \"drive\")     { adp.drive(+args[1]);                    }\n        else if (args[0] == \"leavePass\") { adp.leavePass();                        }\n        else if (args[0] == \"show\")      { adp.show();                             }\n        else                             { fn::write(\"fail: command not found\\n\"); }\n    }\n}"
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "patches": [
+        {
+            "label": "2025-03-10_01-41-06",
+            "content": "@@ -95,696 +95,8 @@\n d;%0A%0A\n-enum Label %7B%0A    DEPOSIT,%0A    FEE,%0A    OPENING,%0A    REVERSE,%0A    WITHDRAW,%0A    ERROR%0A%7D;%0A%0A%0Aclass operation%0A%7B%0Aprivate:%0A    /* data */%0A    int idex;%0A    Label label;%0A    int value;%0A    int balance;%0Apublic:%0A    operation(int id, Label tag,int val, int bal): idex(id),label(tag),value(val),balance(bal)%7B%7D;%0A    int get_balance()%7Breturn balance;%7D%0A    int get_value()%7Breturn value;%7D%0A    int get_idex()%7Breturn idex;%7D%0A%0A    auto get_label()%7Breturn idex;%7D%0A%7D;%0A%0A%0Aclass balanceManager%0A%7B%0Aprivate:%0A    /* data */%0A    int balance;%0A    int nextid;%0Apublic:%0A    balanceManager(/* args */);%0A    ~balanceManager();%0A%7D;%0A%0A%0Aclass account%0A%7B%0Aprivate:%0A    /* data */%0A    int id;%0Apublic:%0A    account(/* args */);%0A%7D;%0A%0A%0A%0A\n temp\n"
+        },
+        {
+            "label": "2025-03-10_01-54-30",
+            "content": "@@ -95,42 +95,8 @@\n d;%0A%0A\n-%0A%0A%0Aclass operation%0A%7B%0Aprivate:%0A    \n enum\n@@ -108,20 +108,16 @@\n l %7B%0A    \n-  \n-  \n DEPOSIT,\n@@ -117,20 +117,16 @@\n EPOSIT,%0A\n-    \n     FEE,\n@@ -126,20 +126,16 @@\n    FEE,%0A\n-    \n     OPEN\n@@ -143,20 +143,16 @@\n NG,%0A    \n- \n-   \n REVERSE,\n@@ -156,20 +156,16 @@\n SE,%0A    \n-   \n- \n WITHDRAW\n@@ -166,20 +166,16 @@\n THDRAW,%0A\n-    \n     ERRO\n@@ -180,19 +180,40 @@\n ROR%0A\n-    %7D;%0A    \n+%7D;%0A%0A%0Aclass operation%0A%7B%0Aprivate:%0A\n     \n@@ -285,22 +285,16 @@\n balance;\n-%0A%0A    \n %0Apublic:\n"
+        },
+        {
+            "label": "2025-03-10_01-55-10",
+            "content": "@@ -95,20 +95,27 @@\n d;%0A%0A\n+%0A%0A%0A\n class \n-Label \n+operation%0A\n %7B%0Apr\n@@ -129,43 +129,18 @@\n     \n-string label;%0Apublic:%0A    enum Type\n+enum Label\n  %7B%0A \n@@ -244,160 +244,8 @@\n   %7D;\n-%0A%0A    Label(const std::string& label) : label(label) %7B%7D%0A%0A    std::string getLabel() const %7B%0A        return label;%0A    %7D%0A%0A%7D;%0A%0A%0Aclass operation%0A%7B%0Aprivate:\n %0A   \n"
+        },
+        {
+            "label": "2025-03-10_01-56-50",
+            "content": "@@ -712,16 +712,17 @@\n  idex;%7D%0A\n+%0A\n     auto\n@@ -821,39 +821,8 @@\n ce;%0A\n-    vector%3Coperation%3E extrato;%0A\n     \n@@ -864,172 +864,43 @@\n ger(\n-);%0A    void add_operacao(Label op,int val)%7B%7D%0A    void get_operacao(int id)%7B%7D%0A    int get_balance()%7Breturn balance;%7D%0A    auto get_extrato(int qtdop)%7Breturn extrato;%7D\n+/* args */);%0A    ~balanceManager();\n %0A%7D;%0A\n@@ -934,35 +934,18 @@\n     \n-balanceManager gerenciador;\n+/* data */\n %0A   \n@@ -977,187 +977,20 @@\n unt(\n-int idex): id(idex)%7B%7D;%0A    void depositar()%7B%7D%0A    void fee()%7B%7D%0A    void reverter()%7B%7D%0A    void saque()%7B%7D%0A    string str() const%7B%7D%0A    auto get_balanceManager()%7Breturn gerenciador;%7D\n+/* args */);\n %0A%7D;%0A\n"
+        },
+        {
+            "label": "2025-03-10_02-04-15",
+            "content": "@@ -73,28 +73,8 @@\n ip%3E%0A\n-%0A#include %22fn.hpp%22%0A%0A\n usin\n@@ -1161,12 +1161,8 @@\n idex\n- = 0\n ): i\n@@ -1171,27 +1171,24 @@\n idex)%7B%7D;%0A   \n- //\n  void deposi\n@@ -1194,27 +1194,24 @@\n itar()%7B%7D%0A   \n- //\n  void fee()%7B\n@@ -1211,27 +1211,24 @@\n  fee()%7B%7D%0A   \n- //\n  void revert\n@@ -1237,19 +1237,16 @@\n ()%7B%7D%0A   \n- //\n  void sa\n@@ -1280,70 +1280,8 @@\n nst%7B\n-%0A        return fn::format(%22account:%7B%7D balance:%7B%7D%22,id,0);%0A    \n %7D%0A  \n@@ -1641,22 +1641,8 @@\n     \n-account conta;\n %0A   \n@@ -1911,16 +1911,18 @@\n         \n+//\n  int num\n@@ -1920,24 +1920,26 @@\n / int number\n+%7B%7D\n ;%0A          \n@@ -1936,24 +1936,26 @@\n             \n+//\n  ss %3E%3E numbe\n@@ -1961,46 +1961,8 @@\n er;%0A\n-             conta = account(number);%0A\n     \n"
+        },
+        {
+            "label": "2025-03-10_02-07-36",
+            "content": "@@ -912,27 +912,24 @@\n nager();%0A   \n- //\n  void add_op\n@@ -954,27 +954,24 @@\n t val)%7B%7D%0A   \n- //\n  void get_op\n@@ -1026,21 +1026,16 @@\n lance;%7D%0A\n-    %0A\n     auto\n@@ -1047,16 +1047,25 @@\n extrato(\n+int qtdop\n )%7Breturn\n"
+        },
+        {
+            "label": "2025-03-10_02-07-57",
+            "content": "@@ -887,24 +887,46 @@\n id;%0Apublic:%0A\n+    balanceManager();%0A\n     // void \n@@ -1032,16 +1032,20 @@\n lance;%7D%0A\n+    \n %0A    aut\n"
+        },
+        {
+            "label": "2025-03-10_02-08-15",
+            "content": "@@ -2137,31 +2137,15 @@\n     \n-fn::write(conta.str());\n+// TODO\n %0A   \n"
+        },
+        {
+            "label": "2025-03-10_02-08-40",
+            "content": "@@ -169,21 +169,20 @@\n    enum \n-opcao\n+Type\n  %7B%0A     \n@@ -890,24 +890,27 @@\n %0Apublic:%0A   \n+ //\n  void add_op\n@@ -925,15 +925,8 @@\n abel\n-::opcao\n  op,\n@@ -934,22 +934,16 @@\n nt val)%7B\n-%0A%0A    \n %7D%0A    //\n@@ -1175,16 +1175,19 @@\n )%7B%7D;%0A   \n+ //\n  void de\n@@ -1198,83 +1198,10 @@\n tar(\n-int valor)%7B%0A        %0A        gerenciador.add_operacao(Label::DEPOSIT);%0A    \n+)%7B\n %7D%0A  \n@@ -1214,25 +1214,16 @@\n oid fee(\n-int valor\n )%7B%7D%0A    \n@@ -1239,25 +1239,16 @@\n everter(\n-int valor\n )%7B%7D%0A    \n@@ -1265,17 +1265,8 @@\n que(\n-int valor\n )%7B%7D%0A\n@@ -2215,16 +2215,19 @@\n         \n+ //\n  float v\n@@ -2241,24 +2241,27 @@\n %0A           \n+ //\n  ss %3E%3E value\n@@ -2266,22 +2266,8 @@\n ue;%0A\n-            %0A%0A\n     \n"
+        },
+        {
+            "label": "2025-03-10_02-22-11",
+            "content": "@@ -107,24 +107,73 @@\n space std;%0A%0A\n+class Label %7B%0Aprivate:%0A    string label;%0Apublic:%0A\n     enum Lab\n@@ -169,21 +169,21 @@\n    enum \n-Label\n+opcao\n  %7B%0A     \n@@ -277,24 +277,147 @@\n ROR%0A    %7D;%0A%0A\n+    Label(const std::string& label) : label(label) %7B%7D%0A%0A    std::string getLabel() const %7B%0A        return label;%0A    %7D%0A%0A%7D;%0A%0A\n %0Aclass opera\n@@ -944,36 +944,9 @@\n l)%7B%0A\n-        Label operacao(op);\n %0A\n+\n     \n@@ -1179,24 +1179,24 @@\n id(idex)%7B%7D;%0A\n-\n     void dep\n@@ -1214,16 +1214,25 @@\n valor)%7B%0A\n+        %0A\n         \n"
+        },
+        {
+            "label": "2025-03-10_02-28-20",
+            "content": "@@ -747,16 +747,23 @@\n ao(Label\n+::opcao\n  op,int \n@@ -1106,21 +1106,22 @@\n cao(\n+Label::\n DEPOSIT\n-,valor\n );%0A \n"
+        },
+        {
+            "label": "2025-03-10_02-28-53",
+            "content": "@@ -663,20 +663,16 @@\n  balance\n- = 0\n ;%0A    ve\n@@ -687,24 +687,22 @@\n ration%3E \n-historic\n+extrat\n o;%0A    i\n@@ -710,20 +710,16 @@\n t nextid\n- = 0\n ;%0Apublic\n@@ -720,21 +720,16 @@\n public:%0A\n-    %0A\n     void\n@@ -773,85 +773,26 @@\n     \n-historico.push_back(operation(nextid,op,val,balance));%0A        balance += val\n+Label operacao(op)\n ;%0A  \n@@ -883,24 +883,22 @@\n uto get_\n-historic\n+extrat\n o()%7Bretu\n@@ -904,16 +904,14 @@\n urn \n-historic\n+extrat\n o;%7D%0A\n"
+        },
+        {
+            "label": "2025-03-10_02-34-24",
+            "content": "@@ -991,80 +991,8 @@\n co;%7D\n-%0A%0A    string str() const%7B%0A        return fn::format(%22%7B%7D%22,balance);%0A    %7D\n %0A%7D;%0A\n@@ -1370,25 +1370,9 @@\n ,id,\n-gerenciador.str()\n+0\n );%0A \n"
+        },
+        {
+            "label": "2025-03-10_02-36-09",
+            "content": "@@ -2384,31 +2384,8 @@\n     \n-conta.depositar(value);\n %0A%0A  \n"
+        },
+        {
+            "label": "2025-03-10_02-36-44",
+            "content": "@@ -1216,126 +1216,8 @@\n r)%7B%0A\n-        if (valor %3C 0)%0A        %7B%0A            fn::write(%22fail: invalid value%22);%0A            return;%0A        %7D%0A        %0A\n     \n"
+        },
+        {
+            "label": "2025-03-10_02-38-17",
+            "content": "@@ -780,115 +780,8 @@\n l)%7B%0A\n-        if (val %3C 0)%0A        %7B%0A            fn::write(%22fail: invalid value%22);%0A            return;%0A        %7D%0A\n     \n@@ -1212,16 +1212,124 @@\n valor)%7B%0A\n+        if (valor %3C 0)%0A        %7B%0A            fn::write(%22fail: invalid value%22);%0A            return;%0A        %7D\n %0A       \n"
+        },
+        {
+            "label": "2025-03-10_02-38-53",
+            "content": "@@ -455,436 +455,8 @@\n al)%7B\n-%0A        switch (tag)%0A        %7B%0A        case DEPOSIT:%0A            if (val %3C 0)%0A            %7B%0A                fn::write(%22fail: invalid value%22);%0A                return;%0A            %7D%0A            balance += val;%0A        break;%0A        %0A        case WITHDRAW:%0A        break;%0A        case FEE:%0A        break;%0A        case OPENING:%0A        break;%0A        case REVERSE:%0A        break;%0A        default:%0A            break;%0A        %7D%0A    \n %7D;%0A \n@@ -776,16 +776,122 @@\n t val)%7B%0A\n+        if (val %3C 0)%0A        %7B%0A            fn::write(%22fail: invalid value%22);%0A            return;%0A        %7D\n %0A       \n@@ -958,48 +958,23 @@\n     \n-historico.back().get_balance();%0A        \n+balance += val;\n %0A   \n@@ -1310,32 +1310,42 @@\n itar(int valor)%7B\n+%0A%0A        \n %0A        gerenci\n@@ -1388,91 +1388,8 @@\n   %7D%0A\n-    void saque(int valor)%7B%0A        gerenciador.add_operacao(WITHDRAW,valor);%0A    %7D%0A\n     \n@@ -1443,24 +1443,55 @@\n nt valor)%7B%7D%0A\n+    // void saque(int valor)%7B%7D%0A\n     string s\n"
+        },
+        {
+            "label": "2025-03-10_02-45-52",
+            "content": "@@ -1275,26 +1275,16 @@\n %0A       \n- balance =\n  histori\n"
+        },
+        {
+            "label": "2025-03-10_02-46-10",
+            "content": "@@ -528,16 +528,14 @@\n (val\n-ue\n  %3C 0)%0A\n+\n     \n@@ -667,32 +667,41 @@\n %0A        break;%0A\n+        %0A\n         case WIT\n@@ -711,175 +711,8 @@\n AW:%0A\n-            if (balance %3C value)%0A            %7B%0A                fn::write(%22fail: invalid value%22);%0A                return;%0A            %7D%0A%0A            balance -= value;%0A%0A\n     \n@@ -1322,26 +1322,8 @@\n ();%0A\n-        nextid++;%0A\n     \n@@ -1333,17 +1333,16 @@\n  %0A    %7D%0A\n-%0A\n     // v\n@@ -2973,32 +2973,34 @@\n ) %7B%0A            \n+//\n  float value%7B%7D;%0A\n@@ -3003,32 +3003,34 @@\n %7B%7D;%0A            \n+//\n  ss %3E%3E value;%0A  \n@@ -3031,41 +3031,8 @@\n ue;%0A\n-             conta.saque(value);%0A\n     \n"
+        },
+        {
+            "label": "2025-03-10_02-48-23",
+            "content": "#include <iostream>\n#include <vector>\n#include <sstream>\n#include <iomanip>\n\n#include \"fn.hpp\"\n\nusing namespace std;\n\n    enum Label {\n        DEPOSIT,\n        FEE,\n        OPENING,\n        REVERSE,\n        WITHDRAW,\n        ERROR\n    };\n\n\nclass operation\n{\nprivate:\n        /* data */\n    int idex;\n    Label label;\n    int value;\n    int balance;\n\n    \npublic:\n    operation(int id, Label tag,int val, int bal): idex(id),label(tag),value(val),balance(bal){\n        switch (tag)\n        {\n        case DEPOSIT:\n            if (value < 0)\n            {\n                fn::write(\"fail: invalid value\");\n                return;\n            }\n            balance += val;\n        break;\n        case WITHDRAW:\n            if (balance < value)\n            {\n                fn::write(\"fail: invalid value\");\n                return;\n            }\n\n            balance -= value;\n\n        break;\n        case FEE:\n        break;\n        case OPENING:\n        break;\n        case REVERSE:\n        break;\n        default:\n            break;\n        }\n    };\n    int get_balance(){return balance;}\n    int get_value(){return value;}\n    int get_idex(){return idex;}\n    auto get_label(){return idex;}\n};\n\n\nclass balanceManager\n{\nprivate:\n    /* data */\n    int balance = 0;\n    vector<operation> historico;\n    int nextid = 0;\npublic:\n    \n    void add_operacao(Label op,int val){\n\n        historico.push_back(operation(nextid,op,val,balance));\n        balance = historico.back().get_balance();\n        nextid++;\n        \n    }\n\n    // void get_operacao(int id){}\n    int get_balance(){return balance;}\n\n    auto get_historico(){return historico;}\n\n    string str() const{\n        return fn::format(\"{}\",balance);\n    }\n};\n\n\nclass account\n{\nprivate:\n    balanceManager gerenciador;\n    int id;\npublic:\n    account(int idex = 0): id(idex){};\n    void depositar(int valor){\n        gerenciador.add_operacao(DEPOSIT,valor);\n    }\n    void saque(int valor){\n        gerenciador.add_operacao(WITHDRAW,valor);\n    }\n    // void fee(int valor){}\n    // void reverter(int valor){}\n    string str() const{\n        return fn::format(\"account:{} balance:{}\",id,gerenciador.str());\n    }\n    auto get_balanceManager(){return gerenciador;}\n};\n\n\n\ntemplate<typename CONTAINER, typename FUNC>\nstring join(const CONTAINER& cont, FUNC func, const string& delim) {\n    stringstream ss;\n    for (auto it = cont.begin(); it != cont.end(); it++) {\n        ss << (it == cont.begin() ? \"\" : delim) << func(*it);\n    }\n    return ss.str();\n}\n\nint main() {\n    account conta;\n    while(true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        \n        if (cmd == \"end\") {\n            break;\n        }\n        else if (cmd == \"init\") {\n             int number;\n             ss >> number;\n             conta = account(number);\n        }\n        else if (cmd == \"show\") {\n            fn::write(conta.str());\n        }\n        else if (cmd == \"deposit\") {\n            float value{};\n            ss >> value;\n            conta.depositar(value);\n\n        }\n        else if (cmd == \"withdraw\") {\n             float value{};\n             ss >> value;\n             conta.saque(value);\n        }\n        else if (cmd == \"fee\") {\n            // float value{};\n            // ss >> value;\n        }\n        else if (cmd == \"extract\") {\n            // int qtd{};\n            // ss >> qtd;\n        }\n        else if (cmd == \"reverse\") {\n            // int index{};\n            // while(ss >> index) {\n            // }\n        }\n        else {\n            cout << \"fail: invalid command\\n\";\n        }\n    }\n    return 0;\n}\n"
+        }
+    ]
+}

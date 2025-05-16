@@ -1,0 +1,16 @@
+{
+    "patches": [
+        {
+            "label": "2025-03-02_22-22-28",
+            "content": "@@ -723,17 +723,47 @@\n ) == %22%22)\n-%7B\n+ //: # mantendo usu%C3%A1rio no loop\n %0A       \n@@ -965,45 +965,8 @@\n rros\n-%0A    %7D //: # mantendo usu%C3%A1rio no loop\n %0A%0A  \n"
+        },
+        {
+            "label": "2025-03-02_22-22-49",
+            "content": "@@ -1048,17 +1048,16 @@\n enta.get\n-_\n Tamanho(\n"
+        },
+        {
+            "label": "2025-03-02_22-22-57",
+            "content": "#include <iostream>\n#include <string.h>\n\n\n\nclass Roupa\n{\nprivate:\n    std::string tamanho;\npublic:\n    \n    Roupa(std::string size = \"\"): tamanho(size){};\n    \n    void set_tamanho(std::string x){\n        if (\n            (x != \"PP\") &&\n            (x != \"P\") &&\n            (x != \"M\") &&\n            (x != \"G\") &&\n            (x != \"GG\") &&\n            (x != \"XG\") &&\n            (x != \"XGG\")\n            )\n        {\n            std::cout << \"por favor insira um tamnho valido!\" << std::endl; \n            return;\n        }\n        \n        tamanho = x;\n    }\n\n    std::string get_tamanho(){return tamanho;}\n\n};\n\n\nint main() {\n    \n    Roupa vestimenta;\n\n    std::cout << \"qxcode\\n\";\n\n\n\n    while (vestimenta.get_tamanho() == \"\"){\n        std::cout << \"Digite seu tamanho de roupa\\n\";\n        std::string size;\n        std::cin >> size; // # lendo a resposta\n        vestimenta.set_tamanho(size); //# tentando atribuir e disparando erros\n    } //: # mantendo usu\u00e1rio no loop\n\n    std::cout << \"Parabens, voc\u00ea comprou uma roupa tamanho \" << vestimenta.get_Tamanho() << std::endl;\n}\n\n"
+        }
+    ]
+}

@@ -1,0 +1,236 @@
+{
+    "patches": [
+        {
+            "label": "2025-03-08_15-32-37",
+            "content": "@@ -322,17 +322,16 @@\n bel(tag)\n- \n %7B%7D;%0A    \n@@ -617,17 +617,17 @@\n ic:%0A    \n-I\n+i\n tem(stri\n"
+        },
+        {
+            "label": "2025-03-08_15-33-41",
+            "content": "@@ -1821,151 +1821,33 @@\n     \n-int value = 10;%0A        return fn::format(%22state=%7B%7D : coins=%5B%7B%7D%5D : value=%7B%7D : volume=%7B%7D/%7B%7D%22,quebrado,static_cast%3Cint%3E(reais.size()),value,value\n+return fn::format(%22%7B%7D - %22\n ,vol\n"
+        },
+        {
+            "label": "2025-03-08_15-38-09",
+            "content": "@@ -1837,94 +1837,8 @@\n 10;%0A\n-        string status = %22intact%22;%0A        if (quebrado)%7Bstatus = %22broken%22;%7D%0A        %0A%0A\n     \n@@ -1913,14 +1913,16 @@\n %7B%7D%22,\n-status\n+quebrado\n ,sta\n"
+        },
+        {
+            "label": "2025-03-08_15-40-51",
+            "content": "@@ -1921,176 +1921,8 @@\n     \n-%0A        string out_coins = %22%22;%0A        for (auto i = 0; i %3C static_cast%3Cint%3E(reais.size()); i++)%0A        %7B%0A            out_coins += reais%5Bi%5D-%3Estr();%0A        %7D%0A        \n %0A%0A  \n@@ -2002,16 +2002,46 @@\n ,status,\n+static_cast%3Cint%3E(reais.size())\n ,value,v\n"
+        },
+        {
+            "label": "2025-03-08_15-42-54",
+            "content": "@@ -2170,25 +2170,16 @@\n ,status,\n-out_coins\n ,value,v\n"
+        },
+        {
+            "label": "2025-03-08_15-43-04",
+            "content": "@@ -1821,16 +1821,23 @@\n     \n-// state\n+int value = 10;\n %0A   \n@@ -1921,15 +1921,8 @@\n     \n-//coins\n %0A   \n@@ -2089,228 +2089,8 @@\n     \n-//itens%0A        string out_itens = %22%22;%0A        for (auto i = 0; i %3C static_cast%3Cint%3E(itens.size()); i++)%0A        %7B%0A            out_coins += itens%5Bi%5D-%3Estr();%0A        %7D       %0A        //value%0A        double out_value = 10;\n %0A%0A  \n@@ -2141,19 +2141,8 @@\n %7D%5D :\n- items=%5B%7B%7D%5D\n  val\n@@ -2184,17 +2184,13 @@\n ins,\n-out_itens\n+value\n ,val\n"
+        },
+        {
+            "label": "2025-03-08_15-46-02",
+            "content": "@@ -2421,20 +2421,16 @@\n t_itens,\n-out_\n value,vo\n"
+        },
+        {
+            "label": "2025-03-08_15-46-18",
+            "content": "@@ -2216,19 +2216,19 @@\n     out_\n-ite\n+coi\n ns += it\n"
+        },
+        {
+            "label": "2025-03-08_15-46-46",
+            "content": "@@ -1809,25 +1809,16 @@\n  const%7B%0A\n-        %0A\n         \n@@ -1826,16 +1826,16 @@\n / state%0A\n+\n         \n@@ -1902,25 +1902,16 @@\n oken%22;%7D%0A\n-        %0A\n         \n@@ -2073,25 +2073,24 @@\n ;%0A        %7D%0A\n-%0A\n         //it\n@@ -2259,25 +2259,16 @@\n        %0A\n-        %0A\n         \n@@ -2307,16 +2307,16 @@\n  = 10;%0A%0A\n+\n         \n@@ -2441,27 +2441,16 @@\n lume_max\n-,volume_max\n );%0A    %7D\n"
+        },
+        {
+            "label": "2025-03-08_15-47-58",
+            "content": "@@ -2400,18 +2400,16 @@\n %5B%7B%7D%5D\n- :\n  value=%7B\n %25.2f\n@@ -2408,12 +2408,8 @@\n ue=%7B\n-%25.2f\n %7D : \n"
+        },
+        {
+            "label": "2025-03-08_15-50-01",
+            "content": "@@ -2330,16 +2330,17 @@\n value = \n+1\n 0;%0A%0A    \n"
+        },
+        {
+            "label": "2025-03-08_15-50-25",
+            "content": "@@ -2338,54 +2338,8 @@\n 0;%0A%0A\n-        //volume%0A        int out_volume = 0;%0A%0A\n     \n@@ -2468,18 +2468,18 @@\n lue,\n-out_\n volume\n+_max\n ,vol\n"
+        },
+        {
+            "label": "2025-03-08_15-51-10",
+            "content": "@@ -265,20 +265,16 @@\n uble val\n- = 0\n , int vo\n@@ -274,20 +274,16 @@\n  int vol\n- = 0\n , string\n@@ -328,212 +328,8 @@\n g) %7B\n-%0A        if (label == %2210%22)%7Bval = 0.10;vol = 1;%7D%0A        if (label == %2225%22)%7Bval = 0.25;vol = 2;%7D%0A        if (label == %2250%22)%7Bval = 0.50;vol = 3;%7D%0A        if (label == %22100%22)%7Bval = 1;vol = 4;%7D%0A        %0A    \n %7D;%0A \n@@ -499,12 +499,22 @@\n %22%7B%7D:\n+ \n %7B%7D,\n-%22\n+ %7B%7D%22,label\n ,val\n@@ -2089,98 +2089,8 @@\n ();%0A\n-            if ((i+1) != static_cast%3Cint%3E(reais.size()))%7Bout_coins += %22, %22;%7D%0A            %0A\n     \n@@ -3444,24 +3444,27 @@\n %0A           \n+ //\n  string labe\n@@ -3473,24 +3473,27 @@\n %0A           \n+ //\n  ss %3E%3E label\n@@ -3497,73 +3497,8 @@\n bel;\n-%0A%0A            cofrinho.add_moeda(std::make_shared%3CMoeda%3E(label));\n %0A   \n"
+        },
+        {
+            "label": "2025-03-08_16-00-36",
+            "content": "@@ -265,16 +265,20 @@\n uble val\n+ = 0\n , int vo\n@@ -278,16 +278,20 @@\n  int vol\n+ = 0\n , string\n"
+        },
+        {
+            "label": "2025-03-08_16-00-58",
+            "content": "@@ -265,19 +265,16 @@\n uble val\n- =0\n , int vo\n@@ -278,11 +278,8 @@\n  vol\n- =0\n , st\n@@ -286,21 +286,16 @@\n ring tag\n- = %22%22\n ): valor\n"
+        },
+        {
+            "label": "2025-03-08_16-01-26",
+            "content": "@@ -272,10 +272,8 @@\n l =0\n-.0\n , in\n"
+        },
+        {
+            "label": "2025-03-08_16-01-46",
+            "content": "@@ -151,193 +151,8 @@\n p%22%0A%0A\n-public static C10 = new Coin(0.10, 1, %22C10%22);%0Apublic static C25 = new Coin(0.25, 2, %22C25%22);%0Apublic static C50 = new Coin(0.50, 3, %22C50%22);%0Apublic static C100 = new Coin(1.0, 4, %22C100%22);%0A\n clas\n@@ -237,21 +237,16 @@\n data */%0A\n-    %0A\n public:%0A\n@@ -265,16 +265,21 @@\n uble val\n+ =0.0\n , int vo\n@@ -279,16 +279,19 @@\n  int vol\n+ =0\n , string\n@@ -294,16 +294,21 @@\n ring tag\n+ = %22%22\n ): valor\n@@ -742,18 +742,10 @@\n   %7D%0A\n-%0A    %0A%7D;%0A%0A\n+%7D;\n %0A%0Acl\n"
+        },
+        {
+            "label": "2025-03-08_16-05-07",
+            "content": "@@ -147,16 +147,201 @@\n n.hpp%22%0A%0A\n+public static C10 = new Coin(0.10, 1, %22C10%22);%0Apublic static C25 = new Coin(0.25, 2, %22C25%22);%0Apublic static C50 = new Coin(0.50, 3, %22C50%22);%0Apublic static C100 = new Coin(1.0, 4, %22C100%22);%0A\n class Mo\n@@ -4030,12 +4030,8 @@\n da%3E(\n-0,0,\n labe\n"
+        },
+        {
+            "label": "2025-03-08_16-05-41",
+            "content": "@@ -706,16 +706,17 @@\n t(%22%7B%7D:%7B%7D\n+,\n %22,valor,\n"
+        },
+        {
+            "label": "2025-03-08_16-06-41",
+            "content": "@@ -147,18 +147,16 @@\n n.hpp%22%0A%0A\n-%0A%0A\n class Mo\n@@ -333,464 +333,418 @@\n g) %7B\n-%7D;%0A    double get_valor()%7Breturn valor;%7D%0A    int get_volume()%7Breturn volume;%7D%0A    string get_label()%7Breturn label;%7D%0A%0A    string str() const%7B%0A        return fn::format(%22%7B%7D:%7B%7D%22,valor,volume);%0A    %7D%0A%0A    // Membros est%C3%A1ticos%0A    static Moeda C10;%0A    static Moeda C25;%0A    static Moeda C50;%0A    static Moeda C100;%0A    %0A%7D;%0A%0AMoeda Moeda::C10(0.10, 1, %22C10%22);%0AMoeda Moeda::C25(0.25, 2, %22C25%22);%0AMoeda Moeda::C50(0.50, 3, %22C50%22);%0AMoeda Moeda::C100(1.0, 4, %22C100%22);\n+%0A        if (label == %2210%22)%7Bval = 0.10;vol = 1;%7D%0A        if (label == %2225%22)%7Bval = 0.25;vol = 2;%7D%0A        if (label == %2250%22)%7Bval = 0.50;vol = 3;%7D%0A        if (label == %22100%22)%7Bval = 1;vol = 4;%7D%0A        %0A    %7D;%0A    double get_valor()%7Breturn valor;%7D%0A    int get_volume()%7Breturn volume;%7D%0A    string get_label()%7Breturn label;%7D%0A%0A    string str() const%7B%0A        return fn::format(%22%7B%7D:%7B%7D%22,valor,volume);%0A    %7D%0A%0A    %0A%7D;%0A%0A\n %0A%0Acl\n@@ -3788,45 +3788,9 @@\n el;%0A\n-                if (label == %2210%22)%7B%0A \n+%0A\n     \n@@ -3789,39 +3789,32 @@\n l;%0A%0A            \n-       \n cofrinho.add_moe\n@@ -3844,538 +3844,20 @@\n da%3E(\n-Moeda::C10));%0A                    %7Delse%0A                if (label == %2225%22)%7B%0A                    cofrinho.add_moeda(std::make_shared%3CMoeda%3E(Moeda::C25));%0A                %7Delse%0A                if (label == %2250%22)%7B%0A                    cofrinho.add_moeda(std::make_shared%3CMoeda%3E(Moeda::C50));%0A                %7Delse%0A                if (label == %22100%22)%7B%0A                    cofrinho.add_moeda(std::make_shared%3CMoeda%3E(Moeda::C100));%0A                %7Delse%7B%0A                    fn::write(%22valor invalido%22);%0A                %7D   %0A            \n+0,0,label));\n %0A   \n"
+        },
+        {
+            "label": "2025-03-08_16-20-11",
+            "content": "@@ -500,20 +500,16 @@\n ormat(%22%7B\n-%25.2f\n %7D:%7B%7D%22,va\n"
+        },
+        {
+            "label": "2025-03-08_16-20-39",
+            "content": "@@ -2686,165 +2686,8 @@\n 0;%0A%0A\n-        for (auto i = 0; i %3C static_cast%3Cint%3E(reais.size()); i++)%0A        %7B%0A            out_value += reais%5Bi%5D-%3Eget_valor();%0A            %0A        %7D%0A        %0A%0A\n     \n"
+        },
+        {
+            "label": "2025-03-08_16-22-24",
+            "content": "@@ -2887,157 +2887,8 @@\n = 0;\n-%0A        for (auto i = 0; i %3C static_cast%3Cint%3E(reais.size()); i++)%0A        %7B%0A            out_volume += reais%5Bi%5D-%3Eget_volume();%0A            %0A        %7D\n %0A%0A  \n"
+        },
+        {
+            "label": "2025-03-08_16-22-52",
+            "content": "@@ -4209,32 +4209,37 @@\n rinho.add_moeda(\n+std::\n make_shared%3CMoed\n@@ -4348,32 +4348,37 @@\n rinho.add_moeda(\n+std::\n make_shared%3CMoed\n@@ -4483,32 +4483,37 @@\n rinho.add_moeda(\n+std::\n make_shared%3CMoed\n@@ -4627,16 +4627,21 @@\n d_moeda(\n+std::\n make_sha\n@@ -4814,32 +4814,35 @@\n %22) %7B%0A           \n+ //\n  string label;%0A \n@@ -4843,32 +4843,35 @@\n bel;%0A           \n+ //\n  int volume;%0A   \n@@ -4870,32 +4870,35 @@\n ume;%0A           \n+ //\n  ss %3E%3E label %3E%3E \n@@ -4909,71 +4909,8 @@\n me;%0A\n-            cofrinho.add_item(make_shared%3CItem%3E(label,volume))%0A\n     \n"
+        },
+        {
+            "label": "2025-03-08_16-24-31",
+            "content": "@@ -4938,17 +4938,16 @@\n volume))\n-;\n %0A       \n"
+        },
+        {
+            "label": "2025-03-08_16-24-41",
+            "content": "@@ -1154,17 +1154,17 @@\n rmat(%22%7B%7D\n-:\n+,\n %7B%7D%22,labe\n@@ -2613,85 +2613,8 @@\n ();%0A\n-            if ((i+1) != static_cast%3Cint%3E(itens.size()))%7Bout_itens += %22, %22;%7D%0A\n     \n"
+        },
+        {
+            "label": "2025-03-08_16-25-51",
+            "content": "@@ -2898,33 +2898,32 @@\n      %0A        %7D%0A\n-%0A\n         %0A%0A      \n@@ -3115,158 +3115,8 @@\n  %7D%0A%0A\n-        for (auto i = 0; i %3C static_cast%3Cint%3E(itens.size()); i++)%0A        %7B%0A            out_volume += itens%5Bi%5D-%3Eget_volume();%0A            %0A        %7D%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-03-08_16-26-57",
+            "content": "@@ -2047,481 +2047,8 @@\n  %7D%0A%0A\n-    vector%3Cstd::shared_ptr%3CMoeda%3E%3E extrair_moedas()%7B%0A        if (!quebrado)%0A        %7B%0A            fn::write(%22fail : you must break the pig first%22);%0A        %7D%0A%0A        vector%3Cstd::shared_ptr%3CMoeda%3E%3E out = reais;%0A        return out;%0A    %7D%0A%0A    vector%3Cstd::shared_ptr%3CItem%3E%3E extrair_itens()%7B%0A        if (!quebrado)%0A        %7B%0A            fn::write(%22fail : you must break the pig first%22);%0A        %7D%0A%0A        vector%3Cstd::shared_ptr%3CItem%3E%3E out = itens;%0A        return out;%0A    %7D%0A%0A\n     \n@@ -5316,82 +5316,8 @@\n dos%0A\n-           vector%3Cstd::shared_ptr%3CItem%3E%3E novo = cofrinho.extrair_itens();%0A\n     \n@@ -5462,84 +5462,8 @@\n das%0A\n-           vector%3Cstd::shared_ptr%3CMoeda%3E%3E novo = cofrinho.extrair_moedas();%0A\n     \n"
+        },
+        {
+            "label": "2025-03-08_16-42-51",
+            "content": "@@ -2148,32 +2148,33 @@\n  fn::write(%22fail\n+ \n : you must break\n@@ -2392,16 +2392,17 @@\n te(%22fail\n+ \n : you mu\n"
+        },
+        {
+            "label": "2025-03-08_16-43-09",
+            "content": "@@ -2204,32 +2204,8 @@\n   %7D%0A\n-        fn::write(%22%5B%5D%22);\n %0A   \n@@ -2440,33 +2440,8 @@\n  %7D%0A%0A\n-        fn::write(%22%5B%5D%22);%0A\n     \n"
+        },
+        {
+            "label": "2025-03-08_16-44-06",
+            "content": "@@ -4804,39 +4804,8 @@\n ) %7B%0A\n-            cofrinho.quebar();%0A\n     \n"
+        },
+        {
+            "label": "2025-03-08_16-44-38",
+            "content": "@@ -3486,46 +3486,8 @@\n  0;%0A\n-%0A        if (!quebrado)%0A        %7B%0A    \n     \n@@ -3552,34 +3552,26 @@\n ++)%0A        \n-    %7B%0A    \n+%7B%0A\n             \n@@ -3620,32 +3620,25 @@\n         \n- \n-   %0A   \n+%0A\n         \n  %7D%0A%0A    \n@@ -3625,32 +3625,27 @@\n    %0A        \n- \n %7D%0A%0A\n-    \n         for \n@@ -3702,34 +3702,26 @@\n ++)%0A        \n- \n-   %7B%0A    \n+%7B%0A\n             \n@@ -3774,22 +3774,17 @@\n     \n-    %0A \n+%0A\n         \n    %7D\n@@ -3783,32 +3783,9 @@\n     \n-   %7D%0A        %7D%0A        %0A\n+%7D\n %0A%0A  \n"
+        },
+        {
+            "label": "2025-03-08_16-45-42",
+            "content": "@@ -2194,37 +2194,8 @@\n %22);%0A\n-            fn::write(%22%5B%5D%22);%0A\n     \n@@ -2359,51 +2359,8 @@\n ()%7B%0A\n-        vector%3Cstd::shared_ptr%3CItem%3E%3E out;%0A\n     \n@@ -2453,61 +2453,8 @@\n %22);%0A\n-            fn::write(%22%5B%5D%22);%0A            return out;%0A\n     \n@@ -2488,24 +2488,54 @@\n %5D%22);%0A       \n+ vector%3Cstd::shared_ptr%3CItem%3E%3E\n  out = itens\n"
+        },
+        {
+            "label": "2025-03-08_16-48-10",
+            "content": "@@ -2100,52 +2100,8 @@\n ()%7B%0A\n-        vector%3Cstd::shared_ptr%3CMoeda%3E%3E out;%0A\n     \n@@ -2223,32 +2223,8 @@\n %22);%0A\n-            return out;%0A\n     \n@@ -2257,24 +2257,55 @@\n %5D%22);%0A       \n+ vector%3Cstd::shared_ptr%3CMoeda%3E%3E\n  out = reais\n"
+        },
+        {
+            "label": "2025-03-08_16-48-54",
+            "content": "@@ -2634,433 +2634,22 @@\n     \n-while (static_cast%3Cint%3E(itens.size()))%0A        %7B%0A            out.push_back(itens.back());%0A            itens.pop_back();%0A        %7D%0A        %0A        string out_extract = %22%22;%0A%0A        for (size_t i = 0; i %3C static_cast%3Cint%3E(out.size()); i++)%0A        %7B%0A            out_extract += out%5Bi%5D-%3Estr();%0A            if ((i+1) != static_cast%3Cint%3E(out.size()))%7Bout_extract += %22, %22;%7D%0A%0A        %7D%0A        %0A%0A        fn::write(%22%5B%7B%7D%5D%22,out_extract\n+fn::write(%22%5B%5D%22\n );%0A \n"
+        },
+        {
+            "label": "2025-03-08_16-53-46",
+            "content": "@@ -2808,36 +2808,38 @@\n ;%0A%0A        for (\n-auto\n+size_t\n  i = 0; i %3C stat\n"
+        },
+        {
+            "label": "2025-03-08_16-54-07",
+            "content": "@@ -2824,16 +2824,23 @@\n auto i =\n+ 0; i %3C\n  static_\n@@ -2864,25 +2864,13 @@\n e())\n- - 1; i %3C= 0; i--\n+; i++\n )%0A  \n@@ -2941,16 +2941,43 @@\n  ((i\n--\n++\n 1) != \n-0\n+static_cast%3Cint%3E(out.size())\n )%7Bou\n"
+        },
+        {
+            "label": "2025-03-08_16-55-51",
+            "content": "@@ -3015,16 +3015,19 @@\n write(%22%5B\n+%7B%7D%5D\n %22,out_ex\n@@ -3035,14 +3035,8 @@\n ract\n-,%22%5D%5Cn%22\n );%0A \n"
+        },
+        {
+            "label": "2025-03-08_16-56-24",
+            "content": "@@ -3017,24 +3017,10 @@\n ite(\n-fn::format(%22%5B%7B%7D%5D\n+%22%5B\n %22,ou\n@@ -3028,17 +3028,22 @@\n _extract\n-)\n+,%22%5D%5Cn%22\n );%0A     \n"
+        },
+        {
+            "label": "2025-03-08_16-57-04",
+            "content": "@@ -2825,17 +2825,16 @@\n uto i = \n-(\n static_c\n@@ -2857,17 +2857,16 @@\n e()) - 1\n-)\n ; i %3C= 0\n"
+        },
+        {
+            "label": "2025-03-08_16-58-19",
+            "content": "@@ -2817,39 +2817,33 @@\n   for (auto i = \n-0; i %3C \n+(\n static_cast%3Cint%3E\n@@ -2846,37 +2846,50 @@\n int%3E(out.size())\n-; i++\n+ - 1); i %3C= 0; i--\n )%0A        %7B%0A    \n"
+        },
+        {
+            "label": "2025-03-08_16-59-04",
+            "content": "@@ -2825,17 +2825,23 @@\n uto i = \n-(\n+0; i %3C \n static_c\n@@ -2864,24 +2864,13 @@\n e())\n- -1);i %3C 0 \n ; i\n---\n+++\n )%0A  \n@@ -2935,17 +2935,21 @@\n     if (\n-i\n+(i-1)\n  != 0)%7Bo\n"
+        },
+        {
+            "label": "2025-03-08_18-04-50",
+            "content": "@@ -2886,97 +2886,8 @@\n   %7B%0A\n-            cout %3C%3C static_cast%3Cint%3E(out.size()) %3C%3C endl;%0A            cout %3C%3C i %3C%3C endl;%0A\n     \n"
+        },
+        {
+            "label": "2025-03-08_18-05-41",
+            "content": "@@ -2683,67 +2683,8 @@\n   %7B%0A\n-            cout %3C%3C static_cast%3Cint%3E(itens.size()) %3C%3C %22-%22;%0A\n     \n"
+        },
+        {
+            "label": "2025-03-08_18-07-00",
+            "content": "@@ -2691,18 +2691,16 @@\n         \n-//\n cout %3C%3C \n@@ -2864,66 +2864,8 @@\n  %22%22;\n-%0A            cout %3C%3C static_cast%3Cint%3E(out.size()) %3C%3C endl;\n %0A%0A  \n@@ -2933,32 +2933,90 @@\n  i--)%0A        %7B%0A\n+            cout %3C%3C static_cast%3Cint%3E(out.size()) %3C%3C endl;%0A\n             cout\n"
+        },
+        {
+            "label": "2025-03-08_18-07-55",
+            "content": "@@ -2944,16 +2944,17 @@\n uto i = \n+(\n static_c\n@@ -2977,15 +2977,16 @@\n e())\n+ \n -1\n- ;i %3E\n+);i %3C\n  0 ;\n"
+        },
+        {
+            "label": "2025-03-08_18-08-33",
+            "content": "@@ -2867,34 +2867,32 @@\n %22%22;%0A            \n-//\n cout %3C%3C static_c\n@@ -2979,17 +2979,16 @@\n )-1 ;i %3E\n-=\n  0 ; i--\n"
+        },
+        {
+            "label": "2025-03-08_18-09-00",
+            "content": "@@ -2671,32 +2671,93 @@\n e()))%0A        %7B%0A\n+            //cout %3C%3C static_cast%3Cint%3E(itens.size()) %3C%3C %22-%22;%0A\n             out.\n@@ -2777,24 +2777,24 @@\n ns.back());%0A\n-\n             \n@@ -2862,16 +2862,76 @@\n ct = %22%22;\n+%0A            //cout %3C%3C static_cast%3Cint%3E(out.size()) %3C%3C endl;\n %0A%0A      \n@@ -2992,16 +2992,16 @@\n  ; i--)%0A\n-\n         \n@@ -2994,32 +2994,63 @@\n  i--)%0A        %7B%0A\n+            cout %3C%3C i %3C%3C endl;%0A\n             out_\n"
+        },
+        {
+            "label": "2025-03-08_18-09-13",
+            "content": "@@ -2144,41 +2144,8 @@\n ut;%0A\n-        string out_extract = %22%22;%0A\n     \n@@ -2246,478 +2246,85 @@\n     \n-%7Delse%7B%0A            while (static_cast%3Cint%3E(reais.size()))%0A            %7B%0A                out.push_back(reais.back());%0A                reais.pop_back();%0A            %7D%0A            %0A            %0A%0A            for (auto i = static_cast%3Cint%3E(out.size())-1 ;i %3E= 0 ; i--)%0A            %7B%0A                out_extract += out%5Bi%5D-%3Estr();%0A                if (i != 0)%7Bout_extract += %22, %22;%7D%0A%0A            %0A            %7D%0A        %7D%0A        %0A%0A        fn::write(fn::format(%22%5B%7B%7D%5D%22,out_extract)\n+    fn::write(%22%5B%5D%22);%0A            return out;%0A        %7D%0A        fn::write(%22%5B%5D%22\n );%0A \n@@ -2326,26 +2326,24 @@\n %22);%0A        \n-//\n out = reais;\n@@ -2468,41 +2468,8 @@\n ut;%0A\n-        string out_extract = %22%22;%0A\n     \n@@ -2566,35 +2566,80 @@\n         \n-%7Delse%7B%0A\n+    fn::write(%22%5B%5D%22);%0A            return out;%0A  \n      \n+ %7D%0A%0A\n        \n+ \n while (s\n@@ -2673,34 +2673,26 @@\n )))%0A        \n-    %7B%0A    \n+%7B%0A\n             \n@@ -2728,28 +2728,24 @@\n             \n-    \n itens.pop_ba\n@@ -2746,28 +2746,24 @@\n pop_back();%0A\n-    \n         %7D%0A  \n@@ -2760,36 +2760,32 @@\n       %7D%0A        \n-    \n %0A            %0A%0A \n@@ -2773,34 +2773,50 @@\n    %0A        \n-    %0A%0A    \n+string out_extract = %22%22;%0A%0A\n         for \n@@ -2871,36 +2871,32 @@\n  ; i--)%0A        \n-    \n %7B%0A              \n@@ -2889,28 +2889,24 @@\n             \n- \n-   \n out_extract \n@@ -2915,36 +2915,32 @@\n  out%5Bi%5D-%3Estr();%0A\n-    \n             if (\n@@ -2974,35 +2974,8 @@\n ;%7D%0A%0A\n-            %0A            %7D%0A\n     \n@@ -3049,18 +3049,16 @@\n         \n-//\n out = it\n"
+        },
+        {
+            "label": "2025-03-08_18-13-42",
+            "content": "@@ -1753,31 +1753,21 @@\n te(%22\n-fail: the pig is broken\n+esta quebrado\n %22);%0A\n"
+        },
+        {
+            "label": "2025-03-08_18-14-09",
+            "content": "@@ -1530,39 +1530,29 @@\n :write(%22\n-fail: the pig is broken\n+esta quebrado\n %22);%0A    \n"
+        },
+        {
+            "label": "2025-03-08_18-14-24",
+            "content": "@@ -2318,27 +2318,109 @@\n     \n-out = move(reais);%0A\n+while (static_cast%3Cint%3E(reais.size()))%0A            %7B%0A                out.push_back(reais.back());%0A   \n     \n@@ -2431,22 +2431,66 @@\n     \n+ \n reais.\n-clear();\n+pop_back();%0A            %7D%0A            %0A            \n %0A%0A  \n@@ -2504,39 +2504,32 @@\n    for (auto i =\n- 0; i %3C\n  static_cast%3Cint\n@@ -2533,37 +2533,48 @@\n int%3E(out.size())\n+-1 ;i %3E= 0 \n ; i\n-++\n+--\n )%0A            %7B%0A\n@@ -2643,47 +2643,14 @@\n if (\n-(i+1) != static_cast%3Cint%3E(itens.size())\n+i != 0\n )%7Bou\n@@ -2661,32 +2661,33 @@\n tract += %22, %22;%7D%0A\n+%0A\n             %7D  %0A\n@@ -2686,12 +2686,22 @@\n     \n-%7D  %0A\n+%0A            %7D\n %0A   \n@@ -2707,17 +2707,24 @@\n       %7D%0A\n-%0A\n+        \n %0A%0A      \n@@ -2760,32 +2760,55 @@\n ,out_extract));%0A\n+        //out = reais;%0A\n         return o\n"
+        },
+        {
+            "label": "2025-03-08_18-21-13",
+            "content": "@@ -2527,35 +2527,37 @@\n tatic_cast%3Cint%3E(\n-out\n+itens\n .size()))%7Bout_ex\n"
+        },
+        {
+            "label": "2025-03-08_18-21-30",
+            "content": "@@ -2589,32 +2589,35 @@\n  %7D  %0A%0A        %7D%0A\n+%0A%0A%0A\n         fn::writ\n@@ -2930,53 +2930,179 @@\n     \n-out = move(itens);%0A            itens.clear();\n+while (static_cast%3Cint%3E(itens.size()))%0A            %7B%0A                out.push_back(itens.back());%0A                itens.pop_back();%0A            %7D%0A            %0A            \n %0A%0A  \n@@ -3116,39 +3116,32 @@\n    for (auto i =\n- 0; i %3C\n  static_cast%3Cint\n@@ -3145,37 +3145,48 @@\n int%3E(out.size())\n+-1 ;i %3E= 0 \n ; i\n-++\n+--\n )%0A            %7B%0A\n@@ -3255,45 +3255,14 @@\n if (\n-(i+1) != static_cast%3Cint%3E(out.size())\n+i != 0\n )%7Bou\n@@ -3273,32 +3273,33 @@\n tract += %22, %22;%7D%0A\n+%0A\n             %7D  %0A\n@@ -3294,19 +3294,30 @@\n         \n-%7D\n+%0A          \n   \n+%7D\n %0A       \n@@ -3320,32 +3320,33 @@\n      %7D%0A        %0A\n+%0A\n         fn::writ\n"
+        },
+        {
+            "label": "2025-03-08_18-22-20",
+            "content": "@@ -1597,92 +1597,8 @@\n   %7D%0A\n-        if (coin-%3Eget_volume())%0A        %7B%0A            /* code */%0A        %7D%0A        %0A\n     \n@@ -4792,800 +4792,8 @@\n   %7D%0A\n-%0A    int get_volume_max()%7Breturn volume_max;%7D%0A    int get_volume()%7B%0A        int out_volume = 0;%0A%0A        if (!quebrado)%0A        %7B%0A            for (auto i = 0; i %3C static_cast%3Cint%3E(reais.size()); i++)%0A            %7B%0A                out_volume += reais%5Bi%5D-%3Eget_volume();%0A                %0A            %7D%0A%0A            for (auto i = 0; i %3C static_cast%3Cint%3E(itens.size()); i++)%0A            %7B%0A                out_volume += itens%5Bi%5D-%3Eget_volume();%0A                %0A            %7D%0A        %7D%0A        return out_volume;%0A    %7D%0A%0A    double get_valor()%7B%0A        double out_value = 0;%0A%0A        for (auto i = 0; i %3C static_cast%3Cint%3E(reais.size()); i++)%0A        %7B%0A            out_value += reais%5Bi%5D-%3Eget_valor();%0A            %0A        %7D%0A        return out_value;%0A    %7D%0A%0A    bool esta_quebrada()%7Breturn quebrado;%7D%0A%0A\n %7D;%0A%0A\n"
+        },
+        {
+            "label": "2025-03-08_18-28-24",
+            "content": "@@ -1609,22 +1609,8 @@\n if (\n-%0A            (\n coin\n@@ -1627,52 +1627,8 @@\n me()\n- + get_volume()) %3E get_volume_max()%0A        \n )%0A  \n@@ -1627,33 +1627,32 @@\n me())%0A        %7B%0A\n-%0A\n             fn::\n@@ -1651,69 +1651,18 @@\n     \n-fn::write(%22fail: the pig is full%22);%0A            return false;\n+/* code */\n %0A   \n"
+        },
+        {
+            "label": "2025-03-08_18-32-18",
+            "content": "@@ -2020,192 +2020,8 @@\n   %7D%0A\n-        if (%0A            (obj-%3Eget_volume() + get_volume()) %3E get_volume_max()%0A        )%0A        %7B%0A%0A            fn::write(%22fail: the pig is full%22);%0A            return false;%0A        %7D%0A\n     \n"
+        },
+        {
+            "label": "2025-03-08_18-33-20",
+            "content": "#include <iostream>\n#include <vector>\n#include <sstream>\n#include <utility>\n#include <iomanip>\n#include <memory>\nusing namespace std;\n\n#include \"fn.hpp\"\n\n\n\nclass Moeda\n{\nprivate:\n    double valor;\n    int volume;\n    string label;\n    /* data */\n    \npublic:\n    Moeda(double val, int vol, string tag): valor(val),volume(vol),label(tag) {};\n    double get_valor(){return valor;}\n    int get_volume(){return volume;}\n    string get_label(){return label;}\n\n    string str() const{\n        return fn::format(\"{%.2f}:{}\",valor,volume);\n    }\n\n    // Membros est\u00e1ticos\n    static Moeda C10;\n    static Moeda C25;\n    static Moeda C50;\n    static Moeda C100;\n    \n};\n\nMoeda Moeda::C10(0.10, 1, \"C10\");\nMoeda Moeda::C25(0.25, 2, \"C25\");\nMoeda Moeda::C50(0.50, 3, \"C50\");\nMoeda Moeda::C100(1.0, 4, \"C100\");\n\nclass Item\n{\nprivate:\n    /* data */\n    string label;\n    int volume;\npublic:\n    Item(string tag, int vol): label(tag), volume(vol){};\n    \n    void set_volume(int vol){volume = vol;}\n    int get_volume(){return volume;}\n\n    void set_label(string tag){label = tag;}\n    string get_label(){return label;}\n\n    string str() const{\n        return fn::format(\"{}:{}\",label,volume);\n    }\n};\n\nclass pig\n{\nprivate:\n    /* data */\n    bool quebrado;\n    vector<std::shared_ptr<Moeda>> reais;\n    vector<std::shared_ptr<Item>> itens;\n    int volume_max;\npublic:\n    pig(int vol_max = 0): volume_max(vol_max){\n        quebrado = false;\n    };\n    bool add_moeda(shared_ptr<Moeda> coin) {\n        if (quebrado)\n        {\n            fn::write(\"fail: the pig is broken\");\n            return false;\n        }\n        if (\n            (coin->get_volume() + get_volume()) > get_volume_max()\n        )\n        {\n\n            fn::write(\"fail: the pig is full\");\n            return false;\n        }\n        \n        \n\n        reais.push_back(coin);\n        return true;\n    }\n\n    bool add_item(shared_ptr<Item> obj) {\n        if (quebrado)\n        {\n            fn::write(\"fail: the pig is broken\");\n            return false;\n        }\n        if (\n            (obj->get_volume() + get_volume()) > get_volume_max()\n        )\n        {\n\n            fn::write(\"fail: the pig is full\");\n            return false;\n        }\n        \n\n        itens.push_back(obj);\n        return true;\n    }\n\n    bool quebar(){\n        if (quebrado)\n        {\n\n            return false;\n        }else{\n            quebrado = true;\n            return true;\n        }\n        \n    }\n\n    vector<std::shared_ptr<Moeda>> extrair_moedas(){\n        vector<std::shared_ptr<Moeda>> out;\n        string out_extract = \"\";\n        if (!quebrado)\n        {\n            fn::write(\"fail: you must break the pig first\");\n        }else{\n            out = move(reais);\n            reais.clear();\n\n            for (auto i = 0; i < static_cast<int>(out.size()); i++)\n            {\n                out_extract += out[i]->str();\n                if ((i+1) != static_cast<int>(out.size())){out_extract += \", \";}\n            }  \n\n        }\n        fn::write(fn::format(\"[{}]\",out_extract));\n        return out;\n    }\n\n    vector<std::shared_ptr<Item>> extrair_itens(){\n        vector<std::shared_ptr<Item>> out;\n        string out_extract = \"\";\n        if (!quebrado)\n        {\n            fn::write(\"fail: you must break the pig first\");\n        }else{\n            out = move(itens);\n            itens.clear();\n\n            for (auto i = 0; i < static_cast<int>(out.size()); i++)\n            {\n                out_extract += out[i]->str();\n                if ((i+1) != static_cast<int>(out.size())){out_extract += \", \";}\n            }  \n        }\n        \n        fn::write(fn::format(\"[{}]\",out_extract));\n        //out = itens;\n        return out;\n    }\n\n    string str() const{\n        \n        // state\n        string status = \"intact\";\n        if (quebrado){status = \"broken\";}\n        \n        //coins\n        string out_coins = \"\";\n        for (auto i = 0; i < static_cast<int>(reais.size()); i++)\n        {\n            out_coins += reais[i]->str();\n            if ((i+1) != static_cast<int>(reais.size())){out_coins += \", \";}\n            \n        }\n\n        //itens\n        string out_itens = \"\";\n        for (auto i = 0; i < static_cast<int>(itens.size()); i++)\n        {\n            out_itens += itens[i]->str();\n            if ((i+1) != static_cast<int>(itens.size())){out_itens += \", \";}\n        }       \n        \n        //value\n        double out_value = 0;\n\n        for (auto i = 0; i < static_cast<int>(reais.size()); i++)\n        {\n            out_value += reais[i]->get_valor();\n            \n        }\n\n        \n\n        //volume\n        int out_volume = 0;\n\n        if (!quebrado)\n        {\n            for (auto i = 0; i < static_cast<int>(reais.size()); i++)\n            {\n                out_volume += reais[i]->get_volume();\n                \n            }\n\n            for (auto i = 0; i < static_cast<int>(itens.size()); i++)\n            {\n                out_volume += itens[i]->get_volume();\n                \n            }\n        }\n        \n\n\n        return fn::format(\"state={} : coins=[{}] : items=[{}] : value={%.2f} : volume={}/{}\",status,out_coins,out_itens,out_value,out_volume,volume_max);\n    }\n\n    int get_volume_max(){return volume_max;}\n    int get_volume(){\n        int out_volume = 0;\n\n        if (!quebrado)\n        {\n            for (auto i = 0; i < static_cast<int>(reais.size()); i++)\n            {\n                out_volume += reais[i]->get_volume();\n                \n            }\n\n            for (auto i = 0; i < static_cast<int>(itens.size()); i++)\n            {\n                out_volume += itens[i]->get_volume();\n                \n            }\n        }\n        return out_volume;\n    }\n\n    double get_valor(){\n        double out_value = 0;\n\n        for (auto i = 0; i < static_cast<int>(reais.size()); i++)\n        {\n            out_value += reais[i]->get_valor();\n            \n        }\n        return out_value;\n    }\n\n    bool esta_quebrada(){return quebrado;}\n\n};\n\n\n\n\ntemplate <typename CONTAINER, typename FN>\nstring map_join(const CONTAINER& container, FN fn, string sep = \", \", string prefix = \"[\", string suffix = \"]\") {\n    stringstream ss;\n    for (auto it = container.begin(); it != container.end(); ++it) {\n        ss << (it != container.begin() ? sep : \"\") << fn(*it);\n    }\n    return prefix + ss.str() + suffix;\n}\n\nint main() {\n\n    pig cofrinho;\n\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;\n        } else if (cmd == \"init\") {\n             int volumeMax;\n             ss >> volumeMax;\n             cofrinho = pig(volumeMax);\n        } else if (cmd == \"show\") {\n            cout << cofrinho.str() << endl;\n        } else if (cmd == \"break\") {\n            cofrinho.quebar();\n        } else if (cmd == \"addCoin\") {\n            string label;\n            ss >> label;\n                if (label == \"10\"){\n                    cofrinho.add_moeda(make_shared<Moeda>(Moeda::C10));\n                    }else\n                if (label == \"25\"){\n                    cofrinho.add_moeda(make_shared<Moeda>(Moeda::C25));\n                }else\n                if (label == \"50\"){\n                    cofrinho.add_moeda(make_shared<Moeda>(Moeda::C50));\n                }else\n                if (label == \"100\"){\n                    cofrinho.add_moeda(make_shared<Moeda>(Moeda::C100));\n                }else{\n                    fn::write(\"valor invalido\");\n                }   \n            \n        } else if (cmd == \"addItem\") {\n            string label;\n            int volume;\n            ss >> label >> volume;\n            cofrinho.add_item(make_shared<Item>(label,volume));\n        } else if (cmd == \"extractItems\") {\n            // Obtenha os itens com o m\u00e9todo extractItems\n            // e imprima os itens obtidos\n           vector<std::shared_ptr<Item>> novo = cofrinho.extrair_itens();\n        } else if (cmd == \"extractCoins\") {\n            // Obtenha as moedas com o m\u00e9todo extractCoins\n            // e imprima as moedas obtidas\n           vector<std::shared_ptr<Moeda>> novo = cofrinho.extrair_moedas();\n        } else {\n            cout << \"fail: invalid command\\n\";\n        }\n    }\n}\n"
+        }
+    ]
+}

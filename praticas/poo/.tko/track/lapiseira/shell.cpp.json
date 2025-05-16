@@ -1,0 +1,328 @@
+{
+    "patches": [
+        {
+            "label": "2025-02-08_22-12-36",
+            "content": "@@ -70,28 +70,8 @@\n ry%3E%0A\n-%0A#include %22fn.hpp%22%0A%0A\n usin\n@@ -92,3057 +92,8 @@\n d;%0A%0A\n-%0Aclass grafite%0A%7B%0Aprivate:%0A    /* data */%0A    %0A    double espessura;%0A    std::string duresa;%0A    int tamanho;%0A%0A    %0A%0Apublic:%0A%0A    grafite(double x,std::string y, int z): espessura(x), duresa(y), tamanho(z)%7B%7D%0A%0A    int uso_por_escrita(int x)%7B%0A        return x;%0A    %7D;%0A    %0A    std::string str() const%7B%0A        return fn::format(%22%5B%7B%7D:%7B%7D:%7B%7D%5D%22,this-%3Eespessura,this-%3Eduresa,this-%3Etamanho);%0A    %7D;%0A%0A    std::string get_hardness()%7Breturn duresa;%7D;%0A    %0A    int get_tamanho()%7Breturn tamanho;%7D;%0A    %0A    float get_espessura()%7Breturn espessura;%7D;%0A%0A    void set_tamanho(int x)%7B%0A        tamanho = x;%0A    %7D;%0A%7D;%0A%0Astd::ostream& operator%3C%3C(std::ostream& os, const grafite& grafite)%7B%0A    return os %3C%3C grafite.str();%0A%7D %0A%0Aclass lapiseira%0A%7B%0Aprivate:%0A float espessura;%0A shared_ptr%3Cgrafite%3E bico = nullptr; %0A vector%3Cgrafite%3E tambor;%0A    /* data */%0Apublic:%0A%0A    lapiseira(float x = 1): espessura(x)%7B%0A%0A    %7D%0A%0A    bool tem_grafite()%7B%0A        if (bico == nullptr)%0A        %7B%0A            return false;%0A        %7D%0A        return true;%0A    %7D%0A%0A    void put_grafite(grafite grafite_new)%7B%0A    %0A%0A        if (%0A            grafite_new.get_espessura() != espessura%0A        )%0A        %7B%0A            fn::write(%22fail: calibre incompativel%22);%0A            return;%0A            /* code */%0A        %7D%0A        %0A        tambor.push_back(grafite_new);%0A%0A    %7D;%0A    %0A    void remove()%7B%0A        if(this-%3Ebico==nullptr)%7B%0A            fn::write(%22fail: empty %22);%0A            return;%0A        %7D%0A        bico = nullptr;%0A    %7D;%0A    %0A    void escreve()%7B%0A%0A        if (this-%3Ebico == nullptr)%0A        %7B%0A            fn::write(%22fail: nao existe grafite%22);%0A            return;%0A            /* code */%0A%0A        %7D%0A        if (bico-%3Eget_tamanho() %3C= 10 )%0A        %7B%0A            /* code */%0A            fn::write(%22fail: tamanho insuficiente%22);%0A            return;%0A        %7D%0A        %0A%0A%0A        /*caso cumpra os requisitos*/%0A%0A        std::string duresa_atual = bico-%3Eget_hardness();%0A        int diferenca;%0A%0A        if (duresa_atual == %22HB%22)%0A        %7B%0A            diferenca = 1;%0A        %7Delse%0A        if (duresa_atual == %222B%22)%0A        %7B%0A            diferenca = 2;%0A            /* code */%0A        %7Delse%0A        if (duresa_atual == %224B%22)%0A        %7B%0A            /* code */%0A            diferenca = 4;%0A        %7Delse%0A        %7B%0A            diferenca = 6;%0A            /* code */%0A        %7D%0A%0A%0A%0A        auto tamanho_atual = bico-%3Eget_tamanho() - diferenca;%0A%0A        if (tamanho_atual %3C 10)%0A        %7B%0A            fn::write(%22fail: folha incompleta%22);%0A            tamanho_atual = 10;%0A            %0A        %7D%0A        %0A%0A%0A        bico-%3Eset_tamanho(tamanho_atual);%0A%0A%0A        return;%0A    %7D;%0A    %0A    std::string str() const%7B%0A%0A        %0A        string aux = %22%22;%0A%0A            for (int i = 0; i %3C tambor.size() ; i++)%0A            %7B%0A                aux += tambor%5Bi%5D.str();%0A                if ((i + 1) == tambor.size())%7Bbreak;%7D%0A                    aux += %22, %22;%0A            %7D%0A            %0A%0A        return fn::format(%22calibre: %7B%7D, bico: %7B%7D, tambor: %3C%7B%7D%3E%22,this-%3Eespessura,this-%3Ebico,aux);%0A    %7D%0A%0A    float get_thickness()%7B%0A        return espessura;%0A    %7D;%0A%0A%7D;%0A%0A\n // F\n@@ -456,32 +456,8 @@\n ) %7B%0A\n-%0A    lapiseira caneta;%0A%0A\n     \n@@ -711,32 +711,8 @@\n ) %7B \n-fn::write(caneta.str());\n %0A   \n@@ -766,16 +766,18 @@\n         \n+//\n  float c\n@@ -792,24 +792,26 @@\n             \n+//\n  ss %3E%3E calib\n@@ -817,51 +817,8 @@\n bre;\n-%0A%0A            caneta = lapiseira(calibre); \n %0A   \n"
+        },
+        {
+            "label": "2025-02-08_22-46-44",
+            "content": "@@ -2798,33 +2798,16 @@\n  0; i %3C \n-static_cast%3Cint%3E(\n tambor.s\n@@ -2811,17 +2811,17 @@\n r.size()\n-)\n+ \n ; i++)%0A \n@@ -2908,25 +2908,8 @@\n  == \n-static_cast%3Cint%3E(\n tamb\n@@ -2918,17 +2918,16 @@\n .size())\n-)\n %7Bbreak;%7D\n"
+        },
+        {
+            "label": "2025-02-08_22-51-00",
+            "content": "@@ -3013,126 +3013,8 @@\n   %7D%0A\n-        %0A        string y = %22%22;%0A        if (bico != nullptr)%0A        %7B%0A            y = this-%3Ebico;%0A        %7D%0A        %0A\n     \n@@ -3073,12 +3073,10 @@\n co: \n-%5B\n %7B%7D\n-%5D\n , ta\n@@ -3103,17 +3103,26 @@\n pessura,\n-y\n+this-%3Ebico\n ,aux);%0A \n"
+        },
+        {
+            "label": "2025-02-08_22-54-09",
+            "content": "@@ -3110,25 +3110,8 @@\n bico\n--%3Eget_espessura()\n ;%0A  \n"
+        },
+        {
+            "label": "2025-02-08_22-54-37",
+            "content": "@@ -4185,32 +4185,34 @@\n  %7B %0A            \n+//\n  float calibre;%0A\n@@ -4219,24 +4219,26 @@\n             \n+//\n  string dure\n@@ -4249,24 +4249,26 @@\n             \n+//\n  int tamanho\n@@ -4273,32 +4273,34 @@\n ho;%0A            \n+//\n  ss %3E%3E calibre %3E\n@@ -4324,104 +4324,8 @@\n ho;%0A\n-             auto aux = grafite(calibre,dureza,tamanho);%0A             caneta.put_grafite(aux);%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-02-08_22-57-12",
+            "content": "@@ -1302,9 +1302,9 @@\n mpat\n-%C3%AD\n+i\n vel%22\n"
+        },
+        {
+            "label": "2025-02-08_22-58-49",
+            "content": "@@ -2905,19 +2905,16 @@\n         \n- //\n  if ((i \n@@ -2985,11 +2985,8 @@\n     \n- //\n  aux\n"
+        },
+        {
+            "label": "2025-02-08_22-59-44",
+            "content": "@@ -1412,145 +1412,8 @@\n );%0A%0A\n-        if (static_cast%3Cint%3E(tambor.size()) == 1)%0A        %7B%0A            bico = std::make_shared%3Cgrafite%3E(tambor%5B0%5D);%0A        %7D%0A        %0A%0A\n     \n@@ -1581,139 +1581,8 @@\n    %0A\n-    bool pull()%7B%0A        if (static_cast%3Cint%3E(tambor.size()) == 0)%0A        %7B%0A            return false;%0A        %7D%0A%0A%0A        %0A    %7D%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-02-08_23-13-18",
+            "content": "@@ -1519,25 +1519,19 @@\n %3E(tambor\n-.begin();\n+%5B0%5D\n );%0A     \n"
+        },
+        {
+            "label": "2025-02-08_23-13-39",
+            "content": "@@ -1527,16 +1527,17 @@\n .begin()\n+;\n );%0A     \n"
+        },
+        {
+            "label": "2025-02-08_23-13-44",
+            "content": "@@ -1523,11 +1523,16 @@\n mbor\n-%5B0%5D\n+.begin()\n );%0A \n"
+        },
+        {
+            "label": "2025-02-08_23-13-53",
+            "content": "@@ -1832,72 +1832,8 @@\n  %7D%0A%0A\n-        auto x = tambor.begin();%0A%0A        // tambor%5B0%5D.clear();%0A\n %0A   \n"
+        },
+        {
+            "label": "2025-02-27_16-33-47",
+            "content": "@@ -1836,18 +1836,16 @@\n         \n-//\n auto x =\n"
+        },
+        {
+            "label": "2025-02-27_16-34-12",
+            "content": "@@ -1840,68 +1840,56 @@\n     \n+//\n auto\n-& primeiroElemento = tambor%5B0%5D;%0A        primeiroElemento\n+ x = tambor.begin();%0A%0A        // tambor%5B0%5D\n .cle\n"
+        },
+        {
+            "label": "2025-02-27_16-36-30",
+            "content": "@@ -920,5018 +920,8 @@\n bor;\n-#include %3Ciostream%3E%0A#include %3Clist%3E%0A#include %3Csstream%3E%0A#include %3Cmemory%3E%0A%0A#include %22fn.hpp%22%0A%0Ausing namespace std;%0A%0A%0Aclass grafite%0A%7B%0Aprivate:%0A    /* data */%0A    %0A    double espessura;%0A    std::string duresa;%0A    int tamanho;%0A%0A    %0A%0Apublic:%0A%0A    grafite(double x,std::string y, int z): espessura(x), duresa(y), tamanho(z)%7B%7D%0A%0A    int uso_por_escrita(int x)%7B%0A        return x;%0A    %7D;%0A    %0A    std::string str() const%7B%0A        return fn::format(%22%5B%7B%7D:%7B%7D:%7B%7D%5D%22,this-%3Eespessura,this-%3Eduresa,this-%3Etamanho);%0A    %7D;%0A%0A    std::string get_hardness()%7Breturn duresa;%7D;%0A    %0A    int get_tamanho()%7Breturn tamanho;%7D;%0A    %0A    float get_espessura()%7Breturn espessura;%7D;%0A%0A    void set_tamanho(int x)%7B%0A        tamanho = x;%0A    %7D;%0A%7D;%0A%0Astd::ostream& operator%3C%3C(std::ostream& os, const grafite& grafite)%7B%0A    return os %3C%3C grafite.str();%0A%7D %0A%0Aclass lapiseira%0A%7B%0Aprivate:%0A float espessura;%0A shared_ptr%3Cgrafite%3E bico = nullptr; %0A vector%3Cgrafite%3E tambor;%0A    /* data */%0Apublic:%0A%0A    lapiseira(float x = 1): espessura(x)%7B%0A%0A    %7D%0A%0A    bool tem_grafite()%7B%0A        if (bico == nullptr)%0A        %7B%0A            return false;%0A        %7D%0A        return true;%0A    %7D%0A%0A    void put_grafite(grafite grafite_new)%7B%0A    %0A%0A        if (%0A            grafite_new.get_espessura() != espessura%0A        )%0A        %7B%0A            fn::write(%22fail: calibre incompat%C3%ADvel%22);%0A            return;%0A            /* code */%0A        %7D%0A        %0A        tambor.push_back(grafite_new);%0A%0A        if (static_cast%3Cint%3E(tambor.size()) == 1)%0A        %7B%0A            bico = std::make_shared%3Cgrafite%3E(tambor%5B0%5D);%0A        %7D%0A        %0A%0A    %7D;%0A    %0A    void remove()%7B%0A        if(this-%3Ebico==nullptr)%7B%0A            fn::write(%22fail: empty %22);%0A            return;%0A        %7D%0A        bico = nullptr;%0A    %7D;%0A    %0A    bool pull()%7B%0A        if (static_cast%3Cint%3E(tambor.size()) == 0)%0A        %7B%0A            return false;%0A        %7D%0A%0A    bico = std::make_shared%3Cgrafite%3E(tambor.front());%0A    tambor.erase(tambor.begin());%0A%0A        %0A    %7D%0A%0A    void escreve()%7B%0A%0A        if (this-%3Ebico == nullptr)%0A        %7B%0A            fn::write(%22fail: nao existe grafite%22);%0A            return;%0A            /* code */%0A%0A        %7D%0A        if (bico-%3Eget_tamanho() %3C= 10 )%0A        %7B%0A            /* code */%0A            fn::write(%22fail: tamanho insuficiente%22);%0A            return;%0A        %7D%0A        %0A%0A%0A        /*caso cumpra os requisitos*/%0A%0A        std::string duresa_atual = bico-%3Eget_hardness();%0A        int diferenca;%0A%0A        if (duresa_atual == %22HB%22)%0A        %7B%0A            diferenca = 1;%0A        %7Delse%0A        if (duresa_atual == %222B%22)%0A        %7B%0A            diferenca = 2;%0A            /* code */%0A        %7Delse%0A        if (duresa_atual == %224B%22)%0A        %7B%0A            /* code */%0A            diferenca = 4;%0A        %7Delse%0A        %7B%0A            diferenca = 6;%0A            /* code */%0A        %7D%0A%0A%0A%0A        auto tamanho_atual = bico-%3Eget_tamanho() - diferenca;%0A%0A        if (tamanho_atual %3C 10)%0A        %7B%0A            fn::write(%22fail: folha incompleta%22);%0A            tamanho_atual = 10;%0A            %0A        %7D%0A        %0A%0A%0A        bico-%3Eset_tamanho(tamanho_atual);%0A%0A%0A        return;%0A    %7D;%0A    %0A    std::string str() const%7B%0A%0A        %0A        string aux = %22%22;%0A%0A            for (int i = 0; i %3C static_cast%3Cint%3E(tambor.size()); i++)%0A            %7B%0A                aux += tambor%5Bi%5D.str();%0A                // if ((i + 1) == static_cast%3Cint%3E(tambor.size()))%7Bbreak;%7D%0A                    // aux += %22, %22;%0A            %7D%0A        %0A        string y = %22%22;%0A        if (bico != nullptr)%0A        %7B%0A            y = this-%3Ebico-%3Eget_espessura();%0A        %7D%0A        %0A            %0A%0A        return fn::format(%22calibre: %7B%7D, bico: %5B%7B%7D%5D, tambor: %3C%7B%7D%3E%22,this-%3Eespessura,y,aux);%0A    %7D%0A%0A    float get_thickness()%7B%0A        return espessura;%0A    %7D;%0A%0A%7D;%0A%0A// Fun%C3%A7%C3%A3o auxiliar para mapear e juntar elementos de um container%0Atemplate %3Ctypename CONTAINER, typename FUNC%3E%0Aauto map_join(const CONTAINER& c, FUNC f, const string& sep = %22, %22) %7B%0A    stringstream ss;%0A    for (auto it = c.begin(); it != c.end(); ++it) %7B%0A        ss %3C%3C (it != c.begin() ? sep : %22%22);%0A        ss %3C%3C f(*it);%0A    %7D%0A    return ss.str();%0A%7D%0A%0Aint main() %7B%0A%0A    lapiseira caneta;%0A%0A    while (true) %7B%0A        string line, cmd;%0A        getline(cin, line);%0A        cout %3C%3C %22$%22 %3C%3C line %3C%3C endl;%0A%0A        stringstream ss(line);%0A        ss %3E%3E cmd;%0A%0A        if (cmd == %22end%22) %7B%0A            break;  %0A        %7D%0A        else if (cmd == %22show%22) %7B fn::write(caneta.str());%0A        %7D %0A        else if (cmd == %22init%22) %7B %0A             float calibre;%0A             ss %3E%3E calibre;%0A%0A            caneta = lapiseira(calibre); %0A        %7D %0A        else if (cmd == %22insert%22) %7B %0A             float calibre;%0A             string dureza;%0A             int tamanho;%0A             ss %3E%3E calibre %3E%3E dureza %3E%3E tamanho;%0A             auto aux = grafite(calibre,dureza,tamanho);%0A             caneta.put_grafite(aux);%0A%0A        %7D %0A        else if (cmd == %22remove%22) %7B %0A        %7D %0A        else if (cmd == %22pull%22) %7B %0A        %7D %0A        else if (cmd == %22write%22) %7B %0A        %7D %0A        else %7B%0A            cout %3C%3C %22fail: comando invalido%5Cn%22;%0A        %7D%0A    %7D%0A%7D%0A\n %0A   \n"
+        },
+        {
+            "label": "2025-02-27_16-42-07",
+            "content": "@@ -1,16 +1,939 @@\n+#include %3Ciostream%3E%0A#include %3Clist%3E%0A#include %3Csstream%3E%0A#include %3Cmemory%3E%0A%0A#include %22fn.hpp%22%0A%0Ausing namespace std;%0A%0A%0Aclass grafite%0A%7B%0Aprivate:%0A    /* data */%0A    %0A    double espessura;%0A    std::string duresa;%0A    int tamanho;%0A%0A    %0A%0Apublic:%0A%0A    grafite(double x,std::string y, int z): espessura(x), duresa(y), tamanho(z)%7B%7D%0A%0A    int uso_por_escrita(int x)%7B%0A        return x;%0A    %7D;%0A    %0A    std::string str() const%7B%0A        return fn::format(%22%5B%7B%7D:%7B%7D:%7B%7D%5D%22,this-%3Eespessura,this-%3Eduresa,this-%3Etamanho);%0A    %7D;%0A%0A    std::string get_hardness()%7Breturn duresa;%7D;%0A    %0A    int get_tamanho()%7Breturn tamanho;%7D;%0A    %0A    float get_espessura()%7Breturn espessura;%7D;%0A%0A    void set_tamanho(int x)%7B%0A        tamanho = x;%0A    %7D;%0A%7D;%0A%0Astd::ostream& operator%3C%3C(std::ostream& os, const grafite& grafite)%7B%0A    return os %3C%3C grafite.str();%0A%7D %0A%0Aclass lapiseira%0A%7B%0Aprivate:%0A float espessura;%0A shared_ptr%3Cgrafite%3E bico = nullptr; %0A vector%3Cgrafite%3E tambor;\n #include %3Ciostre\n@@ -2759,100 +2759,4168 @@\n     \n-    bico = std::make_shared%3Cgrafite%3E(tambor.front());%0A        tambor.erase(tambor.begin());%0A\n+bico = std::make_shared%3Cgrafite%3E(tambor.front());%0A    tambor.erase(tambor.begin());%0A%0A        %0A    %7D%0A%0A    void escreve()%7B%0A%0A        if (this-%3Ebico == nullptr)%0A        %7B%0A            fn::write(%22fail: nao existe grafite%22);%0A            return;%0A            /* code */%0A%0A        %7D%0A        if (bico-%3Eget_tamanho() %3C= 10 )%0A        %7B%0A            /* code */%0A            fn::write(%22fail: tamanho insuficiente%22);%0A            return;%0A        %7D%0A        %0A%0A%0A        /*caso cumpra os requisitos*/%0A%0A        std::string duresa_atual = bico-%3Eget_hardness();%0A        int diferenca;%0A%0A        if (duresa_atual == %22HB%22)%0A        %7B%0A            diferenca = 1;%0A        %7Delse%0A        if (duresa_atual == %222B%22)%0A        %7B%0A            diferenca = 2;%0A            /* code */%0A        %7Delse%0A        if (duresa_atual == %224B%22)%0A        %7B%0A            /* code */%0A            diferenca = 4;%0A        %7Delse%0A        %7B%0A            diferenca = 6;%0A            /* code */%0A        %7D%0A%0A%0A%0A        auto tamanho_atual = bico-%3Eget_tamanho() - diferenca;%0A%0A        if (tamanho_atual %3C 10)%0A        %7B%0A            fn::write(%22fail: folha incompleta%22);%0A            tamanho_atual = 10;%0A            %0A        %7D%0A        %0A%0A%0A        bico-%3Eset_tamanho(tamanho_atual);%0A%0A%0A        return;%0A    %7D;%0A    %0A    std::string str() const%7B%0A%0A        %0A        string aux = %22%22;%0A%0A            for (int i = 0; i %3C static_cast%3Cint%3E(tambor.size()); i++)%0A            %7B%0A                aux += tambor%5Bi%5D.str();%0A                // if ((i + 1) == static_cast%3Cint%3E(tambor.size()))%7Bbreak;%7D%0A                    // aux += %22, %22;%0A            %7D%0A        %0A        string y = %22%22;%0A        if (bico != nullptr)%0A        %7B%0A            y = this-%3Ebico-%3Eget_espessura();%0A        %7D%0A        %0A            %0A%0A        return fn::format(%22calibre: %7B%7D, bico: %5B%7B%7D%5D, tambor: %3C%7B%7D%3E%22,this-%3Eespessura,y,aux);%0A    %7D%0A%0A    float get_thickness()%7B%0A        return espessura;%0A    %7D;%0A%0A%7D;%0A%0A// Fun%C3%A7%C3%A3o auxiliar para mapear e juntar elementos de um container%0Atemplate %3Ctypename CONTAINER, typename FUNC%3E%0Aauto map_join(const CONTAINER& c, FUNC f, const string& sep = %22, %22) %7B%0A    stringstream ss;%0A    for (auto it = c.begin(); it != c.end(); ++it) %7B%0A        ss %3C%3C (it != c.begin() ? sep : %22%22);%0A        ss %3C%3C f(*it);%0A    %7D%0A    return ss.str();%0A%7D%0A%0Aint main() %7B%0A%0A    lapiseira caneta;%0A%0A    while (true) %7B%0A        string line, cmd;%0A        getline(cin, line);%0A        cout %3C%3C %22$%22 %3C%3C line %3C%3C endl;%0A%0A        stringstream ss(line);%0A        ss %3E%3E cmd;%0A%0A        if (cmd == %22end%22) %7B%0A            break;  %0A        %7D%0A        else if (cmd == %22show%22) %7B fn::write(caneta.str());%0A        %7D %0A        else if (cmd == %22init%22) %7B %0A             float calibre;%0A             ss %3E%3E calibre;%0A%0A            caneta = lapiseira(calibre); %0A        %7D %0A        else if (cmd == %22insert%22) %7B %0A             float calibre;%0A             string dureza;%0A             int tamanho;%0A             ss %3E%3E calibre %3E%3E dureza %3E%3E tamanho;%0A             auto aux = grafite(calibre,dureza,tamanho);%0A             caneta.put_grafite(aux);%0A%0A        %7D %0A        else if (cmd == %22remove%22) %7B %0A        %7D %0A        else if (cmd == %22pull%22) %7B %0A        %7D %0A        else if (cmd == %22write%22) %7B %0A        %7D %0A        else %7B%0A            cout %3C%3C %22fail: comando invalido%5Cn%22;%0A        %7D%0A    %7D%0A%7D%0A%0A    /* data */%0Apublic:%0A%0A    lapiseira(float x = 1): espessura(x)%7B%0A%0A    %7D%0A%0A    bool tem_grafite()%7B%0A        if (bico == nullptr)%0A        %7B%0A            return false;%0A        %7D%0A        return true;%0A    %7D%0A%0A    void put_grafite(grafite grafite_new)%7B%0A    %0A%0A        if (%0A            grafite_new.get_espessura() != espessura%0A        )%0A        %7B%0A            fn::write(%22fail: calibre incompat%C3%ADvel%22);%0A            return;%0A            /* code */%0A        %7D%0A        %0A        tambor.push_back(grafite_new);%0A%0A        if (static_cast%3Cint%3E(tambor.size()) == 1)%0A        %7B%0A            bico = std::make_shared%3Cgrafite%3E(tambor%5B0%5D);%0A        %7D%0A        %0A%0A    %7D;%0A    %0A    void remove()%7B%0A        if(this-%3Ebico==nullptr)%7B%0A            fn::write(%22fail: empty %22);%0A            return;%0A        %7D%0A        bico = nullptr;%0A    %7D;%0A    %0A    bool pull()%7B%0A        if (static_cast%3Cint%3E(tambor.size()) == 0)%0A        %7B%0A            return false;%0A        %7D%0A%0A        auto& primeiroElemento = tambor%5B0%5D;%0A        primeiroElemento.clear();\n %0A%0A  \n"
+        },
+        {
+            "label": "2025-02-27_16-43-25",
+            "content": "@@ -1929,30 +1929,8 @@\n );%0A%0A\n-        return true;%0A%0A\n %0A   \n"
+        },
+        {
+            "label": "2025-02-27_16-44-38",
+            "content": "@@ -1411,27 +1411,24 @@\n w);%0A%0A       \n- //\n  if (static_\n@@ -1465,19 +1465,16 @@\n %0A       \n- //\n  %7B%0A     \n@@ -1475,19 +1475,16 @@\n %0A       \n- //\n      bic\n@@ -1532,19 +1532,16 @@\n %0A       \n- //\n  %7D%0A     \n"
+        },
+        {
+            "label": "2025-02-27_16-45-35",
+            "content": "@@ -1933,25 +1933,24 @@\n .begin());%0A%0A\n-%0A\n         retu\n@@ -4909,35 +4909,8 @@\n %22) %7B\n-%0A            caneta.pull();\n  %0A  \n"
+        },
+        {
+            "label": "2025-02-27_16-53-08",
+            "content": "@@ -1855,16 +1855,42 @@\n  bico = \n+std::make_shared%3Cgrafite%3E(\n tambor.f\n@@ -1895,16 +1895,17 @@\n .front()\n+)\n ;%0A      \n"
+        },
+        {
+            "label": "2025-02-27_16-54-46",
+            "content": "@@ -1852,17 +1852,16 @@\n     bico\n-&\n  = tambo\n"
+        },
+        {
+            "label": "2025-02-27_16-54-53",
+            "content": "@@ -1852,13 +1852,13 @@\n     \n-&\n bico\n+&\n  = t\n"
+        },
+        {
+            "label": "2025-02-27_16-55-01",
+            "content": "@@ -1852,13 +1852,13 @@\n     \n+&\n bico\n-*\n  = t\n"
+        },
+        {
+            "label": "2025-02-27_16-55-11",
+            "content": "@@ -1856,37 +1856,12 @@\n bico\n+*\n  = \n-std::make_shared%3Cgrafite%3E(\n tamb\n@@ -1870,17 +1870,16 @@\n .front()\n-)\n ;%0A      \n"
+        },
+        {
+            "label": "2025-02-27_16-55-28",
+            "content": "@@ -1884,29 +1884,29 @@\n ite%3E(tambor.\n-begin\n+front\n ());%0A       \n"
+        },
+        {
+            "label": "2025-02-27_16-58-59",
+            "content": "@@ -1892,13 +1892,13 @@\n bor.\n-front\n+begin\n ());\n"
+        },
+        {
+            "label": "2025-02-27_16-59-07",
+            "content": "@@ -1412,24 +1412,26 @@\n );%0A%0A        \n+//\n  if (static_\n@@ -1461,32 +1461,34 @@\n ) == 1)%0A        \n+//\n  %7B%0A             \n@@ -1482,23 +1482,23 @@\n         \n+//\n      \n-  \n bico = s\n@@ -1533,32 +1533,35 @@\n bor%5B0%5D);%0A       \n+ //\n  %7D%0A        %0A%0A   \n"
+        },
+        {
+            "label": "2025-02-27_20-02-59",
+            "content": "@@ -1837,32 +1837,8 @@\n  %7D%0A%0A\n-        bico = nullptr;%0A\n     \n"
+        },
+        {
+            "label": "2025-02-27_20-03-38",
+            "content": "@@ -3187,24 +3187,28 @@\n %22;%0A%0A        \n+    \n for (int i =\n@@ -3253,34 +3253,42 @@\n ); i++)%0A        \n-%7B%0A\n+    %7B%0A    \n             aux \n@@ -3303,24 +3303,139 @@\n r%5Bi%5D.str();%0A\n+                // if ((i + 1) == static_cast%3Cint%3E(tambor.size()))%7Bbreak;%7D%0A                    // aux += %22, %22;%0A    \n         %7D%0A  \n@@ -5001,38 +5001,9 @@\n %22) %7B\n-%0A            caneta.escreve();\n+ \n %0A   \n"
+        },
+        {
+            "label": "2025-02-27_20-06-48",
+            "content": "@@ -1752,22 +1752,44 @@\n if (\n-tambor.empty()\n+static_cast%3Cint%3E(tambor.size()) == 0\n )%0A  \n@@ -1837,55 +1837,8 @@\n  %7D%0A%0A\n-        cout %3C%3C bico-%3Eget_espessura() %3C%3C %22%5Cn%22;%0A\n     \n"
+        },
+        {
+            "label": "2025-02-27_20-23-49",
+            "content": "@@ -1933,69 +1933,18 @@\n mbor\n-%5B0%5D);%0A        cout %3C%3C bico-%3Eget_espessura() %3C%3C %22%5Cn%22;%0A        \n+.front());\n %0A   \n"
+        },
+        {
+            "label": "2025-02-27_20-27-21",
+            "content": "@@ -1825,35 +1825,45 @@\n   cout %3C%3C bico-%3E\n-str\n+get_espessura\n () %3C%3C %22%5Cn%22;%0A    \n@@ -1957,19 +1957,29 @@\n %3C bico-%3E\n-str\n+get_espessura\n () %3C%3C %22%5C\n"
+        },
+        {
+            "label": "2025-02-27_20-27-47",
+            "content": "@@ -1937,73 +1937,82 @@\n     \n-tambor.erase(tambor.begin());%0A        cout %3C%3C bico-%3Estr() %3C%3C %22%5Cn%22\n+cout %3C%3C bico-%3Estr() %3C%3C %22%5Cn%22;%0A        %0A        tambor.erase(tambor.begin())\n ;%0A%0A%0A\n"
+        },
+        {
+            "label": "2025-02-27_20-29-45",
+            "content": "@@ -1844,24 +1844,48 @@\n () %3C%3C %22%5Cn%22;%0A\n+        bico = nullptr;%0A\n         bico\n@@ -1967,61 +1967,8 @@\n ));%0A\n-        bico = std::make_shared%3Cgrafite%3E(tambor%5B0%5D);%0A\n     \n"
+        },
+        {
+            "label": "2025-02-27_20-30-34",
+            "content": "@@ -3480,19 +3480,29 @@\n -%3Ebico-%3E\n-str\n+get_espessura\n ();%0A    \n"
+        },
+        {
+            "label": "2025-02-27_20-33-09",
+            "content": "@@ -3468,16 +3468,22 @@\n     y = \n+this-%3E\n bico-%3Est\n"
+        },
+        {
+            "label": "2025-02-27_20-33-22",
+            "content": "@@ -3414,10 +3414,8 @@\n  = %22\n-%5B%5D\n %22;%0A \n@@ -3560,18 +3560,20 @@\n , bico: \n+%5B\n %7B%7D\n+%5D\n , tambor\n"
+        },
+        {
+            "label": "2025-02-27_20-34-24",
+            "content": "@@ -1415,19 +1415,16 @@\n %0A       \n- //\n   if (st\n@@ -1466,19 +1466,16 @@\n %0A       \n- //\n   %7B%0A    \n@@ -1477,19 +1477,16 @@\n %0A       \n- //\n         \n@@ -1541,11 +1541,8 @@\n     \n- //\n  %7D%0A \n"
+        },
+        {
+            "label": "2025-02-27_20-36-05",
+            "content": "@@ -1819,24 +1819,61 @@\n %0A        %7D%0A%0A\n+        cout %3C%3C bico-%3Estr() %3C%3C %22%5Cn%22;%0A\n         bico\n@@ -1903,32 +1903,27 @@\n fite%3E(tambor\n-.front()\n+%5B0%5D\n );%0A        t\n@@ -2002,16 +2002,11 @@\n mbor\n-.front()\n+%5B0%5D\n );%0A \n"
+        },
+        {
+            "label": "2025-02-27_20-37-13",
+            "content": "@@ -1885,45 +1885,8 @@\n ));%0A\n-        cout %3C%3C bico-%3Estr() %3C%3C %22%5Cn%22;%0A\n     \n"
+        },
+        {
+            "label": "2025-02-27_20-37-49",
+            "content": "@@ -1956,16 +1956,111 @@\n gin());%0A\n+        bico = std::make_shared%3Cgrafite%3E(tambor.front());%0A        cout %3C%3C bico-%3Estr() %3C%3C %22%5Cn%22;%0A\n %0A%0A      \n"
+        },
+        {
+            "label": "2025-02-27_20-38-06",
+            "content": "@@ -1881,16 +1881,52 @@\n ont());%0A\n+        cout %3C%3C bico-%3Estr() %3C%3C %22%5Cn%22;\n %0A       \n"
+        },
+        {
+            "label": "2025-02-27_20-38-18",
+            "content": "@@ -1827,125 +1827,8 @@\n  %7D%0A%0A\n-        if (bico != nullptr)%0A        %7B%0A            cout %3C%3C %22ja existe grafite no bico%22 %3C%3C endl;%0A        %7D%0A        %0A%0A%0A\n     \n"
+        },
+        {
+            "label": "2025-02-27_20-39-24",
+            "content": "@@ -1883,22 +1883,16 @@\n out %3C%3C %22\n-fail: \n ja exist\n"
+        },
+        {
+            "label": "2025-02-27_20-39-38",
+            "content": "@@ -4828,37 +4828,9 @@\n %22) %7B\n-%0A            caneta.remove();\n+ \n %0A   \n"
+        },
+        {
+            "label": "2025-02-27_20-41-11",
+            "content": "@@ -1593,25 +1593,16 @@\n move()%7B%0A\n-        %0A\n         \n@@ -1687,33 +1687,32 @@\n turn;%0A        %7D%0A\n-%0A\n         bico = s\n@@ -1714,42 +1714,15 @@\n o = \n-std::make_shared%3Cgrafite%3E(\n nullptr\n-)\n ;%0A  \n"
+        },
+        {
+            "label": "2025-02-27_20-43-00",
+            "content": "@@ -1720,23 +1720,50 @@\n  bico = \n+std::make_shared%3Cgrafite%3E(\n nullptr\n+)\n ;%0A    %7D;\n"
+        },
+        {
+            "label": "2025-02-27_20-43-23",
+            "content": "@@ -1724,42 +1724,15 @@\n o = \n-std::make_shared%3Cgrafite%3E(\n nullptr\n-)\n ;%0A  \n"
+        },
+        {
+            "label": "2025-02-27_20-48-56",
+            "content": "@@ -1724,25 +1724,43 @@\n o = \n-nullptr;%0A        \n+std::make_shared%3Cgrafite%3E(nullptr);\n %0A   \n"
+        },
+        {
+            "label": "2025-02-27_20-49-10",
+            "content": "@@ -1733,117 +1733,8 @@\n tr;%0A\n-        for ( int i = 0; i %3C 1; i++)%0A        %7B%0A            /* code */%0A            tambor%5Bi%5D.str();%0A        %7D%0A\n     \n"
+        },
+        {
+            "label": "2025-02-27_20-50-09",
+            "content": "@@ -1700,32 +1700,33 @@\n ;%0A        %7D%0A\n+%0A\n         \n %0A        for\n@@ -1705,32 +1705,47 @@\n      %7D%0A%0A        \n+bico = nullptr;\n %0A        for ( i\n@@ -1841,35 +1841,8 @@\n    %7D\n-%0A%0A        bico = nullptr;%0A \n %0A   \n"
+        },
+        {
+            "label": "2025-02-27_20-50-34",
+            "content": "@@ -1775,33 +1775,32 @@\n      /* code */%0A\n-%0A\n             cout\n@@ -1794,24 +1794,16 @@\n         \n- cout %3C%3C\n  tambor%5B\n@@ -1811,25 +1811,16 @@\n %5D.str();\n- %3C%3C endl;\n %0A       \n"
+        },
+        {
+            "label": "2025-02-27_20-51-43",
+            "content": "@@ -1819,16 +1819,17 @@\n i%5D.str()\n+;\n  %3C%3C endl\n"
+        },
+        {
+            "label": "2025-02-27_20-51-50",
+            "content": "@@ -1746,39 +1746,9 @@\n i %3C \n-static_cast%3Cint%3E(tambor.size())\n+1\n ; i+\n"
+        },
+        {
+            "label": "2025-02-27_20-52-52",
+            "content": "@@ -1741,17 +1741,16 @@\n = 0; i %3C\n-=\n  static_\n"
+        },
+        {
+            "label": "2025-02-27_20-53-19",
+            "content": "@@ -1716,35 +1716,8 @@\n     \n-%0A%0A        bico = nullptr;%0A \n %0A   \n@@ -1806,32 +1806,33 @@\n      /* code */%0A\n+%0A\n             cout\n@@ -1861,32 +1861,59 @@\n  endl;%0A        %7D\n+%0A%0A        bico = nullptr;%0A \n %0A        %0A    %7D;\n"
+        },
+        {
+            "label": "2025-02-27_20-53-37",
+            "content": "@@ -1807,17 +1807,62 @@\n )); i++)\n-%7B\n+%0A        %7B%0A            /* code */%0A            \n cout %3C%3C \n@@ -1885,16 +1885,25 @@\n %3C%3C endl;\n+%0A        \n %7D%0A      \n"
+        },
+        {
+            "label": "2025-02-27_20-56-18",
+            "content": "@@ -1748,18 +1748,16 @@\n         \n-//\n for ( in\n@@ -3424,33 +3424,32 @@\n  (int i = 0; i %3C\n-=\n  static_cast%3Cint\n"
+        },
+        {
+            "label": "2025-02-27_20-56-35",
+            "content": "@@ -3434,16 +3434,17 @@\n = 0; i %3C\n+=\n  static_\n"
+        },
+        {
+            "label": "2025-02-27_20-56-53",
+            "content": "@@ -3384,101 +3384,8 @@\n     \n-for ( int i = 0; i %3C= static_cast%3Cint%3E(tambor.size()); i++)%7Bcout %3C%3C tambor%5Bi%5D.str() %3C%3C endl;%7D\n %0A   \n"
+        },
+        {
+            "label": "2025-02-27_20-57-07",
+            "content": "@@ -3392,32 +3392,33 @@\n ( int i = 0; i %3C\n+=\n  static_cast%3Cint\n"
+        },
+        {
+            "label": "2025-02-27_20-57-30",
+            "content": "@@ -3372,34 +3372,32 @@\n const%7B%0A%0A        \n-//\n for ( int i = 0;\n"
+        },
+        {
+            "label": "2025-02-27_20-57-45",
+            "content": "@@ -3505,52 +3505,8 @@\n %22;%0A%0A\n-%0A        if (!tambor.empty())%0A        %7B%0A    \n     \n@@ -3567,20 +3567,16 @@\n ); i++)%0A\n-    \n         \n@@ -3589,20 +3589,16 @@\n         \n-    \n aux += t\n@@ -3625,32 +3625,9 @@\n     \n-    %7D%0A        %7D%0A        \n+%7D\n %0A   \n"
+        },
+        {
+            "label": "2025-02-27_20-59-29",
+            "content": "@@ -3669,45 +3669,8 @@\n ();%0A\n-                cout %3C%3C aux %3C%3C endl;%0A\n     \n"
+        },
+        {
+            "label": "2025-02-27_21-00-07",
+            "content": "@@ -3681,18 +3681,16 @@\n         \n-//\n cout %3C%3C \n"
+        },
+        {
+            "label": "2025-02-27_21-00-40",
+            "content": "@@ -3673,32 +3673,34 @@\n                 \n+//\n cout %3C%3C aux %3C%3C e\n"
+        },
+        {
+            "label": "2025-02-27_21-05-46",
+            "content": "@@ -3681,18 +3681,16 @@\n         \n-//\n cout %3C%3C \n"
+        },
+        {
+            "label": "2025-02-27_21-08-43",
+            "content": "@@ -3490,26 +3490,19 @@\n  string \n-tambor_str\n+aux\n  = %22%22;%0A%0A\n@@ -3510,18 +3510,16 @@\n         \n-//\n if (!tam\n@@ -3539,18 +3539,16 @@\n         \n-//\n %7B%0A      \n@@ -3641,26 +3641,19 @@\n         \n-tambor_str\n+aux\n  += tamb\n@@ -3726,18 +3726,16 @@\n         \n-//\n %7D%0A      \n@@ -3958,18 +3958,11 @@\n a,y,\n-tambor_str\n+aux\n );%0A \n"
+        },
+        {
+            "label": "2025-02-27_21-15-59",
+            "content": "@@ -3569,20 +3569,19 @@\n    for (\n-auto\n+int\n  i = 0; \n@@ -3584,16 +3584,33 @@\n  0; i %3C \n+static_cast%3Cint%3E(\n tambor.s\n@@ -3614,16 +3614,17 @@\n r.size()\n+)\n ; i++)%0A \n"
+        },
+        {
+            "label": "2025-02-27_21-16-34",
+            "content": "@@ -3544,57 +3544,8 @@\n ())%0A\n-        cout %3C%3C static_cast%3Cint%3E(tambor.size());%0A\n     \n@@ -3569,19 +3569,20 @@\n    for (\n-int\n+auto\n  i = 0; \n@@ -3585,33 +3585,16 @@\n  0; i %3C \n-static_cast%3Cint%3E(\n tambor.s\n@@ -3594,25 +3594,24 @@\n ambor.size()\n-)\n ; i++)%0A     \n"
+        },
+        {
+            "label": "2025-02-27_21-16-59",
+            "content": "@@ -2063,34 +2063,8 @@\n dl;%0A\n-            return false;%0A\n     \n"
+        },
+        {
+            "label": "2025-02-27_21-20-33",
+            "content": "@@ -3558,32 +3558,81 @@\n tambor.empty())%0A\n+        cout %3C%3C static_cast%3Cint%3E(tambor.size());%0A\n         //%7B%0A    \n"
+        },
+        {
+            "label": "2025-02-27_21-20-46",
+            "content": "@@ -2357,24 +2357,16 @@\n  grafite\n- no bico\n %22);%0A    \n"
+        },
+        {
+            "label": "2025-02-27_21-21-12",
+            "content": "@@ -900,35 +900,24 @@\n  vector%3C\n-shared_ptr%3C\n grafite%3E\n %3E tambor\n@@ -908,17 +908,16 @@\n grafite%3E\n-%3E\n  tambor;\n@@ -1139,35 +1139,23 @@\n grafite(\n-shared_ptr%3C\n grafite\n-%3E\n  grafite\n@@ -1203,18 +1203,17 @@\n fite_new\n--%3E\n+.\n get_espe\n@@ -3709,18 +3709,17 @@\n ambor%5Bi%5D\n--%3E\n+.\n str();%0A \n@@ -5102,76 +5102,87 @@\n     \n-caneta.put_grafite(std::make_shared%3Cgrafite%3E(calibre,dureza,tamanho)\n+auto aux = grafite(calibre,dureza,tamanho);%0A             caneta.put_grafite(aux\n );%0A%0A\n"
+        },
+        {
+            "label": "2025-03-03_00-40-32",
+            "content": "@@ -158,21 +158,22 @@\n    %0A    \n-float\n+double\n  espessu\n"
+        },
+        {
+            "label": "2025-03-03_00-41-57",
+            "content": "@@ -1150,21 +1150,16 @@\n grafite(\n-std::\n shared_p\n"
+        },
+        {
+            "label": "2025-03-03_00-52-30",
+            "content": "@@ -5132,39 +5132,27 @@\n     \n-std::shared_ptr%3Cgrafite%3E aux = \n+caneta.put_grafite(\n std:\n@@ -5200,45 +5200,8 @@\n nho)\n-;%0A             caneta.put_grafite(aux\n );%0A%0A\n"
+        },
+        {
+            "label": "2025-03-03_00-53-49",
+            "content": "@@ -244,21 +244,22 @@\n grafite(\n-float\n+double\n  x,std::\n"
+        },
+        {
+            "label": "2025-03-03_00-54-55",
+            "content": "@@ -5127,20 +5127,40 @@\n         \n-auto\n+std::shared_ptr%3Cgrafite%3E\n  aux = s\n"
+        },
+        {
+            "label": "2025-03-03_01-02-47",
+            "content": "@@ -2175,17 +2175,16 @@\n rafite%3E(\n-*\n tambor.f\n"
+        },
+        {
+            "label": "2025-03-03_01-05-32",
+            "content": "#include <iostream>\n#include <list>\n#include <sstream>\n#include <memory>\n\n#include \"fn.hpp\"\n\nusing namespace std;\n\n\nclass grafite\n{\nprivate:\n    /* data */\n    \n    float espessura;\n    std::string duresa;\n    int tamanho;\n\n    \n\npublic:\n\n    grafite(float x,std::string y, int z): espessura(x), duresa(y), tamanho(z){}\n\n    int uso_por_escrita(int x){\n        return x;\n    };\n    \n    std::string str() const{\n        return fn::format(\"[{}:{}:{}]\",this->espessura,this->duresa,this->tamanho);\n    };\n\n    std::string get_hardness(){return duresa;};\n    \n    int get_tamanho(){return tamanho;};\n    \n    float get_espessura(){return espessura;};\n\n    void set_tamanho(int x){\n        tamanho = x;\n    };\n};\n\nstd::ostream& operator<<(std::ostream& os, const grafite& grafite){\n    return os << grafite.str();\n} \n\nclass lapiseira\n{\nprivate:\n float espessura;\n shared_ptr<grafite> bico = nullptr; \n vector<shared_ptr<grafite>> tambor;\n    /* data */\npublic:\n\n    lapiseira(float x = 1): espessura(x){\n\n    }\n\n    bool tem_grafite(){\n        if (bico == nullptr)\n        {\n            return false;\n        }\n        return true;\n    }\n\n    void put_grafite(std::shared_ptr<grafite> grafite_new){\n    \n\n        if (\n            grafite_new->get_espessura() != espessura\n        )\n        {\n            fn::write(\"fail: calibre incompat\u00edvel\");\n            return;\n            /* code */\n        }\n        \n        tambor.push_back(grafite_new);\n\n        //  if (static_cast<int>(tambor.size()) == 1)\n        //  {\n        //        bico = std::make_shared<grafite>(tambor[0]);\n        // }\n        \n\n    };\n    \n    void remove(){\n        \n        if(this->bico==nullptr){\n            fn::write(\"fail: empty \");\n            return;\n        }\n        \n\n        bico = nullptr;\n \n        //for ( int i = 0; i <= static_cast<int>(tambor.size()); i++){cout << tambor[i].str() << endl;}\n        \n    };\n    \n    bool pull(){\n        if (tambor.empty())\n        {\n            return false;\n        }\n\n        if (bico != nullptr)\n        {\n            cout << \"fail: ja existe grafite no bico\" << endl;\n            return false;\n        }\n        \n\n\n        bico = std::make_shared<grafite>(*tambor.front());\n\n        tambor.erase(tambor.begin());\n\n\n        return true;\n\n\n        \n    }\n\n    void escreve(){\n\n        if (this->bico == nullptr)\n        {\n            fn::write(\"fail: nao existe grafite no bico\");\n            return;\n            /* code */\n\n        }\n        if (bico->get_tamanho() <= 10 )\n        {\n            /* code */\n            fn::write(\"fail: tamanho insuficiente\");\n            return;\n        }\n        \n\n\n        /*caso cumpra os requisitos*/\n\n        std::string duresa_atual = bico->get_hardness();\n        int diferenca;\n\n        if (duresa_atual == \"HB\")\n        {\n            diferenca = 1;\n        }else\n        if (duresa_atual == \"2B\")\n        {\n            diferenca = 2;\n            /* code */\n        }else\n        if (duresa_atual == \"4B\")\n        {\n            /* code */\n            diferenca = 4;\n        }else\n        {\n            diferenca = 6;\n            /* code */\n        }\n\n\n\n        auto tamanho_atual = bico->get_tamanho() - diferenca;\n\n        if (tamanho_atual < 10)\n        {\n            fn::write(\"fail: folha incompleta\");\n            tamanho_atual = 10;\n            \n        }\n        \n\n\n        bico->set_tamanho(tamanho_atual);\n\n\n        return;\n    };\n    \n    std::string str() const{\n\n        //for ( int i = 0; i < static_cast<int>(tambor.size()); i++){cout << tambor[i].str() << endl;}\n        string tambor_str = \"\";\n\n\n        //if (!tambor.empty())\n        //{\n            for (int i = 0; i < static_cast<int>(tambor.size()); i++)\n            {\n                tambor_str += tambor[i]->str();\n                //cout << aux << endl;\n            }\n        //}\n        \n        \n        string y = \"[]\";\n        if (bico != nullptr)\n        {\n            y = bico->str();\n        }\n        \n            \n\n        return fn::format(\"calibre: {}, bico: {}, tambor: <{}>\",this->espessura,y,tambor_str);\n    }\n\n    float get_thickness(){\n        return espessura;\n    };\n\n};\n\n// Fun\u00e7\u00e3o auxiliar para mapear e juntar elementos de um container\ntemplate <typename CONTAINER, typename FUNC>\nauto map_join(const CONTAINER& c, FUNC f, const string& sep = \", \") {\n    stringstream ss;\n    for (auto it = c.begin(); it != c.end(); ++it) {\n        ss << (it != c.begin() ? sep : \"\");\n        ss << f(*it);\n    }\n    return ss.str();\n}\n\nint main() {\n\n    lapiseira caneta;\n\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;  \n        }\n        else if (cmd == \"show\") { fn::write(caneta.str());\n        } \n        else if (cmd == \"init\") { \n             float calibre;\n             ss >> calibre;\n\n            caneta = lapiseira(calibre); \n        } \n        else if (cmd == \"insert\") { \n             float calibre;\n             string dureza;\n             int tamanho;\n             ss >> calibre >> dureza >> tamanho;\n             auto aux = std::make_shared<grafite>(calibre,dureza,tamanho);\n             caneta.put_grafite(aux);\n\n        } \n        else if (cmd == \"remove\") {\n            caneta.remove();\n        } \n        else if (cmd == \"pull\") {\n            caneta.pull(); \n        } \n        else if (cmd == \"write\") {\n            caneta.escreve();\n        } \n        else {\n            cout << \"fail: comando invalido\\n\";\n        }\n    }\n}\n"
+        }
+    ]
+}
