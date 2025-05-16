@@ -9,17 +9,3 @@
 
 Práticas desenvolvidas utilizando **um TKO customizado** criado em sala de aula.  
 Recomendado para compreender como funcionam **estruturas para objetos** e padrões de projeto.
-
-```java
-// Exemplo de estrutura
-public class CustomTKO {
-    private String feature;
-    
-    public CustomTKO(String feature) {
-        this.feature = feature;
-    }
-    
-    public void showFeature() {
-        System.out.println("Custom feature: " + feature);
-    }
-}
